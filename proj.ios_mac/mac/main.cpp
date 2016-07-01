@@ -24,8 +24,10 @@
 
 #include "AppDelegate.h"
 #include "cocos2d.h"
+#include "GlobalDefine.hpp"
 
 USING_NS_CC;
+USING_NS_EE;
 
 int main(int argc, char *argv[])
 {
