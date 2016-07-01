@@ -7,3 +7,17 @@
 //
 
 #include "MainScene.hpp"
+
+NS_EE_BEGIN
+
+
+bool MainScene::init()
+{
+    MainLayer *layer = MainLayer::create();
+    this->addChild(layer);
+    
+    layer->setSprite("res/item_candy.png");
+    return Scene::init();
+}
+
+NS_EE_END

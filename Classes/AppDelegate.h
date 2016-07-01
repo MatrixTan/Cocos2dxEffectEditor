@@ -2,6 +2,9 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include "GlobalDefine.hpp"
+
+NS_EE_BEGIN
 
 /**
 @brief    The cocos2d Application.
@@ -35,6 +38,8 @@ public:
     */
     virtual void applicationWillEnterForeground();
 };
+
+NS_EE_END
 
 #endif // _APP_DELEGATE_H_
 

@@ -10,5 +10,7 @@
 #define EffectEditor_h
 
 #include "GlobalDefine.hpp"
+#include "MainScene.hpp"
+#include "MainLayer.hpp"
 
 #endif /* EffectEditor_h */

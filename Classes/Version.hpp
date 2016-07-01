@@ -11,4 +11,6 @@
 
 #include <stdio.h>
 
+#define EDITOR_VERSION 1.0.0.1
+
 #endif /* Version_hpp */
