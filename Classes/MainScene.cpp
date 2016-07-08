@@ -16,7 +16,6 @@ bool MainScene::init()
     MainLayer *layer = MainLayer::create();
     this->addChild(layer);
     
-    layer->setSprite("res/item_candy.png");
     return Scene::init();
 }
 

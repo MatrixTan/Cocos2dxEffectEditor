@@ -31,7 +31,7 @@ bool ShaderSprite::init()
     cocos2d::GLProgram* program = nullptr;
     program = getProgram("shader/shader_default_vert.glsl"
                          , "shader/shader_default_frag.glsl");
-    m_programState = cocos2d::GLProgramState::getOrCreateWithGLProgram(program);
+    m_programState = cocos2d::GLProgramState::create(program);
     this->setGLProgramState(m_programState);
     m_uniformFlag = 0;
     return Sprite::init();
@@ -39,7 +39,14 @@ bool ShaderSprite::init()
 
 cocos2d::GLProgram* ShaderSprite::getProgram(const std::string& vfile, const std::string& ffile)
 {
-    return cocos2d::GLProgram::createWithFilenames(vfile, ffile);
+    auto program = cocos2d::GLProgramCache::getInstance()->getGLProgram(vfile + ffile);
+    if(!program)
+    {
+        program = cocos2d::GLProgram::createWithFilenames(vfile, ffile);
+        cocos2d::GLProgramCache::getInstance()->addGLProgram(program, vfile+ffile);
+        
+    }
+    return program;
 }
 
 void ShaderSprite::draw(cocos2d::Renderer *renderer
