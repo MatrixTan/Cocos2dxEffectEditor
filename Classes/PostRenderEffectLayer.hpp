@@ -26,6 +26,8 @@ public:
     
     virtual bool init(void) override;
     virtual void draw(Renderer *render, const Mat4& transform, uint32_t flags) override;
+    virtual void setDrawRect(const Rect& rect);
+    virtual void update(float dt) override;
     
     CREATE_FUNC(PostRenderEffectLayer);
 private:
@@ -33,10 +35,10 @@ private:
     void onDraw(const Mat4 &transfrom, uint32_t flags);
     
     RenderTexture *mRenderTexture;
-    Texture2D* mTexture;
-    Sprite *mSprite;
     CustomCommand mRenderCommand;
     V3F_C4B_T2F_Quad mQuad;
+    Rect mDrawRect;
+    float mRunTime;
     
 };
 

@@ -13,7 +13,7 @@ NS_EE_BEGIN
 
 PostRenderEffectLayer::PostRenderEffectLayer()
 :mRenderTexture(nullptr)
-,mSprite(nullptr)
+,mRunTime(0.0f)
 {
 }
 
@@ -24,12 +24,9 @@ PostRenderEffectLayer::~PostRenderEffectLayer()
 
 bool PostRenderEffectLayer::init()
 {
-    auto winSize = Director::getInstance()->getWinSizeInPixels();
+    auto winSize = Director::getInstance()->getWinSize();
     mRenderTexture = RenderTexture::create(winSize.width, winSize.height, Texture2D::PixelFormat::RGBA8888);
     CC_SAFE_RETAIN(mRenderTexture);
-    
-    mSprite = Sprite::create("res/beauty2.jpg");
-    mTexture = TextureCache::getInstance()->addImage("res/beauty2.jpg");
     
     float l = -1.0f, b = -1.0f, t = 1.0f, r = 1.0f;
     
@@ -54,10 +51,39 @@ bool PostRenderEffectLayer::init()
     auto program = GLProgram::createWithFilenames("shader/shader_post_render_vert.glsl", "shader/shader_post_render_frag.glsl");
     auto programState = GLProgramState::getOrCreateWithGLProgram(program);
     setGLProgramState(programState);
-
+    scheduleUpdate();
     Layer::init();
-    setTouchEnabled(false);
     return true;
+}
+
+void PostRenderEffectLayer::setDrawRect(const cocos2d::Rect &rect)
+{
+    mDrawRect = rect;
+    auto winSize = Director::getInstance()->getWinSize();
+    float l = (mDrawRect.getMinX() - winSize.width * 0.5f)/winSize.width * 2.0f;
+    float r = (mDrawRect.getMaxX() - winSize.width * 0.5f)/winSize.width * 2.0f;
+    float b = (mDrawRect.getMinY() - winSize.height * 0.5f)/winSize.height * 2.0f;
+    float t = (mDrawRect.getMaxY() - winSize.height * 0.5f)/winSize.height * 2.0f;
+    mQuad.bl.vertices.set(l, b, 0.0f);
+    mQuad.br.vertices.set(r, b, 0.0f);
+    mQuad.tl.vertices.set(l, t, 0.0f);
+    mQuad.tr.vertices.set(r, t, 0.0f);
+    mQuad.bl.texCoords.u = l * 0.5f + 0.5f;
+    mQuad.bl.texCoords.v = b * 0.5f + 0.5f;
+    mQuad.br.texCoords.u = r * 0.5f + 0.5f;
+    mQuad.br.texCoords.v = b * 0.5f + 0.5f;
+    mQuad.tl.texCoords.u = l * 0.5f + 0.5f;
+    mQuad.tl.texCoords.v = t * 0.5f + 0.5f;
+    mQuad.tr.texCoords.u = r * 0.5f + 0.5f;
+    mQuad.tr.texCoords.v = t * 0.5f + 0.5f;
+    
+    getGLProgramState()->setUniformVec2("center", Vec2((l+r)*0.5f, (b+t)*0.5f));
+    getGLProgramState()->setUniformVec2("winsize", winSize);
+}
+
+void PostRenderEffectLayer::update(float dt)
+{
+    mRunTime += dt;
 }
 
 void PostRenderEffectLayer::draw(cocos2d::Renderer *render, const cocos2d::Mat4 &transform, uint32_t flags)
@@ -80,6 +106,7 @@ void PostRenderEffectLayer::onDraw(const cocos2d::Mat4 &transfrom, uint32_t flag
     
     auto glProgramState = getGLProgramState();
     glProgramState->apply(transfrom);
+    glProgramState->setUniformFloat("time", mRunTime);
     
     GL::blendFunc(BlendFunc::DISABLE.src, BlendFunc::DISABLE.dst);
     GL::bindTexture2D(mRenderTexture->getSprite()->getTexture()->getName());
