@@ -61,6 +61,12 @@
 		660E66961D24CB3600145F7E /* shader in Resources */ = {isa = PBXBuildFile; fileRef = 660E66941D24CB3600145F7E /* shader */; };
 		660E66991D24CB6500145F7E /* ShaderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E66971D24CB6500145F7E /* ShaderSprite.cpp */; };
 		660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E66971D24CB6500145F7E /* ShaderSprite.cpp */; };
+		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
+		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
+		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
+		6694EA151D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
+		6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */; };
+		6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -168,6 +174,12 @@
 		660E66941D24CB3600145F7E /* shader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shader; sourceTree = "<group>"; };
 		660E66971D24CB6500145F7E /* ShaderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderSprite.cpp; sourceTree = "<group>"; };
 		660E66981D24CB6500145F7E /* ShaderSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderSprite.hpp; sourceTree = "<group>"; };
+		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
+		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
+		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
+		6694EA131D2F5B8A007212E9 /* NodeSingleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NodeSingleton.hpp; path = Common/NodeSingleton.hpp; sourceTree = "<group>"; };
+		6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PostRenderEffectLayer.cpp; sourceTree = "<group>"; };
+		6694EA171D2F7B6B007212E9 /* PostRenderEffectLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PostRenderEffectLayer.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -311,6 +323,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6694EA0C1D2F54C5007212E9 /* Common */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				660E667E1D24AE8B00145F7E /* Version.cpp */,
@@ -323,6 +336,8 @@
 				660E668C1D24C2D600145F7E /* MainLayer.hpp */,
 				660E66971D24CB6500145F7E /* ShaderSprite.cpp */,
 				660E66981D24CB6500145F7E /* ShaderSprite.hpp */,
+				6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */,
+				6694EA171D2F7B6B007212E9 /* PostRenderEffectLayer.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -374,6 +389,17 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		6694EA0C1D2F54C5007212E9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6694EA0E1D2F54F0007212E9 /* Singleton.cpp */,
+				6694EA0F1D2F54F0007212E9 /* Singleton.hpp */,
+				6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */,
+				6694EA131D2F5B8A007212E9 /* NodeSingleton.hpp */,
+			);
+			name = Common;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -520,11 +546,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				660E668D1D24C2D600145F7E /* MainLayer.cpp in Sources */,
+				6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
+				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				660E66871D24BF1800145F7E /* MainScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				660E66991D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
 			);
@@ -535,10 +564,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				660E66881D24BF1800145F7E /* MainScene.cpp in Sources */,
+				6694EA151D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				660E66811D24AE8B00145F7E /* Version.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
+				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

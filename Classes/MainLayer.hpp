@@ -12,12 +12,13 @@
 #include <stdio.h>
 #include "EffectEditor.hpp"
 #include "GlobalDefine.hpp"
+#include "NodeSingleton.hpp"
 
 NS_EE_BEGIN
 
 using namespace cocos2d;
 
-class MainLayer : public Layer
+class MainLayer : public NodeSingleton<MainLayer>, public Layer
 {
 public:
     MainLayer();
@@ -26,7 +27,6 @@ public:
     
     void setSprite(const std::string& file);
     CREATE_FUNC(MainLayer);
-    
 private:
     Node *mContainer;
 };

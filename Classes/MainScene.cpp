@@ -7,15 +7,16 @@
 //
 
 #include "MainScene.hpp"
+#include "PostRenderEffectLayer.hpp"
+
 
 NS_EE_BEGIN
 
 
 bool MainScene::init()
 {
-    MainLayer *layer = MainLayer::create();
-    this->addChild(layer);
-    
+    this->addChild(MainLayer::getInstance());
+    this->addChild(PostRenderEffectLayer::getInstance(), 100);
     return Scene::init();
 }
 
