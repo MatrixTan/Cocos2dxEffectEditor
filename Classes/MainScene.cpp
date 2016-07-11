@@ -17,7 +17,7 @@ bool MainScene::init()
 {
     this->addChild(MainLayer::getInstance());
     this->addChild(PostRenderEffectLayer::getInstance(), 100);
-    PostRenderEffectLayer::getInstance()->setDrawRect(Rect(0, 0, 400, 400));
+    //PostRenderEffectLayer::getInstance()->setDrawRect(Rect(100, 100, 500, 500));
     return Scene::init();
 }
 

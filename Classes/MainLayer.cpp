@@ -9,6 +9,7 @@
 #include "MainLayer.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ShaderSprite.hpp"
+#include "PostRenderEffectLayer.hpp"
 
 NS_EE_BEGIN
 
@@ -39,8 +40,14 @@ bool MainLayer::init()
         sprite->runAction(Repeat::create(Sequence::create(move, move->reverse(),NULL), INT_MAX));
         mContainer->getChildByName("root_node")->addChild(sprite);
     }
-
-
+    
+    auto touchEventListener = EventListenerTouchOneByOne::create();
+    touchEventListener->setSwallowTouches(true);
+    touchEventListener->onTouchBegan = CC_CALLBACK_2(MainLayer::onTouchBegin, this);
+    touchEventListener->onTouchMoved = CC_CALLBACK_2(MainLayer::onTouchMove, this);
+    touchEventListener->onTouchEnded = CC_CALLBACK_2(MainLayer::onTouchEnd, this);
+    touchEventListener->onTouchCancelled = CC_CALLBACK_2(MainLayer::onTouchCancel, this);
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchEventListener, this);
     return Layer::init();
 }
 
@@ -52,6 +59,27 @@ void MainLayer::setSprite(const std::string &file)
         sprite->initWithFile(file);
         mContainer->getChildByName("root_node")->addChild(sprite);
     }
+}
+
+bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    return true;
+}
+
+void MainLayer::onTouchMove(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    
+}
+
+void MainLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    auto pos = touch->getLocation();
+    PostRenderEffectLayer::getInstance()->setDrawRect(Rect(pos.x - 300, pos.y - 300, 600, 600), 0.70f);
+}
+
+void MainLayer::onTouchCancel(Touch *touch, Event *event)
+{
+    
 }
 
 NS_EE_END

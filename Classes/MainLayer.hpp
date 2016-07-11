@@ -28,6 +28,12 @@ public:
     void setSprite(const std::string& file);
     CREATE_FUNC(MainLayer);
 private:
+    
+    bool onTouchBegin(Touch *touch, Event *event);
+    void onTouchMove(Touch *touch, Event *event);
+    void onTouchEnd(Touch *touch, Event *event);
+    void onTouchCancel(Touch *touch, Event *event);
+    
     Node *mContainer;
 };
 

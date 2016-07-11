@@ -14,6 +14,7 @@ NS_EE_BEGIN
 PostRenderEffectLayer::PostRenderEffectLayer()
 :mRenderTexture(nullptr)
 ,mRunTime(0.0f)
+,mRunning(false)
 {
 }
 
@@ -56,8 +57,13 @@ bool PostRenderEffectLayer::init()
     return true;
 }
 
-void PostRenderEffectLayer::setDrawRect(const cocos2d::Rect &rect)
+void PostRenderEffectLayer::setDrawRect(const cocos2d::Rect &rect, float duration)
 {
+    if(mRunning)
+    {
+        return;
+    }
+    
     mDrawRect = rect;
     auto winSize = Director::getInstance()->getWinSize();
     float l = (mDrawRect.getMinX() - winSize.width * 0.5f)/winSize.width * 2.0f;
@@ -79,6 +85,20 @@ void PostRenderEffectLayer::setDrawRect(const cocos2d::Rect &rect)
     
     getGLProgramState()->setUniformVec2("center", Vec2((l+r)*0.5f, (b+t)*0.5f));
     getGLProgramState()->setUniformVec2("winsize", winSize);
+    
+    mRunning = true;
+    mRunTime = 0.0f;
+    if(duration > 0.0f)
+    {
+        scheduleOnce([&](float dt){
+            this->onTimeout();
+        }, duration, "disable_post_render_effect");
+    }
+}
+
+void PostRenderEffectLayer::onTimeout()
+{
+    mRunning = false;
 }
 
 void PostRenderEffectLayer::update(float dt)
@@ -88,7 +108,7 @@ void PostRenderEffectLayer::update(float dt)
 
 void PostRenderEffectLayer::draw(cocos2d::Renderer *render, const cocos2d::Mat4 &transform, uint32_t flags)
 {
-    if(mRenderTexture)
+    if(mRunning && mRenderTexture)
     {
         mRenderTexture->beginWithClear(0.0f, 0.0f, 0.0f, 1.0f);
         MainLayer::getInstance()->visit(render, transform, flags);
