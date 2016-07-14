@@ -25,13 +25,14 @@ MainLayer::~MainLayer()
 
 bool MainLayer::init()
 {
+    
     FileUtils::getInstance()->addSearchPath("res/");
     
     mContainer = CSLoader::createNode("res/main_scene.csb");
     auto size = Director::getInstance()->getWinSize();
-    this->addChild(mContainer);
+    this->addChild(mContainer, (int)SPRITE_ZORDER::UI);
     
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("res/item/candy_patch.plist");
+    /*SpriteFrameCache::getInstance()->addSpriteFramesWithFile("res/item/candy_patch.plist");
     for(int i=0; i<30; i++){
         auto *sprite = Sprite::create();
         sprite->initWithSpriteFrameName(StringUtils::format("item_%d.png", i % 8 + 1));
@@ -39,7 +40,7 @@ bool MainLayer::init()
         auto move = MoveBy::create(3.0f, Vec2(cocos2d::random<float>(-200, 200), cocos2d::random<float>(-200.0f, 200.0f)));
         sprite->runAction(Repeat::create(Sequence::create(move, move->reverse(),NULL), INT_MAX));
         mContainer->getChildByName("root_node")->addChild(sprite);
-    }
+    }*/
     
     auto touchEventListener = EventListenerTouchOneByOne::create();
     touchEventListener->setSwallowTouches(true);
@@ -51,14 +52,17 @@ bool MainLayer::init()
     return Layer::init();
 }
 
-void MainLayer::setSprite(const std::string &file)
+
+void MainLayer::setBackground(const std::string &file)
 {
-    if(mContainer)
-    {
-        ShaderSprite *sprite = ShaderSprite::create();
-        sprite->initWithFile(file);
-        mContainer->getChildByName("root_node")->addChild(sprite);
-    }
+    auto background = Sprite::create(file);
+    background->setPosition(Director::getInstance()->getWinSize() * 0.5f);
+    addChild(background);
+}
+
+void MainLayer::addSprite(ShaderSprite* pSprite, int zorder)
+{
+    addChild(pSprite, (int)SPRITE_ZORDER::SPRITE + zorder);
 }
 
 bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)

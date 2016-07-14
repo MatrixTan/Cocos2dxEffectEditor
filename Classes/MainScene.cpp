@@ -8,16 +8,18 @@
 
 #include "MainScene.hpp"
 #include "PostRenderEffectLayer.hpp"
-
+#include "Project.hpp"
 
 NS_EE_BEGIN
 
 
 bool MainScene::init()
 {
-    this->addChild(MainLayer::getInstance());
-    this->addChild(PostRenderEffectLayer::getInstance(), 100);
-    //PostRenderEffectLayer::getInstance()->setDrawRect(Rect(100, 100, 500, 500));
+    auto p = new Project();
+    p->init("projects/project1.json");
+    
+    this->addChild(MainLayer::getInstance(), (int)LAYER_ZORDER::MAIN);
+    this->addChild(PostRenderEffectLayer::getInstance(), (int)LAYER_ZORDER::POST_RENDER);
     return Scene::init();
 }
 

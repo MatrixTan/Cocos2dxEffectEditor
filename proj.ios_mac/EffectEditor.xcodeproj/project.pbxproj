@@ -61,6 +61,10 @@
 		660E66961D24CB3600145F7E /* shader in Resources */ = {isa = PBXBuildFile; fileRef = 660E66941D24CB3600145F7E /* shader */; };
 		660E66991D24CB6500145F7E /* ShaderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E66971D24CB6500145F7E /* ShaderSprite.cpp */; };
 		660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E66971D24CB6500145F7E /* ShaderSprite.cpp */; };
+		666915C71D36461000E5C8A7 /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666915C51D36461000E5C8A7 /* Project.cpp */; };
+		666915C81D36461000E5C8A7 /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666915C51D36461000E5C8A7 /* Project.cpp */; };
+		666915CB1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
+		666915CC1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
@@ -174,6 +178,9 @@
 		660E66941D24CB3600145F7E /* shader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shader; sourceTree = "<group>"; };
 		660E66971D24CB6500145F7E /* ShaderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderSprite.cpp; sourceTree = "<group>"; };
 		660E66981D24CB6500145F7E /* ShaderSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderSprite.hpp; sourceTree = "<group>"; };
+		666915C51D36461000E5C8A7 /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Project.cpp; sourceTree = "<group>"; };
+		666915C61D36461000E5C8A7 /* Project.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Project.hpp; sourceTree = "<group>"; };
+		666915CA1D365D8100E5C8A7 /* projects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = projects; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
 		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
 		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
@@ -312,6 +319,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				666915CA1D365D8100E5C8A7 /* projects */,
 				660E66941D24CB3600145F7E /* shader */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -338,6 +346,8 @@
 				660E66981D24CB6500145F7E /* ShaderSprite.hpp */,
 				6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */,
 				6694EA171D2F7B6B007212E9 /* PostRenderEffectLayer.hpp */,
+				666915C51D36461000E5C8A7 /* Project.cpp */,
+				666915C61D36461000E5C8A7 /* Project.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -517,6 +527,7 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				666915CB1D365D8100E5C8A7 /* projects in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
@@ -531,6 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666915CC1D365D8100E5C8A7 /* projects in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				660E66961D24CB3600145F7E /* shader in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
@@ -548,6 +560,7 @@
 				660E668D1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
+				666915C71D36461000E5C8A7 /* Project.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
@@ -564,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				666915C81D36461000E5C8A7 /* Project.cpp in Sources */,
 				6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				660E66881D24BF1800145F7E /* MainScene.cpp in Sources */,
 				6694EA151D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,

@@ -14,5 +14,17 @@
 #define NS_EE_END }
 #define USING_NS_EE using namespace ee
 
+enum class LAYER_ZORDER
+{
+    MAIN = 100,
+    POST_RENDER = 200
+};
+
+enum class SPRITE_ZORDER
+{
+    BACK_GROUND = 0,
+    SPRITE = 100,
+    UI = 200
+};
 
 #endif /* GlobalDefine_h */

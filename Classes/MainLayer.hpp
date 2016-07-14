@@ -13,6 +13,7 @@
 #include "EffectEditor.hpp"
 #include "GlobalDefine.hpp"
 #include "NodeSingleton.hpp"
+#include "ShaderSprite.hpp"
 
 NS_EE_BEGIN
 
@@ -25,7 +26,8 @@ public:
     ~MainLayer();
     virtual bool init(void);
     
-    void setSprite(const std::string& file);
+    void addSprite(ShaderSprite *pSprite, int zorder = 0);
+    void setBackground(const std::string& file);
     CREATE_FUNC(MainLayer);
 private:
     
