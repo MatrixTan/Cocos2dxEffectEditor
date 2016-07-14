@@ -1,0 +1,12 @@
+<Solution>
+  <PropertyGroup Name="shader_editor_ui" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Image Name="beauty1.jpg" />
+        <Image Name="beauty2.jpg" />
+        <Project Name="main_scene.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

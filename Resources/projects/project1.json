@@ -1,0 +1,45 @@
+{
+    "version":"1.0.0.1",
+    "background":"background.jpg",
+    "sprites":
+    [
+    	{
+            "texture":"item_20.png",
+            "pos":{"x":200, "y":200, "z":0}
+        },
+        {
+            "texture":"item_40.png",
+            "v_shader":"shader_erode_vert.glsl",
+            "f_shader":"shader_erode_frag.glsl",
+            "pos":{"x":200, "y":200, "z":2},
+            "uniform":
+            [
+            	{
+            		"type":"TEXTURE",
+            		"name":"u_erode_map",
+            		"file":"erode_map.jpg"
+            	},
+            	{
+            		"type":"TIME"
+            	}
+            ]
+        },
+        {
+            "texture":"item_20.png",
+            "v_shader":"shader_erode_vert.glsl",
+            "f_shader":"shader_erode_frag.glsl",
+            "pos":{"x":0, "y":200, "z":2},
+            "uniform":
+            [
+            	{
+            		"type":"TEXTURE",
+            		"name":"u_erode_map",
+            		"file":"erode_map.jpg"
+            	},
+            	{
+            		"type":"TIME"
+            	}
+            ]
+        }
+    ]
+}
