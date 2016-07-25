@@ -1,0 +1,19 @@
+<PlistInfoProjectFile>
+  <PropertyGroup Name="horizontal_effect" Type="Plist" ID="5cd265d0-9161-4dcd-9975-120a5af408ed" Version="3.10.0.0" />
+  <Content ExportType="Png" SortAlgorithm="MaxRects" PicturePadding="0" AllowRotation="True" AllowAnySize="False" AllowTrim="False" ctype="PlistInfoData">
+    <ImageFiles>
+      <FilePathData Path="horizontal_glow.png" />
+      <FilePathData Path="horizontal_piece1.png" />
+      <FilePathData Path="horizontal_piece2.png" />
+      <FilePathData Path="horizontal_piece3.png" />
+      <FilePathData Path="horizontal_piece4.png" />
+      <FilePathData Path="triangular_piece1.png" />
+      <FilePathData Path="triangular_piece2.png" />
+      <FilePathData Path="triangular_piece3.png" />
+      <FilePathData Path="triangular_piece4.png" />
+      <FilePathData Path="triangular_piece5.png" />
+      <FilePathData Path="triangular_piece6.png" />
+    </ImageFiles>
+    <MaxSize Width="1024" Height="1024" />
+  </Content>
+</PlistInfoProjectFile>

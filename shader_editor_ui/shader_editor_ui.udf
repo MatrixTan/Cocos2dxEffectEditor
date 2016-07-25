@@ -1,13 +1,5 @@
 <UserData Version="3.10.0.0">
   <Properties>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="main_scene.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="main_scene.csd" />
-      </Value>
-    </Item>
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="Resource" />
@@ -26,7 +18,7 @@
         <iOS_Target Value="shader_editor_ui-mobile" />
         <iOS_BundleID Value="iPhone Developer: Ming Wen (5HJC4S4ERU)" />
         <Platform Value="None" />
-        <RunPlatform Value="None" />
+        <RunPlatform Value="Mac" />
         <FrameworkVersion Value="cocos2d-x-3.10" />
         <IsDebugKeystore Value="True" />
         <KeystorePassword Value="" />
@@ -34,6 +26,14 @@
         <KeystoreAliasPassword Value="" />
         <EnableSourceMap Value="False" />
         <EnableHTML5Advanced Value="False" />
+      </Value>
+    </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="test_node.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="test_node.csd" />
       </Value>
     </Item>
   </Properties>

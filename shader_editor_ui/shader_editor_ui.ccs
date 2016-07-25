@@ -3,9 +3,37 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <PlistImageFolder Image="horizontal_effect.png" PListFile="horizontal_effect.plist" Name=".horizontal_effect_PList.Dir">
+          <PlistImageFile Name="horizontal_glow.png" Key="horizontal_glow.png" />
+          <PlistImageFile Name="horizontal_piece1.png" Key="horizontal_piece1.png" />
+          <PlistImageFile Name="horizontal_piece2.png" Key="horizontal_piece2.png" />
+          <PlistImageFile Name="horizontal_piece3.png" Key="horizontal_piece3.png" />
+          <PlistImageFile Name="horizontal_piece4.png" Key="horizontal_piece4.png" />
+          <PlistImageFile Name="triangular_piece1.png" Key="triangular_piece1.png" />
+          <PlistImageFile Name="triangular_piece2.png" Key="triangular_piece2.png" />
+          <PlistImageFile Name="triangular_piece3.png" Key="triangular_piece3.png" />
+          <PlistImageFile Name="triangular_piece4.png" Key="triangular_piece4.png" />
+          <PlistImageFile Name="triangular_piece5.png" Key="triangular_piece5.png" />
+          <PlistImageFile Name="triangular_piece6.png" Key="triangular_piece6.png" />
+        </PlistImageFolder>
         <Image Name="beauty1.jpg" />
         <Image Name="beauty2.jpg" />
+        <PlistInfo Name="horizontal_effect.csi" Type="Plist" />
+        <Image Name="horizontal_glow.png" />
+        <Image Name="horizontal_piece1.png" />
+        <Image Name="horizontal_piece2.png" />
+        <Image Name="horizontal_piece3.png" />
+        <Image Name="horizontal_piece4.png" />
+        <Project Name="Layer.csd" Type="Layer" />
         <Project Name="main_scene.csd" Type="Scene" />
+        <Project Name="test_anima.csd" Type="Skeleton" />
+        <Project Name="test_node.csd" Type="Node" />
+        <Image Name="triangular_piece1.png" />
+        <Image Name="triangular_piece2.png" />
+        <Image Name="triangular_piece3.png" />
+        <Image Name="triangular_piece4.png" />
+        <Image Name="triangular_piece5.png" />
+        <Image Name="triangular_piece6.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

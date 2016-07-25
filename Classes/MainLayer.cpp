@@ -32,6 +32,16 @@ bool MainLayer::init()
     auto size = Director::getInstance()->getWinSize();
     this->addChild(mContainer, (int)SPRITE_ZORDER::UI);
     
+    auto test = CSLoader::createNode("res/horizontal_dispose.csb");
+    cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("res/horizontal_dispose.csb");
+    test->runAction(timeline);
+    timeline->gotoFrameAndPlay(0);
+    timeline->addFrameEndCallFunc(40, "timeend", [test](){
+        //test->removeFromParent();
+    });
+    this->addChild(test, 999999);
+    test->setPosition(Vec2(300, 300));
+    
     /*SpriteFrameCache::getInstance()->addSpriteFramesWithFile("res/item/candy_patch.plist");
     for(int i=0; i<30; i++){
         auto *sprite = Sprite::create();
