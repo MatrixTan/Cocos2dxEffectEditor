@@ -36,6 +36,7 @@ public:
     
     bool initShader(const std::string& vfile, const std::string& ffile);
     void setUniformFlag(uint32_t flag);
+    void resetTimeUniform();
     
 private:
     

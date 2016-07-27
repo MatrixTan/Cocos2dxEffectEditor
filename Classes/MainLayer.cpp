@@ -10,11 +10,11 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ShaderSprite.hpp"
 #include "PostRenderEffectLayer.hpp"
+#include "UILayer.hpp"
 
 NS_EE_BEGIN
 
 MainLayer::MainLayer()
-:mContainer(nullptr)
 {
 }
 
@@ -28,11 +28,9 @@ bool MainLayer::init()
     
     FileUtils::getInstance()->addSearchPath("res/");
     
-    mContainer = CSLoader::createNode("res/main_scene.csb");
-    auto size = Director::getInstance()->getWinSize();
-    this->addChild(mContainer, (int)SPRITE_ZORDER::UI);
+    addChild(UILayer::getInstance(), (int)SPRITE_ZORDER::UI);
     
-    auto test = CSLoader::createNode("res/horizontal_dispose.csb");
+    /*auto test = CSLoader::createNode("res/horizontal_dispose.csb");
     cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("res/horizontal_dispose.csb");
     test->runAction(timeline);
     timeline->gotoFrameAndPlay(0);
@@ -42,7 +40,7 @@ bool MainLayer::init()
     this->addChild(test, 999999);
     test->setPosition(Vec2(300, 300));
     
-    /*SpriteFrameCache::getInstance()->addSpriteFramesWithFile("res/item/candy_patch.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("res/item/candy_patch.plist");
     for(int i=0; i<30; i++){
         auto *sprite = Sprite::create();
         sprite->initWithSpriteFrameName(StringUtils::format("item_%d.png", i % 8 + 1));
@@ -70,9 +68,21 @@ void MainLayer::setBackground(const std::string &file)
     addChild(background);
 }
 
-void MainLayer::addSprite(ShaderSprite* pSprite, int zorder)
+void MainLayer::addSprite(const std::string& id, ShaderSprite* pSprite, int zorder)
 {
     addChild(pSprite, (int)SPRITE_ZORDER::SPRITE + zorder);
+    pSprite->retain();
+    mSprites.insert(std::pair<std::string, ShaderSprite*>(id, pSprite));
+}
+
+ShaderSprite* MainLayer::getSprite(const std::string& id)
+{
+    std::map<std::string, ShaderSprite*>::iterator iter = mSprites.find(id);
+    if(iter != mSprites.end())
+    {
+        return iter->second;
+    }
+    return nullptr;
 }
 
 bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)

@@ -32,8 +32,9 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="test_node.csd" />
+          <FilePathData Path="main_scene.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="test_node.csd" />
+        <ActiveDocument Path="main_scene.csd" />
       </Value>
     </Item>
   </Properties>

@@ -26,7 +26,8 @@ public:
     ~MainLayer();
     virtual bool init(void);
     
-    void addSprite(ShaderSprite *pSprite, int zorder = 0);
+    void addSprite(const std::string& id, ShaderSprite *pSprite, int zorder = 0);
+    ShaderSprite* getSprite(const std::string& id);
     void setBackground(const std::string& file);
     CREATE_FUNC(MainLayer);
 private:
@@ -36,7 +37,7 @@ private:
     void onTouchEnd(Touch *touch, Event *event);
     void onTouchCancel(Touch *touch, Event *event);
     
-    Node *mContainer;
+    std::map<std::string, ShaderSprite*> mSprites;
 };
 
 NS_EE_END

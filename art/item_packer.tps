@@ -141,7 +141,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../Resources/res/candy_patch.plist</filename>
+                <filename>../Resources/projects/item_atlas.plist</filename>
             </struct>
             <key>header</key>
             <key>source</key>
@@ -199,7 +199,6 @@
             <key type="filename">../Resources/res/item/item_164.png</key>
             <key type="filename">../Resources/res/item/item_165.png</key>
             <key type="filename">../Resources/res/item/item_2.png</key>
-            <key type="filename">../Resources/res/item/item_20.png</key>
             <key type="filename">../Resources/res/item/item_21.png</key>
             <key type="filename">../Resources/res/item/item_22.png</key>
             <key type="filename">../Resources/res/item/item_23.png</key>
@@ -213,7 +212,6 @@
             <key type="filename">../Resources/res/item/item_276.png</key>
             <key type="filename">../Resources/res/item/item_3.png</key>
             <key type="filename">../Resources/res/item/item_4.png</key>
-            <key type="filename">../Resources/res/item/item_40.png</key>
             <key type="filename">../Resources/res/item/item_491.png</key>
             <key type="filename">../Resources/res/item/item_492.png</key>
             <key type="filename">../Resources/res/item/item_493.png</key>
@@ -250,12 +248,10 @@
             <filename>../Resources/res/item/item_6.png</filename>
             <filename>../Resources/res/item/item_7.png</filename>
             <filename>../Resources/res/item/item_8.png</filename>
-            <filename>../Resources/res/item/item_20.png</filename>
             <filename>../Resources/res/item/item_21.png</filename>
             <filename>../Resources/res/item/item_22.png</filename>
             <filename>../Resources/res/item/item_23.png</filename>
             <filename>../Resources/res/item/item_24.png</filename>
-            <filename>../Resources/res/item/item_40.png</filename>
             <filename>../Resources/res/item/item_51.png</filename>
             <filename>../Resources/res/item/item_52.png</filename>
             <filename>../Resources/res/item/item_53.png</filename>

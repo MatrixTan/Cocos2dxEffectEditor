@@ -1,14 +1,41 @@
 {
     "version":"1.0.0.1",
     "background":"background.jpg",
+    "atlas":["item_atlas.plist"],
     "sprites":
     [
+        {
+            "id":"1",
+            "texture":"item_2.png",
+            "source_type":"ATLAS",
+            "pos":{"x":100, "y":100, "z":0},
+            "f_shader":"shader_twist_frag.glsl",
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                },
+                {
+                    "type":"RANDOM",
+                    "name":"u_random_start",
+                    "min":0.0,
+                    "max":10.0
+                },
+                {
+                    "type":"UV_RECT"
+                }             
+            ]
+        },
     	{
+            "id":"2",
             "texture":"item_20.png",
+            "source_type":"FILE",
             "pos":{"x":200, "y":200, "z":0}
         },
         {
+            "id":"3",
             "texture":"item_40.png",
+            "source_type":"FILE",
             "v_shader":"shader_erode_vert.glsl",
             "f_shader":"shader_erode_frag.glsl",
             "pos":{"x":200, "y":200, "z":2},
@@ -17,7 +44,8 @@
             	{
             		"type":"TEXTURE",
             		"name":"u_erode_map",
-            		"file":"erode_map.jpg"
+            		"texture":"erode_map.jpg",
+                    "source_type":"FILE"
             	},
             	{
             		"type":"TIME"
@@ -25,7 +53,9 @@
             ]
         },
         {
+            "id":"4",
             "texture":"item_20.png",
+            "source_type":"FILE",
             "v_shader":"shader_erode_vert.glsl",
             "f_shader":"shader_erode_frag.glsl",
             "pos":{"x":0, "y":200, "z":2},
@@ -34,7 +64,8 @@
             	{
             		"type":"TEXTURE",
             		"name":"u_erode_map",
-            		"file":"erode_map.jpg"
+            		"texture":"erode_map.jpg",
+                    "source_type":"FILE"
             	},
             	{
             		"type":"TIME"

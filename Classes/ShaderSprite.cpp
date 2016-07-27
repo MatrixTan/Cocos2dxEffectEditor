@@ -35,7 +35,7 @@ bool ShaderSprite::init()
 bool ShaderSprite::initShader(const std::string& vfile, const std::string& ffile)
 {
     cocos2d::GLProgram* program = nullptr;
-    program = getProgram(vfile.size()>0?vfile:"shader/shader_default_vert.glsl", ffile.size()>0?ffile:"shader/shader_default_frag.glsl");
+    program = getProgram(vfile, ffile);
     m_programState = cocos2d::GLProgramState::create(program);
     this->setGLProgramState(m_programState);
     m_uniformFlag = 0;
@@ -83,6 +83,11 @@ void ShaderSprite::update(float dt)
 {
     m_startTime += dt;
     cocos2d::Node::update(dt);
+}
+
+void ShaderSprite::resetTimeUniform()
+{
+    m_startTime = 0.0f;
 }
 
 NS_EE_END
