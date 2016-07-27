@@ -6,7 +6,7 @@
     [
         {
             "id":"1",
-            "texture":"item_2.png",
+            "texture":"item_3.png",
             "source_type":"ATLAS",
             "pos":{"x":100, "y":100, "z":0},
             "f_shader":"shader_twist_frag.glsl",
