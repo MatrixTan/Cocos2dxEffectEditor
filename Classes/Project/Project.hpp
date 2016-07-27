@@ -13,6 +13,7 @@
 #include <json/rapidjson.h>
 #include <cocos2d.h>
 #include "GlobalDefine.hpp"
+#include "ProjectConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -25,6 +26,10 @@ public:
     ~Project();
     
     bool init(const std::string& projectPath);
+    
+private:
+    void loadProject(void);
+    ProjectConfig mConfig;
 };
 
 NS_EE_END
