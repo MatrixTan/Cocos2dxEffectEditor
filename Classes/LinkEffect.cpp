@@ -54,11 +54,15 @@ bool LinkEffect::init(cocos2d::Node *from, cocos2d::Node *to)
 void LinkEffect::update(float dt)
 {
     if(mFrom != nullptr && mTo != nullptr){
-        Vec2 fromPos = mFrom->convertToWorldSpace(Vec2::ZERO);
-        Vec2 toPos = mTo->convertToWorldSpace(Vec2::ZERO);
+        Vec2 fromPos = mFrom->getPosition();
+        Vec2 toPos = mTo->getPosition();
         setPosition((fromPos + toPos) * 0.5f);
-        float angle = CC_RADIANS_TO_DEGREES((toPos - fromPos).getAngle());
-        setRotation(angle + 90.0f);
+        Vec2 offset = toPos - fromPos;
+        float angle = CC_RADIANS_TO_DEGREES(offset.getAngle());
+        mLinkParticle->setRotation(-angle);
+        mLinkParticle->setPosVar(Vec2(offset.length() * 0.5, 0.0f));
+        mLinkParticle->setLife(0.16f);
+        mLinkParticle->setEmissionRate(1000.0f);
     }
     Node::update(dt);
 }
