@@ -31,6 +31,7 @@ bool Project::init(const std::string& projectPath)
     rapidjson::Document root;
     root.Parse<0>(strProject.c_str());
     if(root.HasParseError()){
+        CCASSERT(false, "project parse error");
         return false;
     }
     
@@ -68,6 +69,12 @@ bool Project::init(const std::string& projectPath)
         spriteConfig->position.x = position["x"].GetDouble();
         spriteConfig->position.y = position["y"].GetDouble();
         spriteConfig->position.z = position["z"].GetDouble();
+        
+        if(sprites[i].HasMember("scale")){
+            rapidjson::Value &scale = sprites[i]["scale"];
+            spriteConfig->scale.x = scale["x"].GetDouble();
+            spriteConfig->scale.y = scale["y"].GetDouble();
+        }
         
         if(sprites[i].HasMember("uniform")){
             rapidjson::Value &uniform = sprites[i]["uniform"];
@@ -130,6 +137,7 @@ void Project::loadProject()
         pos.y = (*iter)->position.y + spriteOrigin.height;
         int zOrder = (int)(*iter)->position.z;
         shaderSprite->setPosition(pos);
+        shaderSprite->setScale((*iter)->scale.x, (*iter)->scale.y);
         shaderSprite->setLocalZOrder(zOrder);
         
         uint32_t uniformFlag = 0;

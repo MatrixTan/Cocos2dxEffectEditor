@@ -11,6 +11,7 @@
 #include "ui/CocosGUI.h"
 #include "MainLayer.hpp"
 #include "ShaderSprite.hpp"
+#include "LinkEffect.hpp"
 
 NS_EE_BEGIN
 
@@ -34,7 +35,19 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         auto shaderSprite = MainLayer::getInstance()->getSprite("1");
-        shaderSprite->resetTimeUniform();
+        shaderSprite->runAction(RepeatForever::create(Sequence::create(MoveBy::create(2.0f, Vec2(200.0f, 0.0f)),
+                                                                       MoveBy::create(2.0f, Vec2(-200.0f, 0.0f)), NULL)));
+        //shaderSprite->resetTimeUniform();
+        
+        auto sprite2 = MainLayer::getInstance()->getSprite("2");
+        auto link = LinkEffect::create(sprite2, shaderSprite);
+        addChild(link);
+        
+        /*auto test = ParticleSystemQuad::create("res/link_light.plist");
+        addChild(test, 99999);
+        test->setAnchorPoint(Vec2(0.0f, 0.0f));
+        test->setPosition(shaderSprite->getPosition());
+        test->setRotation(60);*/
     }
 }
 

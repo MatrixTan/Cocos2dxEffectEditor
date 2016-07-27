@@ -10,6 +10,11 @@
 
 NS_EE_BEGIN
 
+SpriteConfig::SpriteConfig()
+{
+    scale = Vec2(1.0f, 1.0f);
+}
+
 SpriteConfig::~SpriteConfig()
 {
     for(std::vector<ShaderUniformConfig*>::iterator iter = uniforms.begin(); iter != uniforms.end(); iter++)

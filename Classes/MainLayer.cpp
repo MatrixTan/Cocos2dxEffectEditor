@@ -50,6 +50,8 @@ bool MainLayer::init()
         mContainer->getChildByName("root_node")->addChild(sprite);
     }*/
     
+    
+    
     auto touchEventListener = EventListenerTouchOneByOne::create();
     touchEventListener->setSwallowTouches(true);
     touchEventListener->onTouchBegan = CC_CALLBACK_2(MainLayer::onTouchBegin, this);

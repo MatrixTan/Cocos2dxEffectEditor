@@ -31,12 +31,14 @@ class ShaderUniformConfig;
 class SpriteConfig
 {
 public:
+    SpriteConfig();
     ~SpriteConfig();
     
     std::string id;
     std::string texture;
     SPRITE_SOURCE_TYPE sourceType;
     Vec3 position;
+    Vec2 scale;
     std::string vShader;
     std::string fShader;
     std::vector<ShaderUniformConfig*> uniforms;
