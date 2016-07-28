@@ -13,7 +13,6 @@ NS_EE_BEGIN
 LinkEffect::LinkEffect()
 :mFrom(nullptr),
 mTo(nullptr),
-mLinkParticle(nullptr),
 mState(LINK_EFFECT_STATE::NONE),
 mLinkSpeed(0.0f),
 mLinkTime(0.0f)
@@ -50,10 +49,12 @@ bool LinkEffect::init(cocos2d::Node *from, cocos2d::Node *to, float speed)
         mState = LINK_EFFECT_STATE::LINK_TO;
     }
     
-    mLinkParticle = ParticleSystemQuad::create("res/link_light.plist");
-    mLinkParticle->setPosition(Vec2::ZERO);
-    mLinkParticle->setLife(0.1f);
-    addChild(mLinkParticle);
+    for(int i=0; i<LINK_EFFECT_COUNT; i++){
+        mLinkParticles[i] = ParticleSystemQuad::create(__String::createWithFormat("res/link_light%d.plist", i)->getCString());
+        mLinkParticles[i]->setLife(0.1f);
+        addChild(mLinkParticles[i]);
+    }
+    //mLinkParticles[1]->setLife(0.1f);
     scheduleUpdate();
     
     return Node::init();
@@ -83,14 +84,17 @@ void LinkEffect::update(float dt)
             
             setPosition((fromPos + toPos) * 0.5f);
             float angle = CC_RADIANS_TO_DEGREES(offset.getAngle());
-            mLinkParticle->setRotation(-angle);
             float length = offset.length();
-            mLinkParticle->setPosVar(Vec2(length * 0.5, 0.0f));
             int particalNumber = floorf(length * 0.5);
-            if(abs(particalNumber - mLinkParticle->getTotalParticles()) > 50)
-            {
-                mLinkParticle->setTotalParticles(particalNumber);
+            for(int i=0; i<LINK_EFFECT_COUNT; i++){
+                mLinkParticles[i]->setRotation(-angle);
+                mLinkParticles[i]->setPosVar(Vec2(length * 0.5, 0.0f));
             }
+            if(abs(particalNumber - mLinkParticles[0]->getTotalParticles()) > 50)
+            {
+                mLinkParticles[0]->setTotalParticles(particalNumber);
+            }
+
         }
         
     }

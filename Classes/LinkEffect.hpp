@@ -17,6 +17,8 @@ NS_EE_BEGIN
 
 USING_NS_CC;
 
+#define LINK_EFFECT_COUNT 1
+
 enum class LINK_EFFECT_STATE
 {
     NONE,
@@ -37,7 +39,7 @@ private:
     
     Node* mFrom;
     Node* mTo;
-    ParticleSystemQuad* mLinkParticle;
+    ParticleSystemQuad* mLinkParticles[LINK_EFFECT_COUNT];
     LINK_EFFECT_STATE mState;
     float mLinkSpeed;
     float mLinkTime;
