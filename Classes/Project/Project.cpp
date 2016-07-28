@@ -37,7 +37,12 @@ bool Project::init(const std::string& projectPath)
     
     mConfig.projectPath = directoryPath;
     mConfig.version = root["version"].GetString();
-    mConfig.background = root["background"].GetString();
+    
+    if(root["background"].IsObject()){
+        mConfig.background.file = root["background"]["file"].GetString();
+        mConfig.background.scale.x = root["background"]["scale"]["x"].GetDouble();
+        mConfig.background.scale.y = root["background"]["scale"]["y"].GetDouble();
+    }
     
     rapidjson::Value &atlasArray = root["atlas"];
     for(int i=0; i<atlasArray.Size(); i++){
@@ -114,7 +119,7 @@ bool Project::init(const std::string& projectPath)
 
 void Project::loadProject()
 {
-    MainLayer::getInstance()->setBackground(mConfig.projectPath + mConfig.background);
+    MainLayer::getInstance()->setBackground(mConfig.projectPath + mConfig.background.file, mConfig.background.scale);
     for(std::vector<std::string>::iterator iter = mConfig.atlas.begin(); iter != mConfig.atlas.end(); iter++)
     {
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile(mConfig.projectPath + *iter);

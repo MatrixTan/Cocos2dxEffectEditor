@@ -1,6 +1,6 @@
 {
     "version":"1.0.0.1",
-    "background":"background.jpg",
+    "background":{"file":"bg.jpg", "scale":{"x":0.5, "y":0.5}},
     "atlas":["item_atlas.plist"],
     "sprites":
     [
@@ -9,7 +9,7 @@
             "texture":"item_3.png",
             "source_type":"ATLAS",
             "pos":{"x":100, "y":-100, "z":0},
-            "scale":{"x":0.1, "y":0.1},
+            "scale":{"x":0.5, "y":0.5},
             "f_shader":"shader_twist_frag.glsl",
             "uniform":
             [
@@ -32,7 +32,7 @@
             "texture":"item_20.png",
             "source_type":"FILE",
             "pos":{"x":200, "y":200, "z":0},
-            "scale":{"x":0.1, "y":0.1}
+            "scale":{"x":0.5, "y":0.5}
         },
         {
             "id":"3",
@@ -41,6 +41,7 @@
             "v_shader":"shader_erode_vert.glsl",
             "f_shader":"shader_erode_frag.glsl",
             "pos":{"x":200, "y":200, "z":2},
+            "scale":{"x":0.5, "y":0.5},
             "uniform":
             [
             	{

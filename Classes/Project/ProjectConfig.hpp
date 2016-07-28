@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "GlobalDefine.hpp"
+#include "BackgroundConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -24,7 +25,7 @@ public:
     ~ProjectConfig();
     
     std::string version;
-    std::string background;
+    BackgroundConfig background;
     std::string projectPath;
     std::vector<std::string> atlas;
     std::vector<SpriteConfig*> sprites;

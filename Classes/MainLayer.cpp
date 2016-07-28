@@ -63,10 +63,11 @@ bool MainLayer::init()
 }
 
 
-void MainLayer::setBackground(const std::string &file)
+void MainLayer::setBackground(const std::string &file, const Vec2& scale)
 {
     auto background = Sprite::create(file);
     background->setPosition(Director::getInstance()->getWinSize() * 0.5f);
+    background->setScale(scale.x, scale.y);
     addChild(background);
 }
 

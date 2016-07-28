@@ -28,7 +28,7 @@ public:
     
     void addSprite(const std::string& id, ShaderSprite *pSprite, int zorder = 0);
     ShaderSprite* getSprite(const std::string& id);
-    void setBackground(const std::string& file);
+    void setBackground(const std::string& file, const Vec2& scale);
     CREATE_FUNC(MainLayer);
 private:
     

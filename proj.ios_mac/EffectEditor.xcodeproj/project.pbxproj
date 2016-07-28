@@ -69,6 +69,8 @@
 		6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE3D1D47016D004E09DD /* SpriteConfig.cpp */; };
 		6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
 		6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
+		665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
+		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666915CB1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
@@ -196,6 +198,8 @@
 		6636BE3E1D47016D004E09DD /* SpriteConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SpriteConfig.hpp; path = Project/SpriteConfig.hpp; sourceTree = "<group>"; };
 		6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderUniformConfig.cpp; path = Project/ShaderUniformConfig.cpp; sourceTree = "<group>"; };
 		6636BE421D4704F0004E09DD /* ShaderUniformConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderUniformConfig.hpp; path = Project/ShaderUniformConfig.hpp; sourceTree = "<group>"; };
+		665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackgroundConfig.cpp; path = Project/BackgroundConfig.cpp; sourceTree = "<group>"; };
+		665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BackgroundConfig.hpp; path = Project/BackgroundConfig.hpp; sourceTree = "<group>"; };
 		666778721D48B6CB00D0E000 /* LinkEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkEffect.cpp; sourceTree = "<group>"; };
 		666778731D48B6CB00D0E000 /* LinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkEffect.hpp; sourceTree = "<group>"; };
 		666915CA1D365D8100E5C8A7 /* projects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = projects; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 				6636BE3E1D47016D004E09DD /* SpriteConfig.hpp */,
 				6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */,
 				6636BE421D4704F0004E09DD /* ShaderUniformConfig.hpp */,
+				665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */,
+				665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */,
+				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -630,6 +637,7 @@
 				660E66811D24AE8B00145F7E /* Version.cpp in Sources */,
 				666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
+				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,

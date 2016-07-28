@@ -17,19 +17,30 @@ NS_EE_BEGIN
 
 USING_NS_CC;
 
+enum class LINK_EFFECT_STATE
+{
+    NONE,
+    LINK_TO,
+    STABLE
+};
+
 class LinkEffect : public Node
 {
 public:
-    bool init(Node* from, Node* to);
-    static LinkEffect* create(Node* from, Node* to);
+    static LinkEffect* create(Node* from, Node* to, float speed);
     LinkEffect();
     ~LinkEffect();
     virtual void update(float dt) override;
 private:
+    
+    bool init(Node* from, Node* to, float speed);
+    
     Node* mFrom;
     Node* mTo;
     ParticleSystemQuad* mLinkParticle;
-    
+    LINK_EFFECT_STATE mState;
+    float mLinkSpeed;
+    float mLinkTime;
 };
 
 NS_EE_END

@@ -35,12 +35,14 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         auto shaderSprite = MainLayer::getInstance()->getSprite("1");
-        shaderSprite->runAction(RepeatForever::create(Sequence::create(MoveBy::create(2.0f, Vec2(400.0f, 0.0f)),
+        shaderSprite->runAction(RepeatForever::create(Sequence::create(DelayTime::create(2.0f),
+                                                                       MoveBy::create(2.0f, Vec2(400.0f, 0.0f)),
+                                                                       DelayTime::create(1.0f),
                                                                        MoveBy::create(2.0f, Vec2(-400.0f, 0.0f)), NULL)));
         //shaderSprite->resetTimeUniform();
         
         auto sprite2 = MainLayer::getInstance()->getSprite("2");
-        auto link = LinkEffect::create(sprite2, shaderSprite);
+        auto link = LinkEffect::create(sprite2, shaderSprite, 500.0f);
         addChild(link);
         
         /*auto test = ParticleSystemQuad::create("res/link_light.plist");
