@@ -26,6 +26,7 @@ RingEffect::RingEffect()
 
 bool RingEffect::init(float speed,float duration)
 {
+    mStartTime = 0.0f;
     mSpeed = speed;
     mDuration = duration;
     mParticle = ParticleSystemQuad::create("res/ring_effect.plist");

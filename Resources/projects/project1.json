@@ -74,6 +74,19 @@
             		"type":"TIME"
             	}
             ]
+        },
+        {
+            "id":"5",
+            "texture":"water.png",
+            "source_type":"FILE",
+            "f_shader":"shader_water_wave_frag.glsl",
+            "pos":{"x":-200, "y":200, "z":2},
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                }
+             ]
         }
     ]
 }

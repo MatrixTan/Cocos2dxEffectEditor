@@ -97,11 +97,11 @@
 	<key>startColorVarianceAlpha</key>
 	<real>0.0</real>
 	<key>startColorVarianceBlue</key>
-	<real>1</real>
+	<real>0.0</real>
 	<key>startColorVarianceGreen</key>
-	<real>1</real>
+	<real>0.0</real>
 	<key>startColorVarianceRed</key>
-	<real>1</real>
+	<real>0.0</real>
 	<key>startParticleSize</key>
 	<real>30.958904266357422</real>
 	<key>startParticleSizeVariance</key>
