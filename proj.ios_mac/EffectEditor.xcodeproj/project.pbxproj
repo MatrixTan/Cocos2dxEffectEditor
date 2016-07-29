@@ -71,6 +71,8 @@
 		6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
 		665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
+		665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
+		665A26891D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
 		666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666915CB1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
@@ -200,6 +202,8 @@
 		6636BE421D4704F0004E09DD /* ShaderUniformConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderUniformConfig.hpp; path = Project/ShaderUniformConfig.hpp; sourceTree = "<group>"; };
 		665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackgroundConfig.cpp; path = Project/BackgroundConfig.cpp; sourceTree = "<group>"; };
 		665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BackgroundConfig.hpp; path = Project/BackgroundConfig.hpp; sourceTree = "<group>"; };
+		665A26861D49F8B1007511EB /* RingEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingEffect.cpp; sourceTree = "<group>"; };
+		665A26871D49F8B1007511EB /* RingEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RingEffect.hpp; sourceTree = "<group>"; };
 		666778721D48B6CB00D0E000 /* LinkEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkEffect.cpp; sourceTree = "<group>"; };
 		666778731D48B6CB00D0E000 /* LinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkEffect.hpp; sourceTree = "<group>"; };
 		666915CA1D365D8100E5C8A7 /* projects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = projects; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 				66E032DE1D4770AB00983797 /* UILayer.hpp */,
 				666778721D48B6CB00D0E000 /* LinkEffect.cpp */,
 				666778731D48B6CB00D0E000 /* LinkEffect.hpp */,
+				665A26861D49F8B1007511EB /* RingEffect.cpp */,
+				665A26871D49F8B1007511EB /* RingEffect.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -617,6 +623,7 @@
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
+				665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				660E66991D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
 			);
@@ -626,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665A26891D49F8B1007511EB /* RingEffect.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				660E66881D24BF1800145F7E /* MainScene.cpp in Sources */,
