@@ -12,6 +12,7 @@
 #include "ProjectConfig.hpp"
 #include "SpriteConfig.hpp"
 #include "ShaderUniformConfig.hpp"
+#include "ParticleConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -54,6 +55,7 @@ bool Project::init(const std::string& projectPath)
         auto spriteConfig = new(std::nothrow)SpriteConfig();
         spriteConfig->id = sprites[i]["id"].GetString();
         spriteConfig->texture = sprites[i]["texture"].GetString();
+        spriteConfig->visible = sprites[i]["visible"].GetBool();
         std::string sourceType = sprites[i]["source_type"].GetString();
         spriteConfig->sourceType = SpriteConfig::getSpriteSouceType(sourceType);
 
@@ -111,10 +113,64 @@ bool Project::init(const std::string& projectPath)
                 }
             }
         }
+        
+        if(sprites[i].HasMember("timeline")){
+            spriteConfig->timeline = sprites[i]["timeline"].GetString();
+        }
+        
         mConfig.sprites.push_back(spriteConfig);
     }
     
+    rapidjson::Value& particles = root["particles"];
+    if(!particles.IsNull()){
+        for(int i=0;i<particles.Size();i++){
+            rapidjson::Value& particle = particles[i];
+            auto pParticle = new(std::nothrow) ParticleConfig();
+            pParticle->id = particle["id"].GetString();
+            pParticle->file = particle["file"].GetString();
+            if(particle.HasMember("timeline")){
+                pParticle->timeline = particle["timeline"].GetString();
+            }
+            rapidjson::Value& particlePos = particle["pos"];
+            pParticle->position.x = particlePos["x"].GetDouble();
+            pParticle->position.y = particlePos["y"].GetDouble();
+            pParticle->position.z = particlePos["z"].GetDouble();
+            mConfig.particles.push_back(pParticle);
+        }
+    }
+    
+    rapidjson::Value& timelines = root["timelines"];
+    if(!timelines.IsNull()){
+        for(int i=0; i<timelines.Size(); i++){
+            rapidjson::Value& timeline = timelines[i];
+            std::string timeId = timeline["id"].GetString();
+            mConfig.timelines[timeId] = parseTimeline(timeline);
+        }
+        
+    }
+    
     loadProject();
+    return true;
+}
+
+Timeline* Project::parseTimeline(const rapidjson::Value &value)
+{
+    std::string type = value["type"].GetString();
+    if(type == "SEQUENCE"){
+        auto sequenceTimeline = new(std::nothrow) TimelineSequence();
+        const rapidjson::Value& children = value["children"];
+        for(int i=0; i<children.Size(); i++){
+            sequenceTimeline->children.push_back(parseTimeline(children[i]));
+        }
+        return sequenceTimeline;
+    }else if(type == "MOVE_BY"){
+        auto moveByTimeline = new(std::nothrow) TimelineMoveBy();
+        moveByTimeline->duration = value["duration"].GetDouble();
+        moveByTimeline->x = value["x"].GetDouble();
+        moveByTimeline->y = value["y"].GetDouble();
+        return moveByTimeline;
+    }
+    return nullptr;
 }
 
 void Project::loadProject()
@@ -176,7 +232,24 @@ void Project::loadProject()
             }
         }
         shaderSprite->setUniformFlag(uniformFlag);
-        MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite);
+        shaderSprite->setVisible((*iter)->visible);
+        if((*iter)->timeline.length() > 0){
+            shaderSprite->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
+        }
+        
+        MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite, zOrder);
+    }
+    
+    for(std::vector<ParticleConfig*>::iterator iter = mConfig.particles.begin();
+        iter != mConfig.particles.end();
+        iter++){
+        auto particle = ParticleSystemQuad::create(mConfig.projectPath + (*iter)->file);
+        particle->setPosition((*iter)->position.x + spriteOrigin.width
+                              , (*iter)->position.y+spriteOrigin.height);
+        if((*iter)->timeline.length() > 0){
+            particle->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
+        }
+        MainLayer::getInstance()->addParticleSystem((*iter)->id, particle, (*iter)->position.z);
     }
 
 }

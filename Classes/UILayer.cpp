@@ -35,10 +35,20 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        auto shaderSprite = MainLayer::getInstance()->getSprite("1");
+        
+        auto shaderSprite = MainLayer::getInstance()->getSprite("4");
+        shaderSprite->resetTimeUniform();
+        
+        auto particle = MainLayer::getInstance()->getParticle("3001");
+        particle->resetSystem();
+        
+        // ===================
+        
+        /*auto shaderSprite = MainLayer::getInstance()->getSprite("1");
         auto ringEffect = RingEffect::create(300.0f, 2.0f);
         addChild(ringEffect);
         ringEffect->setPosition(shaderSprite->getPosition());
+         */
         
         /*shaderSprite->runAction(Sequence::create(DelayTime::create(2.0f),
                                                                        MoveBy::create(2.0f, Vec2(400.0f, 0.0f)),
@@ -48,7 +58,7 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
           */
         //shaderSprite->resetTimeUniform();
         
-        auto sprite2 = MainLayer::getInstance()->getSprite("2");
+        //auto sprite2 = MainLayer::getInstance()->getSprite("2");
         //auto link = LinkEffect::create(sprite2, shaderSprite, 500.0f);
         //addChild(link);
         

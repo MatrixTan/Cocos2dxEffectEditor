@@ -83,6 +83,10 @@
 		6694EA151D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
 		6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */; };
 		6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */; };
+		669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996351D4F06F000AA2783 /* ParticleConfig.cpp */; };
+		669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996351D4F06F000AA2783 /* ParticleConfig.cpp */; };
+		6699963B1D4F228800AA2783 /* TimelineConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996391D4F228800AA2783 /* TimelineConfig.cpp */; };
+		6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996391D4F228800AA2783 /* TimelineConfig.cpp */; };
 		66E032DF1D4770AB00983797 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E032DD1D4770AB00983797 /* UILayer.cpp */; };
 		66E032E01D4770AB00983797 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E032DD1D4770AB00983797 /* UILayer.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -213,6 +217,10 @@
 		6694EA131D2F5B8A007212E9 /* NodeSingleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NodeSingleton.hpp; path = Common/NodeSingleton.hpp; sourceTree = "<group>"; };
 		6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PostRenderEffectLayer.cpp; sourceTree = "<group>"; };
 		6694EA171D2F7B6B007212E9 /* PostRenderEffectLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PostRenderEffectLayer.hpp; sourceTree = "<group>"; };
+		669996351D4F06F000AA2783 /* ParticleConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleConfig.cpp; path = Project/ParticleConfig.cpp; sourceTree = "<group>"; };
+		669996361D4F06F000AA2783 /* ParticleConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParticleConfig.hpp; path = Project/ParticleConfig.hpp; sourceTree = "<group>"; };
+		669996391D4F228800AA2783 /* TimelineConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineConfig.cpp; path = Project/TimelineConfig.cpp; sourceTree = "<group>"; };
+		6699963A1D4F228800AA2783 /* TimelineConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineConfig.hpp; path = Project/TimelineConfig.hpp; sourceTree = "<group>"; };
 		66E032DD1D4770AB00983797 /* UILayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UILayer.cpp; sourceTree = "<group>"; };
 		66E032DE1D4770AB00983797 /* UILayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UILayer.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -446,6 +454,10 @@
 				6636BE421D4704F0004E09DD /* ShaderUniformConfig.hpp */,
 				665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */,
 				665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */,
+				669996351D4F06F000AA2783 /* ParticleConfig.cpp */,
+				669996361D4F06F000AA2783 /* ParticleConfig.hpp */,
+				669996391D4F228800AA2783 /* TimelineConfig.cpp */,
+				6699963A1D4F228800AA2783 /* TimelineConfig.hpp */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -612,6 +624,7 @@
 				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
+				669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				6636BE3F1D47016D004E09DD /* SpriteConfig.cpp in Sources */,
@@ -623,6 +636,7 @@
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
+				6699963B1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				660E66991D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
@@ -646,9 +660,11 @@
 				666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
+				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,
+				6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

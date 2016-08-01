@@ -24,7 +24,7 @@ void main(void)
     
     vec2 offset3 = v_texcoord - point3;
     float distance3 = length(offset3);
-    float factor3 = sin(distance3 * 7.0 + u_time * 7.0) * 0.07;
+    float factor3 = sin(distance3 * 7.0 + u_time * 17.0) * 0.07;
     offset3 = normalize(offset3) * factor3;
  
     vec2 offset = offset1 + offset2 + offset3;

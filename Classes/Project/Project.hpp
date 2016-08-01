@@ -11,9 +11,11 @@
 
 #include <stdio.h>
 #include <json/rapidjson.h>
+#include <json/document.h>
 #include <cocos2d.h>
 #include "GlobalDefine.hpp"
 #include "ProjectConfig.hpp"
+#include "TimelineConfig.hpp";
 
 NS_EE_BEGIN
 
@@ -28,6 +30,7 @@ public:
     bool init(const std::string& projectPath);
     
 private:
+    Timeline* parseTimeline(const rapidjson::Value& value);
     void loadProject(void);
     ProjectConfig mConfig;
 };

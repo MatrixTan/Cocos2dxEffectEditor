@@ -42,6 +42,8 @@ public:
     std::string vShader;
     std::string fShader;
     std::vector<ShaderUniformConfig*> uniforms;
+    bool visible;
+    std::string timeline;
     
     static SPRITE_SOURCE_TYPE getSpriteSouceType(const std::string& type);
 };

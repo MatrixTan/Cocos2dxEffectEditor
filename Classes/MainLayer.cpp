@@ -88,6 +88,23 @@ ShaderSprite* MainLayer::getSprite(const std::string& id)
     return nullptr;
 }
 
+void MainLayer::addParticleSystem(const std::string &id, cocos2d::ParticleSystemQuad *particle, int zorder)
+{
+    addChild(particle, (int)SPRITE_ZORDER::SPRITE + zorder);
+    particle->retain();
+    mParticles.insert(std::pair<std::string, ParticleSystemQuad*>(id, particle));
+}
+
+ParticleSystemQuad* MainLayer::getParticle(const std::string &id)
+{
+    std::map<std::string, ParticleSystemQuad*>::iterator iter = mParticles.find(id);
+    if(iter != mParticles.end())
+    {
+        return iter->second;
+    }
+    return nullptr;
+}
+
 bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     return true;

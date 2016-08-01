@@ -28,6 +28,10 @@ public:
     
     void addSprite(const std::string& id, ShaderSprite *pSprite, int zorder = 0);
     ShaderSprite* getSprite(const std::string& id);
+    
+    void addParticleSystem(const std::string& id, ParticleSystemQuad* particle, int zorder = 0);
+    ParticleSystemQuad* getParticle(const std::string& id);
+    
     void setBackground(const std::string& file, const Vec2& scale);
     CREATE_FUNC(MainLayer);
 private:
@@ -38,6 +42,7 @@ private:
     void onTouchCancel(Touch *touch, Event *event);
     
     std::map<std::string, ShaderSprite*> mSprites;
+    std::map<std::string, ParticleSystemQuad*> mParticles;
 };
 
 NS_EE_END

@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include "BackgroundConfig.hpp"
+#include "ParticleConfig.hpp"
+#include "TimelineConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -29,6 +31,8 @@ public:
     std::string projectPath;
     std::vector<std::string> atlas;
     std::vector<SpriteConfig*> sprites;
+    std::vector<ParticleConfig*> particles;
+    std::map<std::string, Timeline*> timelines;
 };
 
 NS_EE_END

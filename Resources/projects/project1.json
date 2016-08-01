@@ -6,6 +6,7 @@
     [
         {
             "id":"1",
+            "visible":false,
             "texture":"item_3.png",
             "source_type":"ATLAS",
             "pos":{"x":0, "y":0, "z":0},
@@ -29,6 +30,7 @@
         },
     	{
             "id":"2",
+            "visible":false,
             "texture":"item_20.png",
             "source_type":"FILE",
             "pos":{"x":200, "y":200, "z":0},
@@ -36,6 +38,7 @@
         },
         {
             "id":"3",
+            "visible":false,
             "texture":"item_40.png",
             "source_type":"FILE",
             "v_shader":"shader_erode_vert.glsl",
@@ -47,7 +50,7 @@
             	{
             		"type":"TEXTURE",
             		"name":"u_erode_map",
-            		"texture":"erode_map.jpg",
+            		"texture":"erode_map.png",
                     "source_type":"FILE"
             	},
             	{
@@ -57,17 +60,19 @@
         },
         {
             "id":"4",
-            "texture":"item_grassland.png",
+            "visible":true,
+            "texture":"item_desert.png",
             "source_type":"FILE",
             "v_shader":"shader_erode_vert.glsl",
             "f_shader":"shader_erode_frag.glsl",
-            "pos":{"x":0, "y":200, "z":2},
+            "pos":{"x":0, "y":0, "z":2},
+            "scale":{"x":0.5, "y":0.5},
             "uniform":
             [
             	{
             		"type":"TEXTURE",
             		"name":"u_erode_map",
-            		"texture":"erode_map.jpg",
+            		"texture":"erode_map.png",
                     "source_type":"FILE"
             	},
             	{
@@ -77,6 +82,7 @@
         },
         {
             "id":"5",
+            "visible":false,
             "texture":"water.png",
             "source_type":"FILE",
             "f_shader":"shader_water_wave_frag.glsl",
@@ -90,6 +96,7 @@
         },
         {
             "id":"6",
+            "visible":false,
             "texture":"item_14.png",
             "source_type":"FILE",
             "f_shader":"shader_twist_quick_frag.glsl",
@@ -100,6 +107,51 @@
                     "type":"TIME"
                 }
              ]
+        },
+        {
+            "id":"7",
+            "visible":true,
+            "texture":"item_grassland.png",
+            "scale":{"x":0.5, "y":0.5},
+            "source_type":"FILE",
+            "pos":{"x":0, "y":0, "z":0},
+            "scale":{"x":1.0, "y":1.0}
+        }
+    ],
+    "timelines":
+    [
+        {
+            "id":"2001",
+            "type":"SEQUENCE",
+            "children":
+            [
+                {
+                    "type":"MOVE_BY",
+                    "duration":2.0,
+                    "x":0.0,
+                    "y":300.0
+                },
+                {
+                    "type":"MOVE_BY",
+                    "duration":2.0,
+                    "x":300.0,
+                    "y":0.0
+                },
+                {
+                    "type":"MOVE_BY",
+                    "duration":2.0,
+                    "x":-300.0,
+                    "y":-300.0
+                }
+            ]
+        }
+    ],
+    "particles":
+    [
+        {
+            "id":"3001",
+            "file":"sand_suck.plist",
+            "pos":{"x":0, "y":80, "z":3}
         }
     ]
 }
