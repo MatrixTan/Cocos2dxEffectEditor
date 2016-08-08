@@ -89,7 +89,6 @@ bool Project::init(const std::string& projectPath)
                 std::string uniformType = uniform[j]["type"].GetString();
                 if(uniformType == "TEXTURE"){
                     auto uniformConfigTexture = new(std::nothrow)ShaderUniformConfigTexture();
-                    uniformConfigTexture->type = SHADER_UNIFORM_TYPE::TEXTURE;
                     uniformConfigTexture->name = uniform[j]["name"].GetString();
                     uniformConfigTexture->texture = uniform[j]["texture"].GetString();
                     uniformConfigTexture->sourceType = SpriteConfig::getSpriteSouceType(uniform[j]["source_type"].GetString());
@@ -101,7 +100,6 @@ bool Project::init(const std::string& projectPath)
                     spriteConfig->uniforms.push_back(uniformConfig);
                 }else if(uniformType == "RANDOM"){
                     auto uniformConfigRandom = new(std::nothrow)ShaderUniformConfigRandom();
-                    uniformConfigRandom->type = SHADER_UNIFORM_TYPE::RANDOM;
                     uniformConfigRandom->name = uniform[j]["name"].GetString();
                     uniformConfigRandom->min = uniform[j]["min"].GetDouble();
                     uniformConfigRandom->max = uniform[j]["max"].GetDouble();
@@ -110,12 +108,29 @@ bool Project::init(const std::string& projectPath)
                     auto uniformConfig = new(std::nothrow)ShaderUniformConfig();
                     uniformConfig->type = SHADER_UNIFORM_TYPE::UV_RECT;
                     spriteConfig->uniforms.push_back(uniformConfig);
+                }else if(uniformType == "FLOAT"){
+                    auto uniformConfig = new(std::nothrow)ShaderUniformConfigFloat();
+                    uniformConfig->name = uniform[j]["name"].GetString();
+                    uniformConfig->value = uniform[j]["value"].GetDouble();
+                    spriteConfig->uniforms.push_back(uniformConfig);
+                }else if(uniformType == "VEC4"){
+                    auto uniformConfig = new(std::nothrow)ShaderUniformConfigVec4();
+                    uniformConfig->name = uniform[j]["name"].GetString();
+                    uniformConfig->value.x = uniform[j]["value"]["x"].GetDouble();
+                    uniformConfig->value.y = uniform[j]["value"]["y"].GetDouble();
+                    uniformConfig->value.z = uniform[j]["value"]["z"].GetDouble();
+                    uniformConfig->value.w = uniform[j]["value"]["w"].GetDouble();
+                    spriteConfig->uniforms.push_back(uniformConfig);
                 }
             }
         }
         
         if(sprites[i].HasMember("timeline")){
             spriteConfig->timeline = sprites[i]["timeline"].GetString();
+        }
+        
+        if(sprites[i].HasMember("blend_func")){
+            spriteConfig->setBlendFun(sprites[i]["blend_func"]["src"].GetString(), sprites[i]["blend_func"]["dst"].GetString());
         }
         
         mConfig.sprites.push_back(spriteConfig);
@@ -200,6 +215,12 @@ void Project::loadProject()
         shaderSprite->setPosition(pos);
         shaderSprite->setScale((*iter)->scale.x, (*iter)->scale.y);
         shaderSprite->setLocalZOrder(zOrder);
+        if((*iter)->customBlend){
+            BlendFunc blendFunc;
+            blendFunc.src = (*iter)->blendSrc;
+            blendFunc.dst = (*iter)->blendDst;
+            shaderSprite->setBlendFunc(blendFunc);
+        }
         
         uint32_t uniformFlag = 0;
         for(std::vector<ShaderUniformConfig*>::iterator iterUniform = (*iter)->uniforms.begin();
@@ -229,6 +250,12 @@ void Project::loadProject()
                     texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(textureUniform->texture)->getTexture();
                 }
                 shaderSprite->getGLProgramState()->setUniformTexture(textureUniform->name, texture);
+            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::FLOAT){
+                auto floatUniform = static_cast<ShaderUniformConfigFloat*>(*iterUniform);
+                shaderSprite->getGLProgramState()->setUniformFloat(floatUniform->name, floatUniform->value);
+            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::VEC4){
+                auto vec4Uniform = static_cast<ShaderUniformConfigVec4*>(*iterUniform);
+                shaderSprite->getGLProgramState()->setUniformVec4(vec4Uniform->name, vec4Uniform->value);
             }
         }
         shaderSprite->setUniformFlag(uniformFlag);

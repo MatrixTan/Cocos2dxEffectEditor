@@ -13,8 +13,11 @@
 #include "ShaderSprite.hpp"
 #include "LinkEffect.hpp"
 #include "RingEffect.hpp"
+#include <chrono>
 
 NS_EE_BEGIN
+
+USING_NS_CC;
 
 using namespace cocos2d::ui;
 
@@ -27,6 +30,8 @@ bool UILayer::init(void)
     Layout *uiRoot = static_cast<Layout*>(mContainer->getChildByName("root_node"));
     Button *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
     pButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onUserTouchEvent, this));
+    
+    
     
     return Layer::init();
 }
@@ -42,6 +47,17 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
         auto particle = MainLayer::getInstance()->getParticle("3001");
         particle->resetSystem();
         
+        /*std::string csbFile = "res/horizontal_effect2.csb";
+        auto horizontalEffect = cocos2d::CSLoader::createNode(csbFile);
+        auto timeLine = CSLoader::createTimeline(csbFile);
+        addChild(horizontalEffect, 9999999);
+        horizontalEffect->setPosition(Vec2(300, 300));
+        horizontalEffect->runAction(timeLine);
+        timeLine->setLastFrameCallFunc([horizontalEffect](){
+            horizontalEffect->removeFromParent();
+        });
+        timeLine->gotoFrameAndPlay(0, false);
+         */
         // ===================
         
         /*auto shaderSprite = MainLayer::getInstance()->getSprite("1");

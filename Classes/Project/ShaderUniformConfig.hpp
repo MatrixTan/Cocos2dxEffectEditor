@@ -19,7 +19,9 @@ enum class SHADER_UNIFORM_TYPE
     TIME,
     TEXTURE,
     UV_RECT,
-    RANDOM
+    RANDOM,
+    FLOAT,
+    VEC4
 };
 
 class ShaderUniformConfig
@@ -34,6 +36,7 @@ enum class SPRITE_SOURCE_TYPE;
 class ShaderUniformConfigTexture : public ShaderUniformConfig
 {
 public:
+    ShaderUniformConfigTexture();
     std::string name;
     std::string texture;
     SPRITE_SOURCE_TYPE sourceType;
@@ -42,9 +45,26 @@ public:
 class ShaderUniformConfigRandom : public ShaderUniformConfig
 {
 public:
+    ShaderUniformConfigRandom();
     std::string name;
     float min;
     float max;
+};
+
+class ShaderUniformConfigFloat : public ShaderUniformConfig
+{
+public:
+    ShaderUniformConfigFloat();
+    std::string name;
+    float value;
+};
+
+class ShaderUniformConfigVec4 : public ShaderUniformConfig
+{
+public:
+    ShaderUniformConfigVec4();
+    std::string name;
+    cocos2d::Vec4 value;
 };
 
 NS_EE_END

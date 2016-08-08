@@ -45,7 +45,16 @@ public:
     bool visible;
     std::string timeline;
     
+    GLenum blendSrc;
+    GLenum blendDst;
+    bool customBlend;
+    
+    void setBlendFun(const std::string& src, const std::string& dst);
+    
     static SPRITE_SOURCE_TYPE getSpriteSouceType(const std::string& type);
+    
+private:
+    GLenum getBlendFunc(const std::string& name);
 };
 
 NS_EE_END

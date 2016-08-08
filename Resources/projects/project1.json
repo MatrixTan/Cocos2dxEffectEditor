@@ -116,6 +116,42 @@
             "source_type":"FILE",
             "pos":{"x":0, "y":0, "z":0},
             "scale":{"x":1.0, "y":1.0}
+        },
+        {
+            "id":"8",
+            "visible":true,
+            "texture":"thunder.png",
+            "source_type":"FILE",
+            "f_shader":"shader_uv_transfer.glsl",
+            "pos":{"x":100, "y":100, "z":2},
+            "scale":{"x":1.0, "y":0.3},
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                },
+                {
+                    "type":"FLOAT",
+                    "name":"u_window_width",
+                    "value":0.3
+                },
+                {
+                    "type":"FLOAT",
+                    "name":"u_speed",
+                    "value":0.5
+                },
+                {
+                    "type":"VEC4",
+                    "name":"u_color",
+                    "value":{"x":1.0, "y":1.0, "z":1.0, "w":1.0}
+                }
+
+            ],
+            "blend_func":
+            {
+                "src":"SRC_ALPHA",
+                "dst":"ONE"
+            }
         }
     ],
     "timelines":

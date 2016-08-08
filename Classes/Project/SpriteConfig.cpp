@@ -13,6 +13,7 @@ NS_EE_BEGIN
 SpriteConfig::SpriteConfig()
 {
     scale = Vec2(1.0f, 1.0f);
+    customBlend = false;
 }
 
 SpriteConfig::~SpriteConfig()
@@ -33,6 +34,39 @@ SPRITE_SOURCE_TYPE SpriteConfig::getSpriteSouceType(const std::string &type)
         CCASSERT(false, "error sprite source type");
     }
     return SPRITE_SOURCE_TYPE::NONE;
+}
+
+void SpriteConfig::setBlendFun(const std::string &src, const std::string &dst)
+{
+    customBlend = true;
+    blendSrc = getBlendFunc(src);
+    blendDst = getBlendFunc(dst);
+}
+
+GLenum SpriteConfig::getBlendFunc(const std::string &name)
+{
+    if(name == "ZERO"){
+        return GL_ZERO;
+    }else if(name == "ONE"){
+        return GL_ONE;
+    }else if(name == "SRC_COLOR"){
+        return GL_SRC_COLOR;
+    }else if(name == "ONE_MINUS_SRC_COLOR"){
+        return GL_ONE_MINUS_SRC_COLOR;
+    }else if(name == "DST_COLOR"){
+        return GL_DST_COLOR;
+    }else if(name == "ONE_MINUS_DST_COLOR"){
+        return GL_ONE_MINUS_DST_COLOR;
+    }else if(name == "SRC_ALPHA"){
+        return GL_SRC_ALPHA;
+    }else if(name == "ONE_MINUS_SRC_ALPHA"){
+        return GL_ONE_MINUS_SRC_ALPHA;
+    }else if(name == "DST_ALPHA"){
+        return GL_DST_ALPHA;
+    }else if(name == "ONE_MINUS_DST_ALPHA"){
+        return GL_ONE_MINUS_DST_ALPHA;
+    }
+    return 0;
 }
 
 NS_EE_END

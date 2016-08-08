@@ -1,7 +1,3 @@
-#ifdef GL_ES
-precision highp float;
-#endif
-
 varying vec2 v_texcoord;
 
 uniform float u_time;
