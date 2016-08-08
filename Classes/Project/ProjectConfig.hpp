@@ -14,6 +14,7 @@
 #include "BackgroundConfig.hpp"
 #include "ParticleConfig.hpp"
 #include "TimelineConfig.hpp"
+#include "AnimationConfig.cpp"
 
 NS_EE_BEGIN
 
@@ -33,6 +34,7 @@ public:
     std::vector<SpriteConfig*> sprites;
     std::vector<ParticleConfig*> particles;
     std::map<std::string, Timeline*> timelines;
+    std::map<std::string, AnimationConfig*> animations;
 };
 
 NS_EE_END

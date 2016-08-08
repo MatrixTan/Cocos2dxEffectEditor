@@ -13,6 +13,8 @@
 #include "SpriteConfig.hpp"
 #include "ShaderUniformConfig.hpp"
 #include "ParticleConfig.hpp"
+#include "AnimationConfig.hpp"
+#include "Utils.hpp"
 
 NS_EE_BEGIN
 
@@ -164,6 +166,36 @@ bool Project::init(const std::string& projectPath)
         
     }
     
+    rapidjson::Value& animations = root["animations"];
+    if(!animations.IsNull()){
+        for(int i=0; i<animations.Size(); i++){
+            rapidjson::Value& animation = animations[i];
+            auto animationConfig = new(std::nothrow) AnimationConfig();
+            animationConfig->id = animation["id"].GetString();
+            animationConfig->frameFile = animation["frame_file"].GetString();
+            animationConfig->texture = animation["texture"].GetString();
+            animationConfig->frameName = animation["frame_name"].GetString();
+            animationConfig->frameFrom = animation["frame_from"].GetInt();
+            animationConfig->frameTo = animation["frame_to"].GetInt();
+            animationConfig->pos.x = animation["pos"]["x"].GetDouble();
+            animationConfig->pos.y = animation["pos"]["y"].GetDouble();
+            animationConfig->pos.z = animation["pos"]["z"].GetDouble();
+            animationConfig->rotation = animation["rotation"].GetDouble();
+            animationConfig->scale.x = animation["scale"]["x"].GetDouble();
+            animationConfig->scale.y = animation["scale"]["y"].GetDouble();
+            animationConfig->interval = animation["interval"].GetDouble();
+            animationConfig->repeat = 0;
+            if(animation.HasMember("repeat")){
+                animationConfig->repeat = animation["repeat"].GetInt();
+            }
+            animationConfig->delay = 0.0f;
+            if(animation.HasMember("delay")){
+                animationConfig->delay = animation["delay"].GetDouble();
+            }
+            mConfig.animations[animationConfig->id] = animationConfig;
+        }
+    }
+    
     loadProject();
     return true;
 }
@@ -197,7 +229,9 @@ void Project::loadProject()
     }
     auto spriteOrigin = Director::getInstance()->getWinSize() * 0.5f;
     
-    for(std::vector<SpriteConfig*>::iterator iter = mConfig.sprites.begin(); iter != mConfig.sprites.end(); iter++)
+    for(std::vector<SpriteConfig*>::iterator iter = mConfig.sprites.begin()
+        ; iter != mConfig.sprites.end()
+        ; iter++)
     {
         auto shaderSprite = ShaderSprite::create();
         if((*iter)->sourceType == SPRITE_SOURCE_TYPE::FILE){
@@ -279,6 +313,32 @@ void Project::loadProject()
         MainLayer::getInstance()->addParticleSystem((*iter)->id, particle, (*iter)->position.z);
     }
 
+    for(std::map<std::string, AnimationConfig*>::iterator iter = mConfig.animations.begin();
+        iter != mConfig.animations.end();
+        iter++)
+    {
+        SpriteFrameCache::getInstance()->addSpriteFramesWithFile(mConfig.projectPath + iter->second->frameFile
+                                                                 , mConfig.projectPath + iter->second->texture);
+        int frameFrom = iter->second->frameFrom;
+        int frameTo = iter->second->frameTo;
+        cocos2d::Vector<SpriteFrame*> frames;
+        for(int i=frameFrom; i<=frameTo; i++){
+            std::string frameName = Utils::stringFormat(iter->second->frameName.c_str(), 256, i);
+            auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(frameName);
+            frames.pushBack(spriteFrame);
+        }
+        auto animations = Animation::createWithSpriteFrames(frames, iter->second->interval*2);
+        auto animator = Animate::create(animations);
+        auto sprite = ShaderSprite::create();
+        sprite->setPosition(iter->second->pos.x + spriteOrigin.width, iter->second->pos.y + spriteOrigin.height);
+        sprite->setLocalZOrder(iter->second->pos.z);
+        sprite->setScale(iter->second->scale.x, iter->second->scale.y);
+        sprite->setRotation(iter->second->rotation);
+        sprite->setBlendFunc(BlendFunc::ADDITIVE);
+        sprite->runAction(Sequence::create(DelayTime::create(iter->second->delay), Repeat::create(animator, iter->second->repeat), NULL));
+        sprite->runAction(animator);
+        MainLayer::getInstance()->addSprite(iter->first, sprite);
+    }
 }
 
 NS_EE_END

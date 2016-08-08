@@ -77,6 +77,10 @@
 		666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666915CB1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
 		666915CC1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
+		666B4CEB1D58802D000990CB /* AnimationConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CE91D58802D000990CB /* AnimationConfig.cpp */; };
+		666B4CEC1D58802D000990CB /* AnimationConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CE91D58802D000990CB /* AnimationConfig.cpp */; };
+		666B4CF11D589313000990CB /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CEF1D589313000990CB /* Utils.cpp */; };
+		666B4CF21D589313000990CB /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CEF1D589313000990CB /* Utils.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
@@ -211,6 +215,10 @@
 		666778721D48B6CB00D0E000 /* LinkEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkEffect.cpp; sourceTree = "<group>"; };
 		666778731D48B6CB00D0E000 /* LinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkEffect.hpp; sourceTree = "<group>"; };
 		666915CA1D365D8100E5C8A7 /* projects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = projects; sourceTree = "<group>"; };
+		666B4CE91D58802D000990CB /* AnimationConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationConfig.cpp; path = Project/AnimationConfig.cpp; sourceTree = "<group>"; };
+		666B4CEA1D58802D000990CB /* AnimationConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AnimationConfig.hpp; path = Project/AnimationConfig.hpp; sourceTree = "<group>"; };
+		666B4CEF1D589313000990CB /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = Common/Utils.cpp; sourceTree = "<group>"; };
+		666B4CF01D589313000990CB /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Utils.hpp; path = Common/Utils.hpp; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
 		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
 		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
@@ -458,6 +466,8 @@
 				669996361D4F06F000AA2783 /* ParticleConfig.hpp */,
 				669996391D4F228800AA2783 /* TimelineConfig.cpp */,
 				6699963A1D4F228800AA2783 /* TimelineConfig.hpp */,
+				666B4CE91D58802D000990CB /* AnimationConfig.cpp */,
+				666B4CEA1D58802D000990CB /* AnimationConfig.hpp */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -469,6 +479,8 @@
 				6694EA0F1D2F54F0007212E9 /* Singleton.hpp */,
 				6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */,
 				6694EA131D2F5B8A007212E9 /* NodeSingleton.hpp */,
+				666B4CEF1D589313000990CB /* Utils.cpp */,
+				666B4CF01D589313000990CB /* Utils.hpp */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -623,10 +635,12 @@
 				6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				666B4CEB1D58802D000990CB /* AnimationConfig.cpp in Sources */,
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
 				669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
+				666B4CF11D589313000990CB /* Utils.cpp in Sources */,
 				6636BE3F1D47016D004E09DD /* SpriteConfig.cpp in Sources */,
 				66E032DF1D4770AB00983797 /* UILayer.cpp in Sources */,
 				660E66871D24BF1800145F7E /* MainScene.cpp in Sources */,
@@ -657,11 +671,13 @@
 				6636BE381D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				66E032E01D4770AB00983797 /* UILayer.cpp in Sources */,
 				660E66811D24AE8B00145F7E /* Version.cpp in Sources */,
+				666B4CEC1D58802D000990CB /* AnimationConfig.cpp in Sources */,
 				666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
+				666B4CF21D589313000990CB /* Utils.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,
 				6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
