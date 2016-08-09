@@ -1,5 +1,5 @@
 uniform float u_time;
-uniform float u_window_width;
+uniform float u_window_width; //窗口宽度，[0,1]范围内，材质宽度的比例。
 uniform float u_speed;
 uniform vec4 u_color;
 

@@ -81,6 +81,8 @@
 		666B4CEC1D58802D000990CB /* AnimationConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CE91D58802D000990CB /* AnimationConfig.cpp */; };
 		666B4CF11D589313000990CB /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CEF1D589313000990CB /* Utils.cpp */; };
 		666B4CF21D589313000990CB /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CEF1D589313000990CB /* Utils.cpp */; };
+		666B4CF61D597010000990CB /* ThunderLinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */; };
+		666B4CF71D597010000990CB /* ThunderLinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
@@ -219,6 +221,8 @@
 		666B4CEA1D58802D000990CB /* AnimationConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AnimationConfig.hpp; path = Project/AnimationConfig.hpp; sourceTree = "<group>"; };
 		666B4CEF1D589313000990CB /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = Common/Utils.cpp; sourceTree = "<group>"; };
 		666B4CF01D589313000990CB /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Utils.hpp; path = Common/Utils.hpp; sourceTree = "<group>"; };
+		666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThunderLinkEffect.cpp; sourceTree = "<group>"; };
+		666B4CF51D597010000990CB /* ThunderLinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThunderLinkEffect.hpp; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
 		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
 		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
@@ -397,6 +401,8 @@
 				666778731D48B6CB00D0E000 /* LinkEffect.hpp */,
 				665A26861D49F8B1007511EB /* RingEffect.cpp */,
 				665A26871D49F8B1007511EB /* RingEffect.hpp */,
+				666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */,
+				666B4CF51D597010000990CB /* ThunderLinkEffect.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -650,6 +656,7 @@
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
+				666B4CF61D597010000990CB /* ThunderLinkEffect.cpp in Sources */,
 				6699963B1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -662,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				665A26891D49F8B1007511EB /* RingEffect.cpp in Sources */,
+				666B4CF71D597010000990CB /* ThunderLinkEffect.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				660E66881D24BF1800145F7E /* MainScene.cpp in Sources */,

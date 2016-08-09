@@ -35,4 +35,15 @@ FiniteTimeAction* TimelineSequence::getAction()
     return Sequence::create(actions);
 }
 
+//==========TimelineRepeat==============
+TimelineRepeat::~TimelineRepeat()
+{
+    CC_SAFE_DELETE(child);
+}
+
+FiniteTimeAction* TimelineRepeat::getAction()
+{
+    return Repeat::create(child->getAction(), repeat);
+}
+
 NS_EE_END

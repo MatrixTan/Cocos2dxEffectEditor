@@ -13,6 +13,7 @@
 #include "ShaderSprite.hpp"
 #include "LinkEffect.hpp"
 #include "RingEffect.hpp"
+#include "ThunderLinkEffect.hpp"
 #include <chrono>
 
 NS_EE_BEGIN
@@ -41,11 +42,10 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         
-        auto shaderSprite = MainLayer::getInstance()->getSprite("4");
-        shaderSprite->resetTimeUniform();
-        
-        auto particle = MainLayer::getInstance()->getParticle("3001");
-        particle->resetSystem();
+        auto link = ThunderLinkEffect::create(MainLayer::getInstance()->getSprite("7")
+                                              , MainLayer::getInstance()->getSprite("6")
+                                              , 1.5);
+        addChild(link);
         
         /*std::string csbFile = "res/horizontal_effect2.csb";
         auto horizontalEffect = cocos2d::CSLoader::createNode(csbFile);

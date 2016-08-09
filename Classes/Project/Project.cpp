@@ -192,6 +192,9 @@ bool Project::init(const std::string& projectPath)
             if(animation.HasMember("delay")){
                 animationConfig->delay = animation["delay"].GetDouble();
             }
+            if(animation.HasMember("timeline")){
+                animationConfig->timeline = animation["timeline"].GetString();
+            }
             mConfig.animations[animationConfig->id] = animationConfig;
         }
     }
@@ -216,6 +219,11 @@ Timeline* Project::parseTimeline(const rapidjson::Value &value)
         moveByTimeline->x = value["x"].GetDouble();
         moveByTimeline->y = value["y"].GetDouble();
         return moveByTimeline;
+    }else if(type == "REPEAT"){
+        auto repeatTimeline = new(std::nothrow) TimelineRepeat();
+        repeatTimeline->repeat = value["repeat"].GetInt();
+        repeatTimeline->child = parseTimeline(value["child"]);
+        return repeatTimeline;
     }
     return nullptr;
 }
@@ -331,13 +339,15 @@ void Project::loadProject()
         auto animator = Animate::create(animations);
         auto sprite = ShaderSprite::create();
         sprite->setPosition(iter->second->pos.x + spriteOrigin.width, iter->second->pos.y + spriteOrigin.height);
-        sprite->setLocalZOrder(iter->second->pos.z);
         sprite->setScale(iter->second->scale.x, iter->second->scale.y);
         sprite->setRotation(iter->second->rotation);
         sprite->setBlendFunc(BlendFunc::ADDITIVE);
         sprite->runAction(Sequence::create(DelayTime::create(iter->second->delay), Repeat::create(animator, iter->second->repeat), NULL));
         sprite->runAction(animator);
-        MainLayer::getInstance()->addSprite(iter->first, sprite);
+        if(iter->second->timeline.length() > 0){
+            sprite->runAction(mConfig.timelines[iter->second->timeline]->getAction());
+        }
+        MainLayer::getInstance()->addSprite(iter->first, sprite, iter->second->pos.z);
     }
 }
 

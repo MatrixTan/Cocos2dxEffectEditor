@@ -29,6 +29,7 @@ public:
     float interval;
     int repeat;
     float delay;
+    std::string timeline;
 };
 
 NS_EE_END

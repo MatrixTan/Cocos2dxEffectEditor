@@ -43,6 +43,16 @@ public:
     std::vector<Timeline*> children;
 };
 
+class TimelineRepeat : public Timeline
+{
+public:
+    ~TimelineRepeat();
+    virtual FiniteTimeAction* getAction()override;
+    
+    int repeat;
+    Timeline* child;
+};
+
 
 NS_EE_END
 
