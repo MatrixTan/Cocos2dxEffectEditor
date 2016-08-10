@@ -15,6 +15,7 @@
 #include "ParticleConfig.hpp"
 #include "AnimationConfig.hpp"
 #include "Utils.hpp"
+#include "ParticleSystemExt.hpp"
 
 NS_EE_BEGIN
 
@@ -152,6 +153,9 @@ bool Project::init(const std::string& projectPath)
             pParticle->position.x = particlePos["x"].GetDouble();
             pParticle->position.y = particlePos["y"].GetDouble();
             pParticle->position.z = particlePos["z"].GetDouble();
+            if(particle.HasMember("radial")){
+                pParticle->radial = particle["radial"].GetBool();
+            }
             mConfig.particles.push_back(pParticle);
         }
     }
@@ -312,9 +316,10 @@ void Project::loadProject()
     for(std::vector<ParticleConfig*>::iterator iter = mConfig.particles.begin();
         iter != mConfig.particles.end();
         iter++){
-        auto particle = ParticleSystemQuad::create(mConfig.projectPath + (*iter)->file);
+        auto particle = ParticleSystemExt::create(mConfig.projectPath + (*iter)->file);
         particle->setPosition((*iter)->position.x + spriteOrigin.width
                               , (*iter)->position.y+spriteOrigin.height);
+        particle->setRadial((*iter)->radial);
         if((*iter)->timeline.length() > 0){
             particle->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
         }

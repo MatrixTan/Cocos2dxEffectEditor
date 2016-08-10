@@ -116,8 +116,7 @@
             "texture":"item_14.png",
             "scale":{"x":0.5, "y":0.5},
             "source_type":"FILE",
-            "pos":{"x":0, "y":0, "z":0},
-            "scale":{"x":1.0, "y":1.0}
+            "pos":{"x":0, "y":0, "z":0}
         },
         {
             "id":"8",
@@ -140,7 +139,7 @@
                 {
                     "type":"FLOAT",
                     "name":"u_speed",
-                    "value":2.0
+                    "value":1.0
                 },
                 {
                     "type":"VEC4",
@@ -154,11 +153,20 @@
                 "src":"SRC_ALPHA",
                 "dst":"ONE"
             }
+        },
+        {
+            "id":"9",
+            "visible":true,
+            "texture":"rainbow_create_aura.png",
+            "scale":{"x":1.0, "y":1.0},
+            "source_type":"FILE",
+            "pos":{"x":-100, "y":-100, "z":0}
         }
     ],
     "timelines":
     [
-        {"id":"2001",
+        {
+            "id":"2001",
             "type":"REPEAT",
             "repeat":3000,
             "child":{            
@@ -193,6 +201,17 @@
             "id":"3001",
             "file":"sand_suck.plist",
             "pos":{"x":0, "y":80, "z":3}
+        },
+        {
+            "id":"3002",
+            "file":"rainbow_create_particle.plist",
+            "pos":{"x":-100, "y":-100, "z":3}
+        },
+        {
+            "id":"3002",
+            "file":"rainbow_create_particle2.plist",
+            "pos":{"x":-100, "y":-100, "z":3},
+            "radial":true
         }
     ],
     "animations":

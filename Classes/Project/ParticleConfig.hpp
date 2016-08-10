@@ -17,10 +17,13 @@ NS_EE_BEGIN
 class ParticleConfig
 {
 public:
+    ParticleConfig();
+    
     std::string id;
     std::string file;
     std::string timeline;
     cocos2d::Vec3 position;
+    bool radial;
 };
 
 NS_EE_END

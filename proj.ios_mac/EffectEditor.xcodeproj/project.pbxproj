@@ -83,6 +83,8 @@
 		666B4CF21D589313000990CB /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CEF1D589313000990CB /* Utils.cpp */; };
 		666B4CF61D597010000990CB /* ThunderLinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */; };
 		666B4CF71D597010000990CB /* ThunderLinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */; };
+		666B4CFE1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */; };
+		666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
@@ -223,6 +225,8 @@
 		666B4CF01D589313000990CB /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Utils.hpp; path = Common/Utils.hpp; sourceTree = "<group>"; };
 		666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThunderLinkEffect.cpp; sourceTree = "<group>"; };
 		666B4CF51D597010000990CB /* ThunderLinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThunderLinkEffect.hpp; sourceTree = "<group>"; };
+		666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystemExt.cpp; sourceTree = "<group>"; };
+		666B4CFD1D5ADC86000990CB /* ParticleSystemExt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParticleSystemExt.hpp; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
 		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
 		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 				665A26871D49F8B1007511EB /* RingEffect.hpp */,
 				666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */,
 				666B4CF51D597010000990CB /* ThunderLinkEffect.hpp */,
+				666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */,
+				666B4CFD1D5ADC86000990CB /* ParticleSystemExt.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -646,6 +652,7 @@
 				669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
+				666B4CFE1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				666B4CF11D589313000990CB /* Utils.cpp in Sources */,
 				6636BE3F1D47016D004E09DD /* SpriteConfig.cpp in Sources */,
 				66E032DF1D4770AB00983797 /* UILayer.cpp in Sources */,
@@ -687,6 +694,7 @@
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				666B4CF21D589313000990CB /* Utils.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
+				666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,
 				6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,

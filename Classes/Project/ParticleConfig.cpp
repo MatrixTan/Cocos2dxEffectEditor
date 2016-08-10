@@ -7,3 +7,13 @@
 //
 
 #include "ParticleConfig.hpp"
+
+NS_EE_BEGIN
+
+ParticleConfig::ParticleConfig()
+:radial(false)
+{
+    
+}
+
+NS_EE_END
