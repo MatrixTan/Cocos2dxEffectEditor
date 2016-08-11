@@ -19,6 +19,12 @@ NS_EE_BEGIN
 
 USING_NS_CC;
 
+enum class UI_STATE
+{
+    NONE = 0,
+    PEN = 1
+};
+
 class UILayer : public NodeSingleton<UILayer> ,public Layer
 {
 public:
@@ -30,8 +36,10 @@ public:
 private:
     
     void onUserTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onPenTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     
     Node *mContainer;
+    UI_STATE mState;
 };
 
 NS_EE_END

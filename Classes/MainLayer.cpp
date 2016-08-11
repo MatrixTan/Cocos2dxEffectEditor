@@ -118,7 +118,7 @@ void MainLayer::onTouchMove(cocos2d::Touch *touch, cocos2d::Event *event)
 void MainLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     auto pos = touch->getLocation();
-    PostRenderEffectLayer::getInstance()->setDrawRect(Rect(pos.x - 300, pos.y - 300, 600, 600), 0.70f);
+    //PostRenderEffectLayer::getInstance()->setDrawRect(Rect(pos.x - 300, pos.y - 300, 600, 600), 0.70f);
 }
 
 void MainLayer::onTouchCancel(Touch *touch, Event *event)

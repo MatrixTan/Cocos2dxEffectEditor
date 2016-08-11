@@ -15,6 +15,7 @@
 #include "RingEffect.hpp"
 #include "ThunderLinkEffect.hpp"
 #include <chrono>
+#include "DrawLineLayer.hpp"
 
 NS_EE_BEGIN
 
@@ -32,9 +33,29 @@ bool UILayer::init(void)
     Button *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
     pButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onUserTouchEvent, this));
     
+    auto penButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_pen"));
+    penButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onPenTouchEvent, this));
     
+    auto lineLayer = DrawLineLayer::create();
+    addChild(lineLayer);
+    
+    mState = UI_STATE::NONE;
     
     return Layer::init();
+}
+
+void UILayer::onPenTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        mState = mState == UI_STATE::PEN ? UI_STATE::NONE : UI_STATE::PEN;
+        auto pButton = static_cast<Button*>(sender);
+        if(mState == UI_STATE::PEN){
+            pButton->setColor(Color3B(200, 200, 255));
+        }else{
+            pButton->setColor(Color3B(255, 255, 255));
+        }
+    }
 }
 
 void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)

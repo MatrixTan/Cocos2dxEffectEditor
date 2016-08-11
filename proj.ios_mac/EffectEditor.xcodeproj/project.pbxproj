@@ -85,6 +85,8 @@
 		666B4CF71D597010000990CB /* ThunderLinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CF41D597010000990CB /* ThunderLinkEffect.cpp */; };
 		666B4CFE1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */; };
 		666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */; };
+		666B4D241D5C35C7000990CB /* DrawLineLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */; };
+		666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
@@ -227,6 +229,8 @@
 		666B4CF51D597010000990CB /* ThunderLinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ThunderLinkEffect.hpp; sourceTree = "<group>"; };
 		666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystemExt.cpp; sourceTree = "<group>"; };
 		666B4CFD1D5ADC86000990CB /* ParticleSystemExt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParticleSystemExt.hpp; sourceTree = "<group>"; };
+		666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawLineLayer.cpp; sourceTree = "<group>"; };
+		666B4D231D5C35C7000990CB /* DrawLineLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawLineLayer.hpp; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
 		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
 		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 				666B4CF51D597010000990CB /* ThunderLinkEffect.hpp */,
 				666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */,
 				666B4CFD1D5ADC86000990CB /* ParticleSystemExt.hpp */,
+				666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */,
+				666B4D231D5C35C7000990CB /* DrawLineLayer.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -658,6 +664,7 @@
 				66E032DF1D4770AB00983797 /* UILayer.cpp in Sources */,
 				660E66871D24BF1800145F7E /* MainScene.cpp in Sources */,
 				6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
+				666B4D241D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */,
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
@@ -696,6 +703,7 @@
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
 				666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,
+				666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
 				6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
 			);

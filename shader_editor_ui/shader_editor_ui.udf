@@ -14,7 +14,7 @@
         <LuaEncryptSign Value="" />
         <Android_PackageName Value="org.cocos.shadereditorui" />
         <AndroidkeyStore Value="" />
-        <AndroidVersion Value="" />
+        <AndroidVersion Value="android-24" />
         <iOS_Target Value="shader_editor_ui-mobile" />
         <iOS_BundleID Value="iPhone Developer: Ming Wen (5HJC4S4ERU)" />
         <Platform Value="None" />
