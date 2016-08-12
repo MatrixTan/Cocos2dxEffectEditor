@@ -16,7 +16,7 @@ NS_EE_BEGIN
 bool MainScene::init()
 {
     auto p = new Project();
-    p->init("projects/project1.json");
+    p->init("projects/project2/project.json");
     
     this->addChild(MainLayer::getInstance(), (int)LAYER_ZORDER::MAIN);
     this->addChild(PostRenderEffectLayer::getInstance(), (int)LAYER_ZORDER::POST_RENDER);

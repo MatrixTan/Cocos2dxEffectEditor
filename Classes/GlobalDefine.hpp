@@ -24,7 +24,8 @@ enum class SPRITE_ZORDER
 {
     BACK_GROUND = 0,
     SPRITE = 100,
-    UI = 200
+    MASK = 200,
+    UI = 2000
 };
 
 #endif /* GlobalDefine_h */

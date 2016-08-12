@@ -97,6 +97,8 @@
 		669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996351D4F06F000AA2783 /* ParticleConfig.cpp */; };
 		6699963B1D4F228800AA2783 /* TimelineConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996391D4F228800AA2783 /* TimelineConfig.cpp */; };
 		6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996391D4F228800AA2783 /* TimelineConfig.cpp */; };
+		66DAF5951D5DCC2000313562 /* MaskConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DAF5931D5DCC2000313562 /* MaskConfig.cpp */; };
+		66DAF5961D5DCC2000313562 /* MaskConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DAF5931D5DCC2000313562 /* MaskConfig.cpp */; };
 		66E032DF1D4770AB00983797 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E032DD1D4770AB00983797 /* UILayer.cpp */; };
 		66E032E01D4770AB00983797 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E032DD1D4770AB00983797 /* UILayer.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -241,6 +243,8 @@
 		669996361D4F06F000AA2783 /* ParticleConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParticleConfig.hpp; path = Project/ParticleConfig.hpp; sourceTree = "<group>"; };
 		669996391D4F228800AA2783 /* TimelineConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineConfig.cpp; path = Project/TimelineConfig.cpp; sourceTree = "<group>"; };
 		6699963A1D4F228800AA2783 /* TimelineConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineConfig.hpp; path = Project/TimelineConfig.hpp; sourceTree = "<group>"; };
+		66DAF5931D5DCC2000313562 /* MaskConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaskConfig.cpp; path = Project/MaskConfig.cpp; sourceTree = "<group>"; };
+		66DAF5941D5DCC2000313562 /* MaskConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MaskConfig.hpp; path = Project/MaskConfig.hpp; sourceTree = "<group>"; };
 		66E032DD1D4770AB00983797 /* UILayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UILayer.cpp; sourceTree = "<group>"; };
 		66E032DE1D4770AB00983797 /* UILayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UILayer.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -486,6 +490,8 @@
 				6699963A1D4F228800AA2783 /* TimelineConfig.hpp */,
 				666B4CE91D58802D000990CB /* AnimationConfig.cpp */,
 				666B4CEA1D58802D000990CB /* AnimationConfig.hpp */,
+				66DAF5931D5DCC2000313562 /* MaskConfig.cpp */,
+				66DAF5941D5DCC2000313562 /* MaskConfig.hpp */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 				6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				66DAF5951D5DCC2000313562 /* MaskConfig.cpp in Sources */,
 				666B4CEB1D58802D000990CB /* AnimationConfig.cpp in Sources */,
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
 				669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
@@ -700,6 +707,7 @@
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				666B4CF21D589313000990CB /* Utils.cpp in Sources */,
+				66DAF5961D5DCC2000313562 /* MaskConfig.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
 				666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,

@@ -31,5 +31,27 @@ bool DrawLineLayer::init()
     return Layer::init();
 };
 
+bool DrawLineLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    
+    return true;
+}
+
+void DrawLineLayer::onTouchMove(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    
+}
+
+void DrawLineLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    auto pos = touch->getLocation();
+    
+}
+
+void DrawLineLayer::onTouchCancel(Touch *touch, Event *event)
+{
+    
+}
+
 
 NS_EE_END

@@ -30,6 +30,7 @@ class UILayer : public NodeSingleton<UILayer> ,public Layer
 public:
     
     virtual bool init(void) override;
+    UI_STATE getState(void);
     
     CREATE_FUNC(UILayer);
     

@@ -16,6 +16,7 @@
 #include "AnimationConfig.hpp"
 #include "Utils.hpp"
 #include "ParticleSystemExt.hpp"
+#include "MaskConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -42,166 +43,194 @@ bool Project::init(const std::string& projectPath)
     mConfig.projectPath = directoryPath;
     mConfig.version = root["version"].GetString();
     
-    if(root["background"].IsObject()){
+    if(root.HasMember("background")){
         mConfig.background.file = root["background"]["file"].GetString();
         mConfig.background.scale.x = root["background"]["scale"]["x"].GetDouble();
         mConfig.background.scale.y = root["background"]["scale"]["y"].GetDouble();
     }
     
-    rapidjson::Value &atlasArray = root["atlas"];
-    for(int i=0; i<atlasArray.Size(); i++){
-        mConfig.atlas.push_back(atlasArray[i].GetString());
+    if(root.HasMember("atlas")){
+        rapidjson::Value &atlasArray = root["atlas"];
+        for(int i=0; i<atlasArray.Size(); i++){
+            mConfig.atlas.push_back(atlasArray[i].GetString());
+        }
     }
     
-    rapidjson::Value &sprites = root["sprites"];
-    for(int i=0; i<sprites.Size(); i++){
-        auto spriteConfig = new(std::nothrow)SpriteConfig();
-        spriteConfig->id = sprites[i]["id"].GetString();
-        spriteConfig->texture = sprites[i]["texture"].GetString();
-        spriteConfig->visible = sprites[i]["visible"].GetBool();
-        std::string sourceType = sprites[i]["source_type"].GetString();
-        spriteConfig->sourceType = SpriteConfig::getSpriteSouceType(sourceType);
-
-        if(sprites[i].HasMember("v_shader")){
-            spriteConfig->vShader = mConfig.projectPath + sprites[i]["v_shader"].GetString();
-        }else{
-            spriteConfig->vShader = "shader/shader_default_vert.glsl";
-        }
-
-        if(sprites[i].HasMember("f_shader")){
-            spriteConfig->fShader = mConfig.projectPath + sprites[i]["f_shader"].GetString();
-        }else{
-            spriteConfig->fShader = "shader/shader_default_frag.glsl";
-        }
-        
-        rapidjson::Value &position = sprites[i]["pos"];
-        
-        spriteConfig->position.x = position["x"].GetDouble();
-        spriteConfig->position.y = position["y"].GetDouble();
-        spriteConfig->position.z = position["z"].GetDouble();
-        
-        if(sprites[i].HasMember("scale")){
-            rapidjson::Value &scale = sprites[i]["scale"];
-            spriteConfig->scale.x = scale["x"].GetDouble();
-            spriteConfig->scale.y = scale["y"].GetDouble();
-        }
-        
-        if(sprites[i].HasMember("uniform")){
-            rapidjson::Value &uniform = sprites[i]["uniform"];
-            for(int j=0; j<uniform.Size(); j++){
-                std::string uniformType = uniform[j]["type"].GetString();
-                if(uniformType == "TEXTURE"){
-                    auto uniformConfigTexture = new(std::nothrow)ShaderUniformConfigTexture();
-                    uniformConfigTexture->name = uniform[j]["name"].GetString();
-                    uniformConfigTexture->texture = uniform[j]["texture"].GetString();
-                    uniformConfigTexture->sourceType = SpriteConfig::getSpriteSouceType(uniform[j]["source_type"].GetString());
-                    spriteConfig->uniforms.push_back(uniformConfigTexture);
-                    
-                }else if(uniformType == "TIME"){
-                    auto uniformConfig = new(std::nothrow)ShaderUniformConfig();
-                    uniformConfig->type = SHADER_UNIFORM_TYPE::TIME;
-                    spriteConfig->uniforms.push_back(uniformConfig);
-                }else if(uniformType == "RANDOM"){
-                    auto uniformConfigRandom = new(std::nothrow)ShaderUniformConfigRandom();
-                    uniformConfigRandom->name = uniform[j]["name"].GetString();
-                    uniformConfigRandom->min = uniform[j]["min"].GetDouble();
-                    uniformConfigRandom->max = uniform[j]["max"].GetDouble();
-                    spriteConfig->uniforms.push_back(uniformConfigRandom);
-                }else if(uniformType == "UV_RECT"){
-                    auto uniformConfig = new(std::nothrow)ShaderUniformConfig();
-                    uniformConfig->type = SHADER_UNIFORM_TYPE::UV_RECT;
-                    spriteConfig->uniforms.push_back(uniformConfig);
-                }else if(uniformType == "FLOAT"){
-                    auto uniformConfig = new(std::nothrow)ShaderUniformConfigFloat();
-                    uniformConfig->name = uniform[j]["name"].GetString();
-                    uniformConfig->value = uniform[j]["value"].GetDouble();
-                    spriteConfig->uniforms.push_back(uniformConfig);
-                }else if(uniformType == "VEC4"){
-                    auto uniformConfig = new(std::nothrow)ShaderUniformConfigVec4();
-                    uniformConfig->name = uniform[j]["name"].GetString();
-                    uniformConfig->value.x = uniform[j]["value"]["x"].GetDouble();
-                    uniformConfig->value.y = uniform[j]["value"]["y"].GetDouble();
-                    uniformConfig->value.z = uniform[j]["value"]["z"].GetDouble();
-                    uniformConfig->value.w = uniform[j]["value"]["w"].GetDouble();
-                    spriteConfig->uniforms.push_back(uniformConfig);
+    if(root.HasMember("sprites")){
+        rapidjson::Value &sprites = root["sprites"];
+        for(int i=0; i<sprites.Size(); i++){
+            auto spriteConfig = new(std::nothrow)SpriteConfig();
+            spriteConfig->id = sprites[i]["id"].GetString();
+            spriteConfig->texture = sprites[i]["texture"].GetString();
+            spriteConfig->visible = sprites[i]["visible"].GetBool();
+            std::string sourceType = sprites[i]["source_type"].GetString();
+            spriteConfig->sourceType = SpriteConfig::getSpriteSouceType(sourceType);
+            
+            if(sprites[i].HasMember("v_shader")){
+                spriteConfig->vShader = mConfig.projectPath + sprites[i]["v_shader"].GetString();
+            }else{
+                spriteConfig->vShader = "shader/shader_default_vert.glsl";
+            }
+            
+            if(sprites[i].HasMember("f_shader")){
+                spriteConfig->fShader = mConfig.projectPath + sprites[i]["f_shader"].GetString();
+            }else{
+                spriteConfig->fShader = "shader/shader_default_frag.glsl";
+            }
+            
+            rapidjson::Value &position = sprites[i]["pos"];
+            
+            spriteConfig->position.x = position["x"].GetDouble();
+            spriteConfig->position.y = position["y"].GetDouble();
+            spriteConfig->position.z = position["z"].GetDouble();
+            
+            if(sprites[i].HasMember("scale")){
+                rapidjson::Value &scale = sprites[i]["scale"];
+                spriteConfig->scale.x = scale["x"].GetDouble();
+                spriteConfig->scale.y = scale["y"].GetDouble();
+            }
+            
+            if(sprites[i].HasMember("uniform")){
+                rapidjson::Value &uniform = sprites[i]["uniform"];
+                for(int j=0; j<uniform.Size(); j++){
+                    std::string uniformType = uniform[j]["type"].GetString();
+                    if(uniformType == "TEXTURE"){
+                        auto uniformConfigTexture = new(std::nothrow)ShaderUniformConfigTexture();
+                        uniformConfigTexture->name = uniform[j]["name"].GetString();
+                        uniformConfigTexture->texture = uniform[j]["texture"].GetString();
+                        uniformConfigTexture->sourceType = SpriteConfig::getSpriteSouceType(uniform[j]["source_type"].GetString());
+                        spriteConfig->uniforms.push_back(uniformConfigTexture);
+                        
+                    }else if(uniformType == "TIME"){
+                        auto uniformConfig = new(std::nothrow)ShaderUniformConfig();
+                        uniformConfig->type = SHADER_UNIFORM_TYPE::TIME;
+                        spriteConfig->uniforms.push_back(uniformConfig);
+                    }else if(uniformType == "RANDOM"){
+                        auto uniformConfigRandom = new(std::nothrow)ShaderUniformConfigRandom();
+                        uniformConfigRandom->name = uniform[j]["name"].GetString();
+                        uniformConfigRandom->min = uniform[j]["min"].GetDouble();
+                        uniformConfigRandom->max = uniform[j]["max"].GetDouble();
+                        spriteConfig->uniforms.push_back(uniformConfigRandom);
+                    }else if(uniformType == "UV_RECT"){
+                        auto uniformConfig = new(std::nothrow)ShaderUniformConfig();
+                        uniformConfig->type = SHADER_UNIFORM_TYPE::UV_RECT;
+                        spriteConfig->uniforms.push_back(uniformConfig);
+                    }else if(uniformType == "FLOAT"){
+                        auto uniformConfig = new(std::nothrow)ShaderUniformConfigFloat();
+                        uniformConfig->name = uniform[j]["name"].GetString();
+                        uniformConfig->value = uniform[j]["value"].GetDouble();
+                        spriteConfig->uniforms.push_back(uniformConfig);
+                    }else if(uniformType == "VEC4"){
+                        auto uniformConfig = new(std::nothrow)ShaderUniformConfigVec4();
+                        uniformConfig->name = uniform[j]["name"].GetString();
+                        uniformConfig->value.x = uniform[j]["value"]["x"].GetDouble();
+                        uniformConfig->value.y = uniform[j]["value"]["y"].GetDouble();
+                        uniformConfig->value.z = uniform[j]["value"]["z"].GetDouble();
+                        uniformConfig->value.w = uniform[j]["value"]["w"].GetDouble();
+                        spriteConfig->uniforms.push_back(uniformConfig);
+                    }
                 }
             }
-        }
-        
-        if(sprites[i].HasMember("timeline")){
-            spriteConfig->timeline = sprites[i]["timeline"].GetString();
-        }
-        
-        if(sprites[i].HasMember("blend_func")){
-            spriteConfig->setBlendFun(sprites[i]["blend_func"]["src"].GetString(), sprites[i]["blend_func"]["dst"].GetString());
-        }
-        
-        mConfig.sprites.push_back(spriteConfig);
-    }
-    
-    rapidjson::Value& particles = root["particles"];
-    if(!particles.IsNull()){
-        for(int i=0;i<particles.Size();i++){
-            rapidjson::Value& particle = particles[i];
-            auto pParticle = new(std::nothrow) ParticleConfig();
-            pParticle->id = particle["id"].GetString();
-            pParticle->file = particle["file"].GetString();
-            if(particle.HasMember("timeline")){
-                pParticle->timeline = particle["timeline"].GetString();
+            
+            if(sprites[i].HasMember("timeline")){
+                spriteConfig->timeline = sprites[i]["timeline"].GetString();
             }
-            rapidjson::Value& particlePos = particle["pos"];
-            pParticle->position.x = particlePos["x"].GetDouble();
-            pParticle->position.y = particlePos["y"].GetDouble();
-            pParticle->position.z = particlePos["z"].GetDouble();
-            if(particle.HasMember("radial")){
-                pParticle->radial = particle["radial"].GetBool();
+            
+            if(sprites[i].HasMember("blend_func")){
+                spriteConfig->setBlendFun(sprites[i]["blend_func"]["src"].GetString(), sprites[i]["blend_func"]["dst"].GetString());
             }
-            mConfig.particles.push_back(pParticle);
+            
+            if(sprites[i].HasMember("mask")){
+                spriteConfig->mask = sprites[i]["mask"].GetString();
+            }
+            
+            mConfig.sprites.push_back(spriteConfig);
         }
     }
     
-    rapidjson::Value& timelines = root["timelines"];
-    if(!timelines.IsNull()){
-        for(int i=0; i<timelines.Size(); i++){
-            rapidjson::Value& timeline = timelines[i];
-            std::string timeId = timeline["id"].GetString();
-            mConfig.timelines[timeId] = parseTimeline(timeline);
+    if(root.HasMember("particles")){
+        rapidjson::Value& particles = root["particles"];
+        if(!particles.IsNull()){
+            for(int i=0;i<particles.Size();i++){
+                rapidjson::Value& particle = particles[i];
+                auto pParticle = new(std::nothrow) ParticleConfig();
+                pParticle->id = particle["id"].GetString();
+                pParticle->file = particle["file"].GetString();
+                if(particle.HasMember("timeline")){
+                    pParticle->timeline = particle["timeline"].GetString();
+                }
+                rapidjson::Value& particlePos = particle["pos"];
+                pParticle->position.x = particlePos["x"].GetDouble();
+                pParticle->position.y = particlePos["y"].GetDouble();
+                pParticle->position.z = particlePos["z"].GetDouble();
+                if(particle.HasMember("radial")){
+                    pParticle->radial = particle["radial"].GetBool();
+                }
+                mConfig.particles.push_back(pParticle);
+            }
         }
-        
     }
     
-    rapidjson::Value& animations = root["animations"];
-    if(!animations.IsNull()){
-        for(int i=0; i<animations.Size(); i++){
-            rapidjson::Value& animation = animations[i];
-            auto animationConfig = new(std::nothrow) AnimationConfig();
-            animationConfig->id = animation["id"].GetString();
-            animationConfig->frameFile = animation["frame_file"].GetString();
-            animationConfig->texture = animation["texture"].GetString();
-            animationConfig->frameName = animation["frame_name"].GetString();
-            animationConfig->frameFrom = animation["frame_from"].GetInt();
-            animationConfig->frameTo = animation["frame_to"].GetInt();
-            animationConfig->pos.x = animation["pos"]["x"].GetDouble();
-            animationConfig->pos.y = animation["pos"]["y"].GetDouble();
-            animationConfig->pos.z = animation["pos"]["z"].GetDouble();
-            animationConfig->rotation = animation["rotation"].GetDouble();
-            animationConfig->scale.x = animation["scale"]["x"].GetDouble();
-            animationConfig->scale.y = animation["scale"]["y"].GetDouble();
-            animationConfig->interval = animation["interval"].GetDouble();
-            animationConfig->repeat = 0;
-            if(animation.HasMember("repeat")){
-                animationConfig->repeat = animation["repeat"].GetInt();
+    
+    if(root.HasMember("timelines")){
+        rapidjson::Value& timelines = root["timelines"];
+        if(!timelines.IsNull()){
+            for(int i=0; i<timelines.Size(); i++){
+                rapidjson::Value& timeline = timelines[i];
+                std::string timeId = timeline["id"].GetString();
+                mConfig.timelines[timeId] = parseTimeline(timeline);
             }
-            animationConfig->delay = 0.0f;
-            if(animation.HasMember("delay")){
-                animationConfig->delay = animation["delay"].GetDouble();
-            }
-            if(animation.HasMember("timeline")){
-                animationConfig->timeline = animation["timeline"].GetString();
-            }
-            mConfig.animations[animationConfig->id] = animationConfig;
         }
     }
+    
+    if(root.HasMember("animations")){
+        rapidjson::Value& animations = root["animations"];
+        if(!animations.IsNull()){
+            for(int i=0; i<animations.Size(); i++){
+                rapidjson::Value& animation = animations[i];
+                auto animationConfig = new(std::nothrow) AnimationConfig();
+                animationConfig->id = animation["id"].GetString();
+                animationConfig->frameFile = animation["frame_file"].GetString();
+                animationConfig->texture = animation["texture"].GetString();
+                animationConfig->frameName = animation["frame_name"].GetString();
+                animationConfig->frameFrom = animation["frame_from"].GetInt();
+                animationConfig->frameTo = animation["frame_to"].GetInt();
+                animationConfig->pos.x = animation["pos"]["x"].GetDouble();
+                animationConfig->pos.y = animation["pos"]["y"].GetDouble();
+                animationConfig->pos.z = animation["pos"]["z"].GetDouble();
+                animationConfig->rotation = animation["rotation"].GetDouble();
+                animationConfig->scale.x = animation["scale"]["x"].GetDouble();
+                animationConfig->scale.y = animation["scale"]["y"].GetDouble();
+                animationConfig->interval = animation["interval"].GetDouble();
+                animationConfig->repeat = 0;
+                if(animation.HasMember("repeat")){
+                    animationConfig->repeat = animation["repeat"].GetInt();
+                }
+                animationConfig->delay = 0.0f;
+                if(animation.HasMember("delay")){
+                    animationConfig->delay = animation["delay"].GetDouble();
+                }
+                if(animation.HasMember("timeline")){
+                    animationConfig->timeline = animation["timeline"].GetString();
+                }
+                mConfig.animations[animationConfig->id] = animationConfig;
+            }
+        }
+    }
+    
+    if(root.HasMember("masks")){
+        rapidjson::Value& masks = root["masks"];
+        for(int i=0; i<masks.Size(); i++){
+            auto maskConfig = new(std::nothrow) MaskConfig();
+            maskConfig->id = masks[i]["id"].GetString();
+            maskConfig->stencil = masks[i]["stencil"].GetString();
+            maskConfig->offset.x = masks[i]["offset"]["x"].GetDouble();
+            maskConfig->offset.y = masks[i]["offset"]["y"].GetDouble();
+            maskConfig->alphaThreshold = masks[i]["alpha_threshold"].GetDouble();
+            mConfig.masks[maskConfig->id] = maskConfig;
+        }
+    }
+
     
     loadProject();
     return true;
@@ -240,6 +269,17 @@ void Project::loadProject()
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile(mConfig.projectPath + *iter);
     }
     auto spriteOrigin = Director::getInstance()->getWinSize() * 0.5f;
+    
+    for(std::map<std::string, MaskConfig*>::iterator iter = mConfig.masks.begin(); iter != mConfig.masks.end(); iter++)
+    {
+        auto stentil = Sprite::create(mConfig.projectPath + iter->second->stencil);
+        stentil->setPosition(Vec2::ZERO);
+        auto clipNode = ClippingNode::create(stentil);
+        
+        clipNode->setAlphaThreshold(iter->second->alphaThreshold);
+        clipNode->setPosition(iter->second->offset + Vec2(spriteOrigin.width, spriteOrigin.height));
+        MainLayer::getInstance()->addMask(iter->second->id, clipNode);
+    }
     
     for(std::vector<SpriteConfig*>::iterator iter = mConfig.sprites.begin()
         ; iter != mConfig.sprites.end()
@@ -310,7 +350,12 @@ void Project::loadProject()
             shaderSprite->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
         }
         
-        MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite, zOrder);
+        if((*iter)->mask.length() > 0){
+            MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite, (*iter)->mask);
+        }else{
+            MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite, zOrder);
+        }
+        
     }
     
     for(std::vector<ParticleConfig*>::iterator iter = mConfig.particles.begin();
@@ -352,6 +397,7 @@ void Project::loadProject()
         if(iter->second->timeline.length() > 0){
             sprite->runAction(mConfig.timelines[iter->second->timeline]->getAction());
         }
+        
         MainLayer::getInstance()->addSprite(iter->first, sprite, iter->second->pos.z);
     }
 }

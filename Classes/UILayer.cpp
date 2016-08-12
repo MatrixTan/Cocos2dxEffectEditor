@@ -44,6 +44,11 @@ bool UILayer::init(void)
     return Layer::init();
 }
 
+UI_STATE UILayer::getState()
+{
+    return mState;
+}
+
 void UILayer::onPenTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)

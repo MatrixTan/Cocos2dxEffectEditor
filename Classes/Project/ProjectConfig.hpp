@@ -14,7 +14,8 @@
 #include "BackgroundConfig.hpp"
 #include "ParticleConfig.hpp"
 #include "TimelineConfig.hpp"
-#include "AnimationConfig.cpp"
+#include "AnimationConfig.hpp"
+#include "MaskConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -35,6 +36,7 @@ public:
     std::vector<ParticleConfig*> particles;
     std::map<std::string, Timeline*> timelines;
     std::map<std::string, AnimationConfig*> animations;
+    std::map<std::string, MaskConfig*> masks;
 };
 
 NS_EE_END

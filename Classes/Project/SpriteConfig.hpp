@@ -49,6 +49,8 @@ public:
     GLenum blendDst;
     bool customBlend;
     
+    std::string mask;
+    
     void setBlendFun(const std::string& src, const std::string& dst);
     
     static SPRITE_SOURCE_TYPE getSpriteSouceType(const std::string& type);

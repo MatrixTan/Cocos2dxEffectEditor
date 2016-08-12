@@ -11,6 +11,7 @@
 #include "ShaderSprite.hpp"
 #include "PostRenderEffectLayer.hpp"
 #include "UILayer.hpp"
+#include "DrawLineLayer.hpp"
 
 NS_EE_BEGIN
 
@@ -78,6 +79,18 @@ void MainLayer::addSprite(const std::string& id, ShaderSprite* pSprite, int zord
     mSprites.insert(std::pair<std::string, ShaderSprite*>(id, pSprite));
 }
 
+void MainLayer::addSprite(const std::string &id, ee::ShaderSprite *pSprite, const std::string &maskId)
+{
+    auto iter = mMasks.find(maskId);
+    if(iter != mMasks.end()){
+        iter->second->addChild(pSprite);
+        auto worldPos = pSprite->convertToWorldSpace(Vec2::ZERO);
+        pSprite->setPosition(iter->second->convertToNodeSpace(worldPos));
+        pSprite->retain();
+        mSprites["id"] = pSprite;
+    }
+}
+
 ShaderSprite* MainLayer::getSprite(const std::string& id)
 {
     std::map<std::string, ShaderSprite*>::iterator iter = mSprites.find(id);
@@ -105,25 +118,42 @@ ParticleSystemQuad* MainLayer::getParticle(const std::string &id)
     return nullptr;
 }
 
+void MainLayer::addMask(const std::string& id, ClippingNode* node)
+{
+    addChild(node, (int)SPRITE_ZORDER::MASK);
+    node->retain();
+    mMasks[id] = node;
+}
+
 bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+    if(UILayer::getInstance()->getState() == UI_STATE::PEN){
+        return DrawLineLayer::getInstance()->onTouchBegin(touch, event);
+    }
     return true;
 }
 
 void MainLayer::onTouchMove(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    
+    if(UILayer::getInstance()->getState() == UI_STATE::PEN){
+        DrawLineLayer::getInstance()->onTouchMove(touch, event);
+    }
 }
 
 void MainLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+    if(UILayer::getInstance()->getState() == UI_STATE::PEN){
+        return DrawLineLayer::getInstance()->onTouchEnd(touch, event);
+    }
     auto pos = touch->getLocation();
     //PostRenderEffectLayer::getInstance()->setDrawRect(Rect(pos.x - 300, pos.y - 300, 600, 600), 0.70f);
 }
 
 void MainLayer::onTouchCancel(Touch *touch, Event *event)
 {
-    
+    if(UILayer::getInstance()->getState() == UI_STATE::PEN){
+        return DrawLineLayer::getInstance()->onTouchCancel(touch, event);
+    }
 }
 
 NS_EE_END
