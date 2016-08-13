@@ -128,6 +128,12 @@ bool Project::init(const std::string& projectPath)
                         uniformConfig->value.z = uniform[j]["value"]["z"].GetDouble();
                         uniformConfig->value.w = uniform[j]["value"]["w"].GetDouble();
                         spriteConfig->uniforms.push_back(uniformConfig);
+                    }else if(uniformType == "VEC2"){
+                        auto uniformConfig = new(std::nothrow)ShaderUniformConfigVec2();
+                        uniformConfig->name = uniform[j]["name"].GetString();
+                        uniformConfig->value.x = uniform[j]["value"]["x"].GetDouble();
+                        uniformConfig->value.y = uniform[j]["value"]["y"].GetDouble();
+                        spriteConfig->uniforms.push_back(uniformConfig);
                     }
                 }
             }
@@ -342,6 +348,9 @@ void Project::loadProject()
             }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::VEC4){
                 auto vec4Uniform = static_cast<ShaderUniformConfigVec4*>(*iterUniform);
                 shaderSprite->getGLProgramState()->setUniformVec4(vec4Uniform->name, vec4Uniform->value);
+            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::VEC2){
+                auto vec2Uniform = static_cast<ShaderUniformConfigVec2*>(*iterUniform);
+                shaderSprite->getGLProgramState()->setUniformVec2(vec2Uniform->name, vec2Uniform->value);
             }
         }
         shaderSprite->setUniformFlag(uniformFlag);

@@ -31,5 +31,10 @@ ShaderUniformConfigVec4::ShaderUniformConfigVec4()
     type = SHADER_UNIFORM_TYPE::VEC4;
 }
 
+ShaderUniformConfigVec2::ShaderUniformConfigVec2()
+{
+    type = SHADER_UNIFORM_TYPE::VEC2;
+}
+
 
 NS_EE_END

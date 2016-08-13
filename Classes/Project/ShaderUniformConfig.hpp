@@ -21,7 +21,8 @@ enum class SHADER_UNIFORM_TYPE
     UV_RECT,
     RANDOM,
     FLOAT,
-    VEC4
+    VEC4,
+    VEC2
 };
 
 class ShaderUniformConfig
@@ -65,6 +66,14 @@ public:
     ShaderUniformConfigVec4();
     std::string name;
     cocos2d::Vec4 value;
+};
+
+class ShaderUniformConfigVec2 : public ShaderUniformConfig
+{
+public:
+    ShaderUniformConfigVec2();
+    std::string name;
+    cocos2d::Vec2 value;
 };
 
 NS_EE_END
