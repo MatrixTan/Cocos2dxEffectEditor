@@ -14,6 +14,7 @@
 #include "GlobalDefine.hpp"
 #include "NodeSingleton.hpp"
 #include "ui/CocosGUI.h"
+#include "UIProjectView.hpp"
 
 NS_EE_BEGIN
 
@@ -40,6 +41,7 @@ private:
     void onPenTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     
     Node *mContainer;
+    UIProjectView *mProjectView;
     UI_STATE mState;
 };
 

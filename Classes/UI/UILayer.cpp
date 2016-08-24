@@ -36,6 +36,8 @@ bool UILayer::init(void)
     auto penButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_pen"));
     penButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onPenTouchEvent, this));
     
+    mProjectView = new UIProjectView(mContainer->getChildByName("project_view"));
+    
     auto lineLayer = DrawLineLayer::create();
     addChild(lineLayer);
     
