@@ -34,6 +34,16 @@ public:
     float y;
 };
 
+class TimelineScaleTo : public Timeline
+{
+public:
+    virtual FiniteTimeAction* getAction()override;
+    
+    float duration;
+    float x;
+    float y;
+};
+
 class TimelineSequence : public Timeline
 {
 public:
@@ -52,6 +62,16 @@ public:
     int repeat;
     Timeline* child;
 };
+
+class TimelineSpawn : public Timeline
+{
+public:
+    ~TimelineSpawn();
+    virtual FiniteTimeAction* getAction()override;
+    
+    std::vector<Timeline*> children;
+};
+
 
 
 NS_EE_END

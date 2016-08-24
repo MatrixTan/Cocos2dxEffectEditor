@@ -263,6 +263,19 @@ Timeline* Project::parseTimeline(const rapidjson::Value &value)
         repeatTimeline->repeat = value["repeat"].GetInt();
         repeatTimeline->child = parseTimeline(value["child"]);
         return repeatTimeline;
+    }else if(type == "SPAWN"){
+        auto spawnTimeline = new(std::nothrow) TimelineSpawn();
+        const rapidjson::Value& children = value["children"];
+        for(int i=0; i<children.Size(); i++){
+            spawnTimeline->children.push_back(parseTimeline(children[i]));
+        }
+        return spawnTimeline;
+    }else if(type == "SCALE_TO"){
+        auto scaleTo = new(std::nothrow) TimelineScaleTo();
+        scaleTo->duration = value["duration"].GetDouble();
+        scaleTo->x = value["x"].GetDouble();
+        scaleTo->y = value["y"].GetDouble();
+        return scaleTo;
     }
     return nullptr;
 }

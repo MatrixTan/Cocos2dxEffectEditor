@@ -28,7 +28,88 @@
                     "value":{"x":0.2, "y":0.2}
                 }
             ]
+        },
+        {
+            "id":"3",
+            "visible":true,
+            "texture":"2.png",
+            "source_type":"FILE",
+            "pos":{"x":220, "y":220, "z":2},
+            "scale":{"x":0.5, "y":0.5},
+            "f_shader":"shader_unerode_frag.glsl",
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                },
+                {
+                    "type":"TEXTURE",
+                    "name":"u_erode_map",
+                    "texture":"erode_map2.png",
+                    "source_type":"FILE"
+                }
+            ]
+        },
+        {
+            "id":"4",
+            "visible":true,
+            "texture":"3.png",
+            "source_type":"FILE",
+            "pos":{"x":220, "y":220, "z":0},
+            "scale":{"x":0.5, "y":0.5}
+        },
+        {
+            "id":"5",
+            "visible":true,
+            "texture":"4.png",
+            "source_type":"FILE",
+            "pos":{"x":-220, "y":-0, "z":0},
+            "scale":{"x":0.5, "y":0.5}
+        },
+        {
+            "id":"6",
+            "visible":true,
+            "texture":"starwberry.png",
+            "source_type":"FILE",
+            "pos":{"x":-220, "y":-0, "z":1},
+            "scale":{"x":0.5, "y":0.5}
+        },
+        {
+            "id":"7",
+            "visible":false,
+            "texture":"starwberry_splash.png",
+            "source_type":"FILE",
+            "pos":{"x":-220, "y":15, "z":4},
+            "scale":{"x":1.0, "y":1.0}
+        },
+        {
+            "id":"8",
+            "visible":true,
+            "texture":"2.png",
+            "source_type":"FILE",
+            "pos":{"x":100, "y":-115, "z":4},
+            "scale":{"x":1.0, "y":1.0}
+        },
+        {
+            "id":"9",
+            "visible":true,
+            "texture":"donuts_4_strawberry.png",
+            "source_type":"FILE",
+            "pos":{"x":94, "y":-105, "z":5},
+            "scale":{"x":0.1, "y":0.1},
+            "f_shader":"shader_top_twist_frag.glsl",
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                },
+                {
+                    "type":"UV_RECT"
+                }
+            ],
+            "timeline":"2001"
         }
+     
     ],
     "masks":
     [
@@ -37,6 +118,37 @@
             "stencil":"border.png",
             "offset":{"x":0.0, "y":0.0},
             "alpha_threshold":0.05
+        }
+    ],
+    "particles":
+    [
+        {
+            "id":"3002",
+            "file":"particle_starwberry.plist",
+            "pos":{"x":-220, "y":15, "z":3},
+            "radial":true
+        }
+    ],
+    "timelines":
+    [
+        {
+            "id":"2001",
+            "type":"SPAWN",
+            "children":
+            [
+                {
+                    "type":"MOVE_BY",
+                    "duration":0.5,
+                    "x":0, 
+                    "y":20
+                },
+                {
+                    "type":"SCALE_TO",
+                    "duration":0.5,
+                    "x":1.0,
+                    "y":1.0
+                }
+            ]
         }
     ]
     

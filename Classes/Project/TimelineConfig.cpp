@@ -9,10 +9,16 @@
 #include "TimelineConfig.hpp"
 
 NS_EE_BEGIN
-
+//========TimelineMoveBy===========
 FiniteTimeAction* TimelineMoveBy::getAction()
 {
     return MoveBy::create(duration, Vec2(x, y));
+}
+
+//========TimelineScaleTo==========
+FiniteTimeAction* TimelineScaleTo::getAction()
+{
+    return ScaleTo::create(duration, x, y);
 }
 
 
@@ -44,6 +50,22 @@ TimelineRepeat::~TimelineRepeat()
 FiniteTimeAction* TimelineRepeat::getAction()
 {
     return Repeat::create(child->getAction(), repeat);
+}
+
+//==========TimelineSpawn===============
+TimelineSpawn::~TimelineSpawn()
+{
+    for(auto child : children){
+        CC_SAFE_DELETE(child);
+    }
+}
+
+FiniteTimeAction* TimelineSpawn::getAction(){
+    Vector<FiniteTimeAction*> actions;
+    for(auto child : children){
+        actions.pushBack(child->getAction());
+    }
+    return Spawn::create(actions);
 }
 
 NS_EE_END

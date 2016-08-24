@@ -23,11 +23,11 @@ DrawLineLayer* DrawLineLayer::create()
 
 bool DrawLineLayer::init()
 {
-    auto pNode = DrawNode::create();
+    /*auto pNode = DrawNode::create();
     addChild(pNode);
     pNode->drawLine(Vec2(100, 100), Vec2(300, 300), Color4F(1.0, 1.0, 0.0, 1.0));
     pNode->drawQuadBezier(Vec2(100, 100), Vec2(100, 300), Vec2(300, 300), 100, Color4F(1.0, 0.0, 0.0, 1.0));
-    pNode->drawCubicBezier(Vec2(100, 100), Vec2(300, 100), Vec2(300, 100), Vec2(300, 100), 100, Color4F(1.0, 0.0, 0.0, 1.0));
+    pNode->drawCubicBezier(Vec2(100, 100), Vec2(300, 100), Vec2(300, 100), Vec2(300, 100), 100, Color4F(1.0, 0.0, 0.0, 1.0));*/
     return Layer::init();
 };
 
