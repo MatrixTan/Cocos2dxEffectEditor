@@ -124,9 +124,10 @@
     [
         {
             "id":"3002",
-            "file":"particle_starwberry.plist",
+            "file":"particle_frame_test.plist",
             "pos":{"x":-220, "y":15, "z":3},
-            "radial":true
+            "radial":false,
+            "frame_tile":{"x":3, "y":2,  "interval":0.5}
         }
     ],
     "timelines":

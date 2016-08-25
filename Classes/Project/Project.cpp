@@ -172,6 +172,12 @@ bool Project::init(const std::string& projectPath)
                 if(particle.HasMember("radial")){
                     pParticle->radial = particle["radial"].GetBool();
                 }
+                if(particle.HasMember("frame_tile")){
+                    pParticle->frameTile = true;
+                    pParticle->tileX = particle["frame_tile"]["x"].GetInt();
+                    pParticle->tileY = particle["frame_tile"]["y"].GetInt();
+                    pParticle->frameInterval = particle["frame_tile"]["interval"].GetDouble();
+                }
                 mConfig.particles.push_back(pParticle);
             }
         }
@@ -387,6 +393,9 @@ void Project::loadProject()
         particle->setPosition((*iter)->position.x + spriteOrigin.width
                               , (*iter)->position.y+spriteOrigin.height);
         particle->setRadial((*iter)->radial);
+        if((*iter)->frameTile){
+            particle->setFrameTile((*iter)->tileX, (*iter)->tileY, (*iter)->frameInterval);
+        }
         if((*iter)->timeline.length() > 0){
             particle->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
         }

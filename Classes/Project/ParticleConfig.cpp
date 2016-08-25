@@ -11,7 +11,11 @@
 NS_EE_BEGIN
 
 ParticleConfig::ParticleConfig()
-:radial(false)
+:radial(false),
+frameTile(false),
+frameInterval(0.0f),
+tileX(1),
+tileY(1)
 {
     
 }

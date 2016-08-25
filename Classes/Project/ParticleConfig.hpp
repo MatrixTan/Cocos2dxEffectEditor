@@ -24,6 +24,11 @@ public:
     std::string timeline;
     cocos2d::Vec3 position;
     bool radial;
+    
+    bool frameTile;
+    int tileX;
+    int tileY;
+    float frameInterval;
 };
 
 NS_EE_END
