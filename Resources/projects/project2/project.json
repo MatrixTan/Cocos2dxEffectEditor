@@ -124,10 +124,30 @@
     [
         {
             "id":"3002",
-            "file":"particle_frame_test.plist",
-            "pos":{"x":-220, "y":15, "z":3},
+            "file":"particle_tile_boom_fire.plist",
+            "pos":{"x":-220, "y":200, "z":3},
             "radial":false,
-            "frame_tile":{"x":3, "y":2,  "interval":0.5}
+            "frame_tile":{"x":3, "y":3,  "interval":0.03}
+        },
+        {
+            "id":"3003",
+            "file":"particle_tile_boom_dusty.plist",
+            "pos":{"x":-220, "y":200, "z":3}
+        },
+        {
+            "id":"3004",
+            "file":"particle_tile_boom_wave.plist",
+            "pos":{"x":-220, "y":200, "z":3}
+        },
+        {
+            "id":"3005",
+            "file":"particle_tile_boom_little.plist",
+            "pos":{"x":-220, "y":200, "z":3}
+        },
+        {
+            "id":"3006",
+            "file":"particle_tile_boom_little2.plist",
+            "pos":{"x":-220, "y":200, "z":3}
         }
     ],
     "timelines":

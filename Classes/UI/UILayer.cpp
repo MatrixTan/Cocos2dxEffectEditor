@@ -70,10 +70,18 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         
-        auto link = ThunderLinkEffect::create(MainLayer::getInstance()->getSprite("7")
-                                              , MainLayer::getInstance()->getSprite("6")
-                                              , 1.5);
-        addChild(link);
+        auto particle = MainLayer::getInstance()->getParticle("3002");
+        particle->resetSystem();
+        particle = MainLayer::getInstance()->getParticle("3003");
+        particle->resetSystem();
+        particle = MainLayer::getInstance()->getParticle("3004");
+        particle->resetSystem();
+        particle = MainLayer::getInstance()->getParticle("3005");
+        particle->resetSystem();
+        particle = MainLayer::getInstance()->getParticle("3006");
+        particle->resetSystem();
+        
+        
         
         /*std::string csbFile = "res/horizontal_effect2.csb";
         auto horizontalEffect = cocos2d::CSLoader::createNode(csbFile);
