@@ -83,9 +83,10 @@ void MainLayer::addSprite(const std::string &id, ee::ShaderSprite *pSprite, cons
 {
     auto iter = mMasks.find(maskId);
     if(iter != mMasks.end()){
+        auto worldPos = pSprite->getPosition();
         iter->second->addChild(pSprite);
-        auto worldPos = pSprite->convertToWorldSpace(Vec2::ZERO);
-        pSprite->setPosition(iter->second->convertToNodeSpace(worldPos));
+        auto maskWordPos = iter->second->getPosition();
+        pSprite->setPosition(worldPos - maskWordPos);
         pSprite->retain();
         mSprites["id"] = pSprite;
     }

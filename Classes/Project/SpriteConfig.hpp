@@ -39,11 +39,13 @@ public:
     SPRITE_SOURCE_TYPE sourceType;
     Vec3 position;
     Vec2 scale;
+    float rotation;
     std::string vShader;
     std::string fShader;
     std::vector<ShaderUniformConfig*> uniforms;
     bool visible;
     std::string timeline;
+    float alpha;
     
     GLenum blendSrc;
     GLenum blendDst;

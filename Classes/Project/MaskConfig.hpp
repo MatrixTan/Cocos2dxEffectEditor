@@ -24,6 +24,7 @@ public:
     std::string id;
     std::string stencil;
     Vec2 offset;
+    Vec2 scale;
     float alphaThreshold;
 };
 

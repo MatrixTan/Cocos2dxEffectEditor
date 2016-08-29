@@ -13,8 +13,8 @@ void main(void)
     vec2 ripple_uv = mod(clampuv + vec2(u_time * 0.1, 0.0), 1.0);
     vec3 ripple_color = texture2D(u_normal, ripple_uv).xyz;
     vec3 ripple_normal = normalize(ripple_color.xyz * 2.0 - 1.0);
-    vec2 fromuv = ripple_normal.xy * 0.05;
+    vec2 fromuv = ripple_color.xy * 0.05;
     
-    vec4 caustics_color = texture2D(CC_Texture0, fromuv + clampuv);
-    gl_FragColor = base_color + caustics_color * 0.3;
+    vec4 caustics_color = texture2D(CC_Texture0, clampuv + fromuv);
+    gl_FragColor = base_color + caustics_color * 1.0;
 }

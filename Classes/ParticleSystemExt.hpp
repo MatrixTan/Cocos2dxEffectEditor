@@ -29,7 +29,7 @@ public:
     static ParticleSystemExt* create(const std::string& filename);
     
     ParticleSystemExt();
-    
+    ~ParticleSystemExt();
     void setRadial(bool radial);
     void setFrameTile(int x, int y, float frameInterval);
     

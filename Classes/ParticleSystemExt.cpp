@@ -52,6 +52,15 @@ mFrameTimes(nullptr)
     
 }
 
+ParticleSystemExt::~ParticleSystemExt()
+{
+    if(mFrameTimes)
+    {
+        delete [] mFrameTimes;
+        mFrameTimes = nullptr;
+    }
+}
+
 void ParticleSystemExt::setRadial(bool radial)
 {
     mbRadial = radial;

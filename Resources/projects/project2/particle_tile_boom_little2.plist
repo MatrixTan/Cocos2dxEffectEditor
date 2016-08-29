@@ -9,7 +9,7 @@
 	<key>angleVariance</key>
 	<real>359.99996948242188</real>
 	<key>blendFuncDestination</key>
-	<integer>1</integer>
+	<integer>771</integer>
 	<key>blendFuncSource</key>
 	<integer>1</integer>
 	<key>configName</key>
@@ -19,13 +19,13 @@
 	<key>emitterType</key>
 	<integer>0</integer>
 	<key>finishColorAlpha</key>
-	<real>1</real>
+	<real>0.020070042461156845</real>
 	<key>finishColorBlue</key>
-	<real>0.0</real>
+	<real>1</real>
 	<key>finishColorGreen</key>
-	<real>0.0</real>
+	<real>1</real>
 	<key>finishColorRed</key>
-	<real>0.0</real>
+	<real>0.99999600648880005</real>
 	<key>finishColorVarianceAlpha</key>
 	<real>0.0</real>
 	<key>finishColorVarianceBlue</key>

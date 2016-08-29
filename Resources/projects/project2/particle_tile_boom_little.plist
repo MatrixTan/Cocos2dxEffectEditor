@@ -9,7 +9,7 @@
 	<key>angleVariance</key>
 	<real>359.99996948242188</real>
 	<key>blendFuncDestination</key>
-	<integer>1</integer>
+	<integer>771</integer>
 	<key>blendFuncSource</key>
 	<integer>1</integer>
 	<key>configName</key>
@@ -21,11 +21,11 @@
 	<key>finishColorAlpha</key>
 	<real>1</real>
 	<key>finishColorBlue</key>
-	<real>0.0</real>
+	<real>1</real>
 	<key>finishColorGreen</key>
-	<real>0.0</real>
+	<real>1</real>
 	<key>finishColorRed</key>
-	<real>0.0</real>
+	<real>0.99999600648880005</real>
 	<key>finishColorVarianceAlpha</key>
 	<real>0.0</real>
 	<key>finishColorVarianceBlue</key>
@@ -37,7 +37,7 @@
 	<key>finishParticleSize</key>
 	<real>4</real>
 	<key>finishParticleSizeVariance</key>
-	<real>2</real>
+	<real>6</real>
 	<key>gravityx</key>
 	<real>0.0</real>
 	<key>gravityy</key>
@@ -101,7 +101,7 @@
 	<key>startParticleSize</key>
 	<real>6</real>
 	<key>startParticleSizeVariance</key>
-	<real>5</real>
+	<real>10</real>
 	<key>tangentialAccelVariance</key>
 	<real>0.0</real>
 	<key>tangentialAcceleration</key>

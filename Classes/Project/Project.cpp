@@ -150,6 +150,14 @@ bool Project::init(const std::string& projectPath)
                 spriteConfig->mask = sprites[i]["mask"].GetString();
             }
             
+            if(sprites[i].HasMember("alpha")){
+                spriteConfig->alpha = sprites[i]["alpha"].GetDouble();
+            }
+            
+            if(sprites[i].HasMember("rotation")){
+                spriteConfig->rotation = sprites[i]["rotation"].GetDouble();
+            }
+            
             mConfig.sprites.push_back(spriteConfig);
         }
     }
@@ -239,6 +247,10 @@ bool Project::init(const std::string& projectPath)
             maskConfig->offset.x = masks[i]["offset"]["x"].GetDouble();
             maskConfig->offset.y = masks[i]["offset"]["y"].GetDouble();
             maskConfig->alphaThreshold = masks[i]["alpha_threshold"].GetDouble();
+            if(masks[i].HasMember("scale")){
+                maskConfig->scale.x = masks[i]["scale"]["x"].GetDouble();
+                maskConfig->scale.y = masks[i]["scale"]["y"].GetDouble();
+            }
             mConfig.masks[maskConfig->id] = maskConfig;
         }
     }
@@ -298,6 +310,7 @@ void Project::loadProject()
     for(std::map<std::string, MaskConfig*>::iterator iter = mConfig.masks.begin(); iter != mConfig.masks.end(); iter++)
     {
         auto stentil = Sprite::create(mConfig.projectPath + iter->second->stencil);
+        stentil->setScale(iter->second->scale.x, iter->second->scale.y);
         stentil->setPosition(Vec2::ZERO);
         auto clipNode = ClippingNode::create(stentil);
         
@@ -374,6 +387,8 @@ void Project::loadProject()
         }
         shaderSprite->setUniformFlag(uniformFlag);
         shaderSprite->setVisible((*iter)->visible);
+        shaderSprite->setOpacity(255 * (*iter)->alpha);
+        shaderSprite->setRotation((*iter)->rotation);
         if((*iter)->timeline.length() > 0){
             shaderSprite->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
         }

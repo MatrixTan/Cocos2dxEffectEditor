@@ -92,7 +92,7 @@
         },
         {
             "id":"9",
-            "visible":true,
+            "visible":false,
             "texture":"donuts_4_strawberry.png",
             "source_type":"FILE",
             "pos":{"x":94, "y":-105, "z":5},
@@ -108,6 +108,70 @@
                 }
             ],
             "timeline":"2001"
+        },
+        {
+            "id":"10",
+            "visible":true,
+            "texture":"magicball_effect_layer_1.png",
+            "source_type":"FILE",
+            "pos":{"x":300, "y":-300, "z":2},
+            "rotation":30,
+            "scale":{"x":1.0, "y":0.3},
+            "f_shader":"shader_crystal_ball_frag.glsl",
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                },
+                {
+                    "type":"TEXTURE",
+                    "name":"u_normal",
+                    "texture":"sphere_normal_map.png",
+                    "source_type":"FILE"
+                },
+                {
+                    "type":"VEC2",
+                    "name":"u_maxuv",
+                    "value":{"x":1.0, "y":0.3}
+                }
+            ],
+            "mask":"5001"
+        },
+        {
+            "id":"11",
+            "visible":true,
+            "texture":"magicball.png",
+            "source_type":"FILE",
+            "pos":{"x":300, "y":-303, "z":99999},
+            "scale":{"x":1.0, "y":1.0},
+            "alpha":0.5
+        },
+        {
+            "id":"12",
+            "visible":true,
+            "texture":"magicball_effect_layer_2.png",
+            "source_type":"FILE",
+            "pos":{"x":300, "y":-300, "z":2},
+            "scale":{"x":1.0, "y":0.3},
+            "f_shader":"shader_crystal_ball_frag.glsl",
+            "uniform":
+            [
+                {
+                    "type":"TIME"
+                },
+                {
+                    "type":"TEXTURE",
+                    "name":"u_normal",
+                    "texture":"sphere_normal_map.png",
+                    "source_type":"FILE"
+                },
+                {
+                    "type":"VEC2",
+                    "name":"u_maxuv",
+                    "value":{"x":1.0, "y":0.3}
+                }
+            ],
+            "mask":"5001"
         }
      
     ],
@@ -115,8 +179,9 @@
     [
         {
             "id":"5001",
-            "stencil":"border.png",
-            "offset":{"x":0.0, "y":0.0},
+            "stencil":"ball_mask.png",
+            "offset":{"x":300.0, "y":-300.0},
+            "scale":{"x":1.0, "y":1.0},
             "alpha_threshold":0.05
         }
     ],
@@ -170,7 +235,39 @@
                     "y":1.0
                 }
             ]
+        },
+        {
+            "id":"2002",
+            "type":"SCALE_TO",
+            "duration":2.0,
+            "x":0.5,
+            "y":0.5
+        },
+        {
+            "id":"2003",
+            "type":"REPEAT",
+            "repeat":1000,
+            "child":
+            {
+                    "type":"SEQUENCE",
+                    "children":
+                    [
+                        {
+                            "type":"MOVE_BY",
+                            "duration":5.0,
+                            "x":0,
+                            "y":100
+                        },
+                        {
+                            "type":"MOVE_BY",
+                            "duration":0.0,
+                            "x":0,
+                            "y":-100
+                        }
+                    ]
+            }
         }
     ]
+
     
 }

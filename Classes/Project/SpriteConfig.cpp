@@ -14,6 +14,8 @@ SpriteConfig::SpriteConfig()
 {
     scale = Vec2(1.0f, 1.0f);
     customBlend = false;
+    alpha = 1.0f;
+    rotation = 0.0f;
 }
 
 SpriteConfig::~SpriteConfig()
