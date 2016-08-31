@@ -43,4 +43,17 @@ void UIProjectView::onOpenButtonTouchEvent(cocos2d::Ref *sender, ui::Widget::Tou
     }
 }
 
+void UIProjectView::loadProject(ee::ProjectConfig *config)
+{
+    Layout *rootLayout = static_cast<Layout*>(mRootNode);
+    Widget* widget = ui::Helper::seekWidgetByName(rootLayout, "timeline_item");
+    int count = 0;
+    for(auto pair : config->timelines){
+        auto widgetClone = widget->clone();
+        rootLayout->addChild(widgetClone);
+        widgetClone->setPosition(Vec2::ZERO + Vec2(0, 40 * count));
+        count++;
+    }
+}
+
 NS_EE_END

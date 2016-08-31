@@ -31,6 +31,8 @@ public:
     std::string version;
     BackgroundConfig background;
     std::string projectPath;
+    std::string projectFilePath;
+    std::string projectString;
     std::vector<std::string> atlas;
     std::vector<SpriteConfig*> sprites;
     std::vector<ParticleConfig*> particles;

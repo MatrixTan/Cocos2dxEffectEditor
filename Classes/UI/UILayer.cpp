@@ -16,6 +16,8 @@
 #include "ThunderLinkEffect.hpp"
 #include <chrono>
 #include "DrawLineLayer.hpp"
+#include "Project.hpp"
+#include "MainScene.hpp"
 
 NS_EE_BEGIN
 
@@ -29,14 +31,10 @@ bool UILayer::init(void)
     auto size = Director::getInstance()->getWinSize();
     this->addChild(mContainer, (int)SPRITE_ZORDER::UI);
     
-    Layout *uiRoot = static_cast<Layout*>(mContainer->getChildByName("root_node"));
-    Button *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
-    pButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onUserTouchEvent, this));
-    
-    auto penButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_pen"));
-    penButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onPenTouchEvent, this));
+    bindListener();
     
     mProjectView = new UIProjectView(mContainer->getChildByName("project_view"));
+    mPropertyView = new UIPropertyView(mContainer->getChildByName("property_view"));
     
     auto lineLayer = DrawLineLayer::create();
     addChild(lineLayer);
@@ -44,6 +42,21 @@ bool UILayer::init(void)
     mState = UI_STATE::NONE;
     
     return Layer::init();
+}
+
+void UILayer::bindListener()
+{
+    Layout *uiRoot = static_cast<Layout*>(mContainer->getChildByName("root_node"));
+    mStatusText = static_cast<Text*>(mContainer->getChildByName("tb_status"));
+    
+    Button *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
+    pButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onUserTouchEvent, this));
+    
+    auto penButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_pen"));
+    penButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onPenTouchEvent, this));
+    
+    auto saveButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_save"));
+    saveButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onSaveTouchEvent, this));
 }
 
 UI_STATE UILayer::getState()
@@ -120,6 +133,28 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
         test->setPosition(shaderSprite->getPosition());
         test->setRotation(60);*/
     }
+}
+
+void UILayer::onSaveTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        if(MainScene::getInstance()->getCurrentProject()->saveProject()){
+            setStatus("Save Complete!");
+        }else{
+            setStatus("Save Failed!");
+        }
+    }
+}
+
+void UILayer::setStatus(const std::string &status)
+{
+    mStatusText->setString(status);
+}
+
+void UILayer::loadProject(ProjectConfig* config)
+{
+    mProjectView->loadProject(config);
 }
 
 NS_EE_END

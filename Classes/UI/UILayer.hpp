@@ -15,6 +15,8 @@
 #include "NodeSingleton.hpp"
 #include "ui/CocosGUI.h"
 #include "UIProjectView.hpp"
+#include "UIPropertyView.hpp"
+#include "ProjectConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -35,13 +37,19 @@ public:
     
     CREATE_FUNC(UILayer);
     
-private:
+    void setStatus(const std::string& status);
+    void loadProject(ProjectConfig* config);
     
+private:
+    void bindListener(void);
     void onUserTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onPenTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onSaveTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     
     Node *mContainer;
     UIProjectView *mProjectView;
+    UIPropertyView *mPropertyView;
+    ui::Text *mStatusText;
     UI_STATE mState;
 };
 

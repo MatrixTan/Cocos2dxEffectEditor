@@ -29,10 +29,15 @@ public:
     
     bool init(const std::string& projectPath);
     
+    bool saveProject();
+    ProjectConfig* getConfig();
+    
 private:
     Timeline* parseTimeline(const rapidjson::Value& value);
-    void loadProject(void);
+    void loadProject(void);    
+    
     ProjectConfig mConfig;
+    rapidjson::Document mRoot;
 };
 
 NS_EE_END

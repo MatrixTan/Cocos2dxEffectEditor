@@ -8,6 +8,8 @@
 
 #include "Project.hpp"
 #include <json/document.h>
+#include <json/writer.h>
+#include <json/stringbuffer.h>
 #include "MainLayer.hpp"
 #include "ProjectConfig.hpp"
 #include "SpriteConfig.hpp"
@@ -30,34 +32,33 @@ Project::~Project()
 
 bool Project::init(const std::string& projectPath)
 {
-    std::string strProject = FileUtils::getInstance()->getStringFromFile(projectPath);
-    std::string fullPath = FileUtils::getInstance()->fullPathForFilename(projectPath);
-    std::string directoryPath = fullPath.substr(0, fullPath.find_last_of('/')) + "/";
-    rapidjson::Document root;
-    root.Parse<0>(strProject.c_str());
-    if(root.HasParseError()){
+    mConfig.projectString = FileUtils::getInstance()->getStringFromFile(projectPath);
+    mConfig.projectFilePath = FileUtils::getInstance()->fullPathForFilename(projectPath);
+    mConfig.projectPath = mConfig.projectFilePath.substr(0, mConfig.projectFilePath.find_last_of('/')) + "/";
+    mRoot.Parse<0>(mConfig.projectString.c_str());
+    if(mRoot.HasParseError()){
         CCASSERT(false, "project parse error");
         return false;
     }
     
-    mConfig.projectPath = directoryPath;
-    mConfig.version = root["version"].GetString();
+
+    mConfig.version = mRoot["version"].GetString();
     
-    if(root.HasMember("background")){
-        mConfig.background.file = root["background"]["file"].GetString();
-        mConfig.background.scale.x = root["background"]["scale"]["x"].GetDouble();
-        mConfig.background.scale.y = root["background"]["scale"]["y"].GetDouble();
+    if(mRoot.HasMember("background")){
+        mConfig.background.file = mRoot["background"]["file"].GetString();
+        mConfig.background.scale.x = mRoot["background"]["scale"]["x"].GetDouble();
+        mConfig.background.scale.y = mRoot["background"]["scale"]["y"].GetDouble();
     }
     
-    if(root.HasMember("atlas")){
-        rapidjson::Value &atlasArray = root["atlas"];
+    if(mRoot.HasMember("atlas")){
+        rapidjson::Value &atlasArray = mRoot["atlas"];
         for(int i=0; i<atlasArray.Size(); i++){
             mConfig.atlas.push_back(atlasArray[i].GetString());
         }
     }
     
-    if(root.HasMember("sprites")){
-        rapidjson::Value &sprites = root["sprites"];
+    if(mRoot.HasMember("sprites")){
+        rapidjson::Value &sprites = mRoot["sprites"];
         for(int i=0; i<sprites.Size(); i++){
             auto spriteConfig = new(std::nothrow)SpriteConfig();
             spriteConfig->id = sprites[i]["id"].GetString();
@@ -162,8 +163,8 @@ bool Project::init(const std::string& projectPath)
         }
     }
     
-    if(root.HasMember("particles")){
-        rapidjson::Value& particles = root["particles"];
+    if(mRoot.HasMember("particles")){
+        rapidjson::Value& particles = mRoot["particles"];
         if(!particles.IsNull()){
             for(int i=0;i<particles.Size();i++){
                 rapidjson::Value& particle = particles[i];
@@ -192,8 +193,8 @@ bool Project::init(const std::string& projectPath)
     }
     
     
-    if(root.HasMember("timelines")){
-        rapidjson::Value& timelines = root["timelines"];
+    if(mRoot.HasMember("timelines")){
+        rapidjson::Value& timelines = mRoot["timelines"];
         if(!timelines.IsNull()){
             for(int i=0; i<timelines.Size(); i++){
                 rapidjson::Value& timeline = timelines[i];
@@ -203,8 +204,8 @@ bool Project::init(const std::string& projectPath)
         }
     }
     
-    if(root.HasMember("animations")){
-        rapidjson::Value& animations = root["animations"];
+    if(mRoot.HasMember("animations")){
+        rapidjson::Value& animations = mRoot["animations"];
         if(!animations.IsNull()){
             for(int i=0; i<animations.Size(); i++){
                 rapidjson::Value& animation = animations[i];
@@ -238,8 +239,8 @@ bool Project::init(const std::string& projectPath)
         }
     }
     
-    if(root.HasMember("masks")){
-        rapidjson::Value& masks = root["masks"];
+    if(mRoot.HasMember("masks")){
+        rapidjson::Value& masks = mRoot["masks"];
         for(int i=0; i<masks.Size(); i++){
             auto maskConfig = new(std::nothrow) MaskConfig();
             maskConfig->id = masks[i]["id"].GetString();
@@ -446,6 +447,20 @@ void Project::loadProject()
         
         MainLayer::getInstance()->addSprite(iter->first, sprite, iter->second->pos.z);
     }
+}
+
+bool Project::saveProject()
+{
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    mRoot.Accept(writer);
+    mConfig.projectString = buffer.GetString();
+    return FileUtils::getInstance()->writeStringToFile(mConfig.projectString, mConfig.projectFilePath);
+}
+
+ProjectConfig* Project::getConfig()
+{
+    return &mConfig;
 }
 
 NS_EE_END

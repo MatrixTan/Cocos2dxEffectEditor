@@ -101,6 +101,10 @@
 		66AEF19A1D6D93E2003000F0 /* UIProjectView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AEF1971D6D9283003000F0 /* UIProjectView.cpp */; };
 		66AEF19D1D6D9557003000F0 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AEF19B1D6D9557003000F0 /* UILayer.cpp */; };
 		66AEF19E1D6D9565003000F0 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AEF19B1D6D9557003000F0 /* UILayer.cpp */; };
+		66B0BCC01D76CBA300C844BF /* UIPropertyView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */; };
+		66B0BCC11D76CBA300C844BF /* UIPropertyView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */; };
+		66B0BCC51D76D98B00C844BF /* UITimelineItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */; };
+		66B0BCC61D76D98B00C844BF /* UITimelineItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */; };
 		66DAF5951D5DCC2000313562 /* MaskConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DAF5931D5DCC2000313562 /* MaskConfig.cpp */; };
 		66DAF5961D5DCC2000313562 /* MaskConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DAF5931D5DCC2000313562 /* MaskConfig.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -249,6 +253,10 @@
 		66AEF1981D6D9283003000F0 /* UIProjectView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIProjectView.hpp; path = UI/UIProjectView.hpp; sourceTree = "<group>"; };
 		66AEF19B1D6D9557003000F0 /* UILayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UILayer.cpp; path = UI/UILayer.cpp; sourceTree = "<group>"; };
 		66AEF19C1D6D9557003000F0 /* UILayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UILayer.hpp; path = UI/UILayer.hpp; sourceTree = "<group>"; };
+		66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIPropertyView.cpp; path = UI/UIPropertyView.cpp; sourceTree = "<group>"; };
+		66B0BCBF1D76CBA300C844BF /* UIPropertyView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIPropertyView.hpp; path = UI/UIPropertyView.hpp; sourceTree = "<group>"; };
+		66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UITimelineItem.cpp; path = UI/UITimelineItem.cpp; sourceTree = "<group>"; };
+		66B0BCC41D76D98B00C844BF /* UITimelineItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UITimelineItem.hpp; path = UI/UITimelineItem.hpp; sourceTree = "<group>"; };
 		66DAF5931D5DCC2000313562 /* MaskConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaskConfig.cpp; path = Project/MaskConfig.cpp; sourceTree = "<group>"; };
 		66DAF5941D5DCC2000313562 /* MaskConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MaskConfig.hpp; path = Project/MaskConfig.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -519,6 +527,10 @@
 				66AEF19C1D6D9557003000F0 /* UILayer.hpp */,
 				66AEF1971D6D9283003000F0 /* UIProjectView.cpp */,
 				66AEF1981D6D9283003000F0 /* UIProjectView.hpp */,
+				66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */,
+				66B0BCBF1D76CBA300C844BF /* UIPropertyView.hpp */,
+				66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */,
+				66B0BCC41D76D98B00C844BF /* UITimelineItem.hpp */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -678,9 +690,11 @@
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
 				66AEF19D1D6D9557003000F0 /* UILayer.cpp in Sources */,
 				669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
+				66B0BCC51D76D98B00C844BF /* UITimelineItem.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				666B4CFE1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
+				66B0BCC01D76CBA300C844BF /* UIPropertyView.cpp in Sources */,
 				666B4CF11D589313000990CB /* Utils.cpp in Sources */,
 				6636BE3F1D47016D004E09DD /* SpriteConfig.cpp in Sources */,
 				660E66871D24BF1800145F7E /* MainScene.cpp in Sources */,
@@ -722,6 +736,8 @@
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
+				66B0BCC11D76CBA300C844BF /* UIPropertyView.cpp in Sources */,
+				66B0BCC61D76D98B00C844BF /* UITimelineItem.cpp in Sources */,
 				666B4CF21D589313000990CB /* Utils.cpp in Sources */,
 				66DAF5961D5DCC2000313562 /* MaskConfig.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,

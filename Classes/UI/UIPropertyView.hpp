@@ -1,19 +1,18 @@
 //
-//  UIProjectView.hpp
+//  UIPropertyView.hpp
 //  EffectEditor
 //
-//  Created by Matrix on 16/8/24.
+//  Created by Matrix on 16/8/31.
 //
 //
 
-#ifndef UIProjectView_hpp
-#define UIProjectView_hpp
+#ifndef UIPropertyView_hpp
+#define UIPropertyView_hpp
 
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "ProjectConfig.hpp"
 
 USING_NS_CC;
 
@@ -21,11 +20,10 @@ using namespace ui;
 
 NS_EE_BEGIN
 
-class UIProjectView
+class UIPropertyView
 {
 public:
-    UIProjectView(Node* root);
-    void loadProject(ProjectConfig* config);
+    UIPropertyView(Node* root);
     
 protected:
     void onOpenButtonTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
@@ -39,4 +37,4 @@ private:
 
 NS_EE_END
 
-#endif /* UIProjectView_hpp */
+#endif /* UIPropertyView_hpp */

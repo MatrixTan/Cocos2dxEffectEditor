@@ -11,20 +11,24 @@
 
 #include <stdio.h>
 #include "EffectEditor.hpp"
+#include "NodeSingleton.hpp"
 
 using namespace cocos2d;
 
 NS_EE_BEGIN
 
-class MainScene : public Scene
+class Project;
+
+class MainScene : public Scene, public NodeSingleton<MainScene>
 {
 public:
     virtual bool init() override;
+    Project* getCurrentProject(void);
     
     CREATE_FUNC(MainScene);
 private:
     
-    
+    Project *mProject;
 };
 
 NS_EE_END
