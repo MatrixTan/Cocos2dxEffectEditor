@@ -18,6 +18,8 @@
 #include "DrawLineLayer.hpp"
 #include "Project.hpp"
 #include "MainScene.hpp"
+#include "UIControlPropertySlider.hpp"
+#include "MessageDispatcher.hpp"
 
 NS_EE_BEGIN
 
@@ -57,6 +59,8 @@ void UILayer::bindListener()
     
     auto saveButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_save"));
     saveButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onSaveTouchEvent, this));
+    
+    MessageDispatcher::getInstance()->addListener("msg_hue_hue", this, std::bind(&UILayer::onSliderMessage1, this));
 }
 
 UI_STATE UILayer::getState()
@@ -83,17 +87,7 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         
-        auto particle = MainLayer::getInstance()->getParticle("3002");
-        particle->resetSystem();
-        particle = MainLayer::getInstance()->getParticle("3003");
-        particle->resetSystem();
-        particle = MainLayer::getInstance()->getParticle("3004");
-        particle->resetSystem();
-        particle = MainLayer::getInstance()->getParticle("3005");
-        particle->resetSystem();
-        particle = MainLayer::getInstance()->getParticle("3006");
-        particle->resetSystem();
-        
+        MainLayer::getInstance()->getSprite("13")->setColor(Color3B(0, 255, 0));
         
         
         /*std::string csbFile = "res/horizontal_effect2.csb";
@@ -155,6 +149,20 @@ void UILayer::setStatus(const std::string &status)
 void UILayer::loadProject(ProjectConfig* config)
 {
     mProjectView->loadProject(config);
+}
+
+void onSliderMessage1(void* sender, MessageParam *param)
+{
+    SliderMessageParam *p = static_cast<SliderMessageParam*>(param);
+    MainLayer::getInstance()->getSprite("13")->getGLProgramState()->setUniformFloat("u_hue", p->value);
+}
+void onSliderMessage2(void* sender, MessageParam *param)
+{
+    
+}
+void onSliderMessage3(void* sender, MessageParam *param)
+{
+    
 }
 
 NS_EE_END

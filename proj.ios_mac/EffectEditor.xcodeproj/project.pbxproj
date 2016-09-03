@@ -61,6 +61,10 @@
 		660E66961D24CB3600145F7E /* shader in Resources */ = {isa = PBXBuildFile; fileRef = 660E66941D24CB3600145F7E /* shader */; };
 		660E66991D24CB6500145F7E /* ShaderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E66971D24CB6500145F7E /* ShaderSprite.cpp */; };
 		660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E66971D24CB6500145F7E /* ShaderSprite.cpp */; };
+		6610FE0B1D7A6E7200618BE4 /* MessageParam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610FE091D7A6E7200618BE4 /* MessageParam.cpp */; };
+		6610FE0C1D7A6E7200618BE4 /* MessageParam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610FE091D7A6E7200618BE4 /* MessageParam.cpp */; };
+		6610FE101D7A775700618BE4 /* MessageListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610FE0E1D7A775700618BE4 /* MessageListener.cpp */; };
+		6610FE111D7A775700618BE4 /* MessageListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610FE0E1D7A775700618BE4 /* MessageListener.cpp */; };
 		6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE351D46FF0C004E09DD /* ProjectConfig.cpp */; };
 		6636BE381D46FF0C004E09DD /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE351D46FF0C004E09DD /* ProjectConfig.cpp */; };
 		6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE391D4700CE004E09DD /* Project.cpp */; };
@@ -69,6 +73,10 @@
 		6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE3D1D47016D004E09DD /* SpriteConfig.cpp */; };
 		6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
 		6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
+		66431C161D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */; };
+		66431C171D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */; };
+		66431C1D1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */; };
+		66431C1E1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */; };
 		665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
@@ -214,6 +222,10 @@
 		660E66941D24CB3600145F7E /* shader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shader; sourceTree = "<group>"; };
 		660E66971D24CB6500145F7E /* ShaderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderSprite.cpp; sourceTree = "<group>"; };
 		660E66981D24CB6500145F7E /* ShaderSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderSprite.hpp; sourceTree = "<group>"; };
+		6610FE091D7A6E7200618BE4 /* MessageParam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MessageParam.cpp; path = Message/MessageParam.cpp; sourceTree = "<group>"; };
+		6610FE0A1D7A6E7200618BE4 /* MessageParam.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MessageParam.hpp; path = Message/MessageParam.hpp; sourceTree = "<group>"; };
+		6610FE0E1D7A775700618BE4 /* MessageListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MessageListener.cpp; path = Message/MessageListener.cpp; sourceTree = "<group>"; };
+		6610FE0F1D7A775700618BE4 /* MessageListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MessageListener.hpp; path = Message/MessageListener.hpp; sourceTree = "<group>"; };
 		6636BE351D46FF0C004E09DD /* ProjectConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectConfig.cpp; path = Project/ProjectConfig.cpp; sourceTree = "<group>"; };
 		6636BE361D46FF0C004E09DD /* ProjectConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ProjectConfig.hpp; path = Project/ProjectConfig.hpp; sourceTree = "<group>"; };
 		6636BE391D4700CE004E09DD /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Project.cpp; path = Project/Project.cpp; sourceTree = "<group>"; };
@@ -222,6 +234,10 @@
 		6636BE3E1D47016D004E09DD /* SpriteConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SpriteConfig.hpp; path = Project/SpriteConfig.hpp; sourceTree = "<group>"; };
 		6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderUniformConfig.cpp; path = Project/ShaderUniformConfig.cpp; sourceTree = "<group>"; };
 		6636BE421D4704F0004E09DD /* ShaderUniformConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderUniformConfig.hpp; path = Project/ShaderUniformConfig.hpp; sourceTree = "<group>"; };
+		66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIControlPropertySlider.cpp; path = UI/UIControlPropertySlider.cpp; sourceTree = "<group>"; };
+		66431C151D79A4B000F63D7B /* UIControlPropertySlider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIControlPropertySlider.hpp; path = UI/UIControlPropertySlider.hpp; sourceTree = "<group>"; };
+		66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MessageDispatcher.cpp; path = Message/MessageDispatcher.cpp; sourceTree = "<group>"; };
+		66431C1C1D79A94D00F63D7B /* MessageDispatcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MessageDispatcher.hpp; path = Message/MessageDispatcher.hpp; sourceTree = "<group>"; };
 		665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackgroundConfig.cpp; path = Project/BackgroundConfig.cpp; sourceTree = "<group>"; };
 		665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BackgroundConfig.hpp; path = Project/BackgroundConfig.hpp; sourceTree = "<group>"; };
 		665A26861D49F8B1007511EB /* RingEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingEffect.cpp; sourceTree = "<group>"; };
@@ -403,6 +419,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66431C1A1D79A92500F63D7B /* Message */,
 				66AEF1951D6D926B003000F0 /* UI */,
 				6636BE331D46FEE2004E09DD /* Project */,
 				6694EA0C1D2F54C5007212E9 /* Common */,
@@ -507,6 +524,19 @@
 			name = Project;
 			sourceTree = "<group>";
 		};
+		66431C1A1D79A92500F63D7B /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */,
+				66431C1C1D79A94D00F63D7B /* MessageDispatcher.hpp */,
+				6610FE091D7A6E7200618BE4 /* MessageParam.cpp */,
+				6610FE0A1D7A6E7200618BE4 /* MessageParam.hpp */,
+				6610FE0E1D7A775700618BE4 /* MessageListener.cpp */,
+				6610FE0F1D7A775700618BE4 /* MessageListener.hpp */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		6694EA0C1D2F54C5007212E9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +561,8 @@
 				66B0BCBF1D76CBA300C844BF /* UIPropertyView.hpp */,
 				66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */,
 				66B0BCC41D76D98B00C844BF /* UITimelineItem.hpp */,
+				66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */,
+				66431C151D79A4B000F63D7B /* UIControlPropertySlider.hpp */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -699,9 +731,13 @@
 				6636BE3F1D47016D004E09DD /* SpriteConfig.cpp in Sources */,
 				660E66871D24BF1800145F7E /* MainScene.cpp in Sources */,
 				6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
+				66431C1D1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */,
 				666B4D241D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				6610FE101D7A775700618BE4 /* MessageListener.cpp in Sources */,
+				66431C161D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */,
 				6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */,
+				6610FE0B1D7A6E7200618BE4 /* MessageParam.cpp in Sources */,
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
@@ -726,11 +762,14 @@
 				6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				660E66881D24BF1800145F7E /* MainScene.cpp in Sources */,
 				6694EA151D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
+				66431C1E1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
 				6636BE381D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				660E66811D24AE8B00145F7E /* Version.cpp in Sources */,
+				66431C171D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */,
 				666B4CEC1D58802D000990CB /* AnimationConfig.cpp in Sources */,
+				6610FE111D7A775700618BE4 /* MessageListener.cpp in Sources */,
 				666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
@@ -740,6 +779,7 @@
 				66B0BCC61D76D98B00C844BF /* UITimelineItem.cpp in Sources */,
 				666B4CF21D589313000990CB /* Utils.cpp in Sources */,
 				66DAF5961D5DCC2000313562 /* MaskConfig.cpp in Sources */,
+				6610FE0C1D7A6E7200618BE4 /* MessageParam.cpp in Sources */,
 				6636BE3C1D4700CE004E09DD /* Project.cpp in Sources */,
 				666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */,

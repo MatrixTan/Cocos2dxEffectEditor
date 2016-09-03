@@ -18,6 +18,7 @@
         </PlistImageFolder>
         <Image Name="beauty1.jpg" />
         <Image Name="beauty2.jpg" />
+        <Project Name="control_property_slider.csd" Type="Node" />
         <PlistInfo Name="horizontal_effect.csi" Type="Plist" />
         <Image Name="horizontal_glow.png" />
         <Image Name="horizontal_piece1.png" />

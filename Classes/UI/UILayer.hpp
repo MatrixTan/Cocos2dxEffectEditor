@@ -17,6 +17,8 @@
 #include "UIProjectView.hpp"
 #include "UIPropertyView.hpp"
 #include "ProjectConfig.hpp"
+#include "MessageParam.hpp"
+#include "MessageListener.hpp"
 
 NS_EE_BEGIN
 
@@ -28,7 +30,7 @@ enum class UI_STATE
     PEN = 1
 };
 
-class UILayer : public NodeSingleton<UILayer> ,public Layer
+class UILayer : public NodeSingleton<UILayer> ,public Layer, public MessageListener
 {
 public:
     
@@ -45,6 +47,10 @@ private:
     void onUserTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onPenTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onSaveTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    
+    void onSliderMessage1(void* sender, MessageParam *param);
+    void onSliderMessage2(void* sender, MessageParam *param);
+    void onSliderMessage3(void* sender, MessageParam *param);
     
     Node *mContainer;
     UIProjectView *mProjectView;

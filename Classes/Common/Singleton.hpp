@@ -17,10 +17,10 @@ class Singleton
 public:
     static T* getInstance();
     static void destroy();
-    
+    Singleton(){};
 private:
     Singleton(Singleton const&){};
-    Singleton& operatior=(Singleton const&){};
+    //Singleton& operatior=(const Singleton &){};
     
 protected:
     static T *mInstance;
