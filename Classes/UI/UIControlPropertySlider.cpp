@@ -27,8 +27,8 @@ UIControlPropertySlider::UIControlPropertySlider(Node* root, PropertySliderData*
     labelMin->setString(std::to_string(mData->minValue));
     auto labelMax = static_cast<Text*>(ui::Helper::seekWidgetByName(rootLayout, "lb_max"));
     labelMax->setString(std::to_string(mData->maxValue));
-    auto textValue = static_cast<TextField*>(ui::Helper::seekWidgetByName(rootLayout, "tb_value"));
-    textValue->setString(std::to_string(mData->defaultValue));
+    mValueText = static_cast<TextField*>(ui::Helper::seekWidgetByName(rootLayout, "tb_value"));
+    mValueText->setString(std::to_string(mData->defaultValue));
     mSlider = static_cast<Slider*>(ui::Helper::seekWidgetByName(rootLayout, "slider"));
     mSlider->addEventListener(CC_CALLBACK_2(UIControlPropertySlider::onSliderChange, this));
 
@@ -46,6 +46,8 @@ void UIControlPropertySlider::onSliderChange(cocos2d::Ref *sender, Slider::Event
         SliderMessageParam param;
         param.value = mData->minValue + (mData->maxValue - mData->minValue) * mSlider->getPercent() / 100.0f;
         MessageDispatcher::getInstance()->notifyMessage(mData->messageName, this, &param);
+        
+        mValueText->setString(std::to_string(param.value));
     }
     
 }

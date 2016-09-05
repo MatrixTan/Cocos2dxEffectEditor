@@ -30,14 +30,14 @@ UIPropertyView::UIPropertyView(Node* root)
     PropertySliderData *data1 = new PropertySliderData();
     data1->messageName = "msg_hue_saturation";
     data1->defaultValue = 0.0f;
-    data1->maxValue = 1.0f;
+    data1->maxValue = 2.0f;
     data1->minValue = 0.0f;
     data1->name = "饱和度";
     auto silder1 = new UIControlPropertySlider(root->getChildByName("color2"), data1);
     PropertySliderData *data2 = new PropertySliderData();
     data2->messageName = "msg_hue_value";
     data2->defaultValue = 0.0f;
-    data2->maxValue = 1.0f;
+    data2->maxValue = 2.0f;
     data2->minValue = 0.0f;
     data2->name = "明度";
     auto silder2 = new UIControlPropertySlider(root->getChildByName("color3"), data2);

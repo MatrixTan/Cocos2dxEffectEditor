@@ -48,6 +48,7 @@ private:
     PropertySliderData *mData;
     Node* mNode;
     Slider* mSlider;
+    TextField* mValueText;
 };
 
 

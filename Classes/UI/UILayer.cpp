@@ -60,7 +60,9 @@ void UILayer::bindListener()
     auto saveButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_save"));
     saveButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onSaveTouchEvent, this));
     
-    MessageDispatcher::getInstance()->addListener("msg_hue_hue", this, std::bind(&UILayer::onSliderMessage1, this));
+    MessageDispatcher::getInstance()->addListener("msg_hue_hue", this, std::bind(&UILayer::onSliderMessage1, this, std::placeholders::_1, std::placeholders::_2));
+    MessageDispatcher::getInstance()->addListener("msg_hue_saturation", this, std::bind(&UILayer::onSliderMessage2, this, std::placeholders::_1, std::placeholders::_2));
+    MessageDispatcher::getInstance()->addListener("msg_hue_value", this, std::bind(&UILayer::onSliderMessage3, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 UI_STATE UILayer::getState()
@@ -151,18 +153,20 @@ void UILayer::loadProject(ProjectConfig* config)
     mProjectView->loadProject(config);
 }
 
-void onSliderMessage1(void* sender, MessageParam *param)
+void UILayer::onSliderMessage1(void* sender, MessageParam *param)
 {
     SliderMessageParam *p = static_cast<SliderMessageParam*>(param);
     MainLayer::getInstance()->getSprite("13")->getGLProgramState()->setUniformFloat("u_hue", p->value);
 }
-void onSliderMessage2(void* sender, MessageParam *param)
+void UILayer::onSliderMessage2(void* sender, MessageParam *param)
 {
-    
+    SliderMessageParam *p = static_cast<SliderMessageParam*>(param);
+    MainLayer::getInstance()->getSprite("13")->getGLProgramState()->setUniformFloat("u_saturation", p->value);
 }
-void onSliderMessage3(void* sender, MessageParam *param)
+void UILayer::onSliderMessage3(void* sender, MessageParam *param)
 {
-    
+    SliderMessageParam *p = static_cast<SliderMessageParam*>(param);
+    MainLayer::getInstance()->getSprite("13")->getGLProgramState()->setUniformFloat("u_value", p->value);
 }
 
 NS_EE_END
