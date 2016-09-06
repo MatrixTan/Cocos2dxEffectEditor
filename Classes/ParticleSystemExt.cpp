@@ -41,26 +41,43 @@ ParticleSystemExt * ParticleSystemExt::create(const std::string& filename)
     return ret;
 }
 
+ParticleSystemExt* ParticleSystemExt::create(cocos2d::ValueMap &dictionary, const std::string &dirname)
+{
+    ParticleSystemExt *ret = new (std::nothrow) ParticleSystemExt();
+    if (ret && ret->initWithDictionary(dictionary, dirname))
+    {
+        ret->autorelease();
+        return ret;
+    }
+    CC_SAFE_DELETE(ret);
+    return ret;
+}
+
 ParticleSystemExt::ParticleSystemExt()
 :mbRadial(false),
 mbFrameTile(false),
 mTilesX(1),
 mTilesY(2),
 mFrameInterval(0.0f),
-mFrameTimes(nullptr)
+mFrameTimes(nullptr),
+mbRandomFrame(false),
+mFrameIndex(nullptr)
 {
     
 }
 
 ParticleSystemExt::~ParticleSystemExt()
 {
+    /////EXT CODE///////////
     if(mFrameTimes)
     {
         delete [] mFrameTimes;
         mFrameTimes = nullptr;
     }
+    /////////////////////////
 }
 
+/////EXT CODE///////////
 void ParticleSystemExt::setRadial(bool radial)
 {
     mbRadial = radial;
@@ -85,14 +102,38 @@ void ParticleSystemExt::resetFrameData()
     memset(mFrameTimes, 0, sizeof(float)*_totalParticles);
 }
 
+
+void ParticleSystemExt::setRandomFrame(int x, int y)
+{
+    mbRandomFrame = true;
+    mTilesX = x;
+    mTilesY = y;
+    resetRandomFrameData();
+}
+
+void ParticleSystemExt::resetRandomFrameData()
+{
+    if(mFrameIndex != nullptr){
+        delete [] mFrameIndex;
+        mFrameIndex = nullptr;
+    }
+    mFrameIndex = new int[_totalParticles];
+    memset(mFrameIndex, 0, sizeof(int) * _totalParticles);
+}
+
+
 bool ParticleSystemExt::initWithTotalParticles(int numberOfParticles)
 {
     bool ret = ParticleSystemQuad::initWithTotalParticles(numberOfParticles);
     if(mbFrameTile){
         resetFrameData();
     }
+    if(mbRandomFrame){
+        resetRandomFrameData();
+    }
     return ret;
 }
+
 
 void ParticleSystemExt::addParticles(int count)
 {
@@ -103,19 +144,34 @@ void ParticleSystemExt::addParticles(int count)
             mFrameTimes[i] = 0.0f;
         }
     }
+    if(mbRandomFrame){
+        for(int i= start; i<_particleCount; i++){
+            mFrameIndex[i] = cocos2d::random(0, mTilesX * mTilesY-1);
+        }
+    }
+    
 }
 
 void ParticleSystemExt::updateParticleFrame(cocos2d::V3F_C4B_T2F_Quad *quad, int index)
 {
-    float time = mFrameTimes[index];
-    int frameIndex = floor(time / mFrameInterval);
     float width = 1.0f/mTilesX, height = 1.0f/mTilesY;
     int x = 0, y = 0;
-    if(frameIndex > mTilesX * mTilesY){
-        mFrameTimes[index] = time - frameIndex * mFrameInterval;
-    }else{
-        x = frameIndex % mTilesX;
-        y = frameIndex / mTilesX;
+    if(mbFrameTile){
+        float time = mFrameTimes[index];
+        int frameIndex = floor(time / mFrameInterval);
+        
+        if(frameIndex > mTilesX * mTilesY){
+            mFrameTimes[index] = time - frameIndex * mFrameInterval;
+        }else{
+            x = frameIndex % mTilesX;
+            y = frameIndex / mTilesX;
+        }
+
+    }
+    
+    if(mbRandomFrame){
+        x = mFrameIndex[index] % mTilesX;
+        y = mFrameIndex[index] / mTilesX;
     }
     quad->bl.texCoords.u = width * x;
     quad->bl.texCoords.v = height * (y + 1);
@@ -127,12 +183,16 @@ void ParticleSystemExt::updateParticleFrame(cocos2d::V3F_C4B_T2F_Quad *quad, int
     quad->tr.texCoords.v = quad->tl.texCoords.v;
 }
 
+////////////////////////
+
 void ParticleSystemExt::updatePosWithParticle(V3F_C4B_T2F_Quad *quad, const Vec2& newPosition,float size,float rotation)
 {
+    ///////////EXT CODE//////////////
     if(mbRadial)
     {
         rotation = CC_RADIANS_TO_DEGREES(newPosition.getAngle(Vec2(0.0f, 1.0f)));
     }
+    /////////////////////////////////
     
     // vertices
     GLfloat size_2 = size/2;
@@ -306,7 +366,7 @@ void ParticleSystemExt::updateParticleQuads()
     }
     
     ////////////EXT CODE/////////////
-    if(mbFrameTile){
+    if(mbFrameTile || mbRandomFrame){
         V3F_C4B_T2F_Quad* quad = startQuad;
         for(int i=0; i<_particleCount; ++i, ++quad){
             updateParticleFrame(quad, i);
@@ -363,6 +423,9 @@ void ParticleSystemExt::update(float dt)
                 ////////////EXT CODE/////////////
                 if(mbFrameTile){
                     mFrameTimes[i] = mFrameTimes[_particleCount-1];
+                }
+                if(mbRandomFrame){
+                    mFrameIndex[i] = mFrameIndex[_particleCount-1];
                 }
                 /////////////////////////////////
                 if (_batchNode)

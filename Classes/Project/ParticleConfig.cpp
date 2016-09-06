@@ -15,7 +15,8 @@ ParticleConfig::ParticleConfig()
 frameTile(false),
 frameInterval(0.0f),
 tileX(1),
-tileY(1)
+tileY(1),
+randomTile(false)
 {
     
 }

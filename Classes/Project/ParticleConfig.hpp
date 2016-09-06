@@ -29,6 +29,7 @@ public:
     int tileX;
     int tileY;
     float frameInterval;
+    bool randomTile;
 };
 
 NS_EE_END

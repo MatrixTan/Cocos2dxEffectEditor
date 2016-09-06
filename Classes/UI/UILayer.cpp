@@ -89,7 +89,7 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         
-        MainLayer::getInstance()->getSprite("13")->setColor(Color3B(0, 255, 0));
+        MainLayer::getInstance()->getParticle("3002")->resetSystem();
         
         
         /*std::string csbFile = "res/horizontal_effect2.csb";

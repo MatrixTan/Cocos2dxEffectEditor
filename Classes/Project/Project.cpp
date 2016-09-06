@@ -187,6 +187,11 @@ bool Project::init(const std::string& projectPath)
                     pParticle->tileY = particle["frame_tile"]["y"].GetInt();
                     pParticle->frameInterval = particle["frame_tile"]["interval"].GetDouble();
                 }
+                if(particle.HasMember("random_tile")){
+                    pParticle->randomTile = true;
+                    pParticle->tileX = particle["random_tile"]["x"].GetInt();
+                    pParticle->tileY = particle["random_tile"]["y"].GetInt();
+                }
                 mConfig.particles.push_back(pParticle);
             }
         }
@@ -414,6 +419,9 @@ void Project::loadProject()
         }
         if((*iter)->timeline.length() > 0){
             particle->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
+        }
+        if((*iter)->randomTile){
+            particle->setRandomFrame((*iter)->tileX, (*iter)->tileY);
         }
         MainLayer::getInstance()->addParticleSystem((*iter)->id, particle, (*iter)->position.z);
     }
