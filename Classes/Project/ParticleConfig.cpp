@@ -18,7 +18,7 @@ tileX(1),
 tileY(1),
 randomTile(false)
 {
-    
+    scale = cocos2d::Vec2::ONE;
 }
 
 NS_EE_END

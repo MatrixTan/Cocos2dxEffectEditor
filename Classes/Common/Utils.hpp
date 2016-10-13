@@ -10,6 +10,7 @@
 #define Utils_hpp
 
 #include <stdio.h>
+#include <string>
 
 class Utils
 {

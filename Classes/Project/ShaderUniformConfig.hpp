@@ -10,7 +10,9 @@
 #define ShaderUniformConfig_hpp
 
 #include <stdio.h>
+#include <string>
 #include "GlobalDefine.hpp"
+#include <cocos2d.h>
 
 NS_EE_BEGIN
 

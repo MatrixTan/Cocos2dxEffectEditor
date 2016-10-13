@@ -47,6 +47,9 @@ private:
     void onUserTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onPenTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onSaveTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onTest1Event(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onTest2Event(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onTest3Event(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     
     void onSliderMessage1(void* sender, MessageParam *param);
     void onSliderMessage2(void* sender, MessageParam *param);

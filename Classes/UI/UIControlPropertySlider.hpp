@@ -10,6 +10,7 @@
 #define UIControlPropertySlider_hpp
 
 #include <stdio.h>
+#include <string>
 #include "GlobalDefine.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"

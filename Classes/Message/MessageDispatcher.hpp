@@ -10,6 +10,10 @@
 #define MessageDispatcher_hpp
 
 #include <stdio.h>
+#include <functional>
+#include <vector>
+#include <map>
+#include <string>
 #include "GlobalDefine.hpp"
 #include "Singleton.hpp"
 #include "MessageParam.hpp"

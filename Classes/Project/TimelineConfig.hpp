@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <cocos2d.h>
+#include <string>
+#include <vector>
 #include "GlobalDefine.hpp"
 
 NS_EE_BEGIN

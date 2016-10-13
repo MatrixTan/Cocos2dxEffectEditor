@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include <cocos2d.h>
+#include <string>
 
 USING_NS_CC;
 

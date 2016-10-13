@@ -10,7 +10,10 @@
 #define AnimationConfig_hpp
 
 #include <stdio.h>
+#include <string>
+#include <cocos2d.h>
 #include "GlobalDefine.hpp"
+
 
 NS_EE_BEGIN
 

@@ -13,6 +13,7 @@
 #include "GlobalDefine.hpp"
 #include <stdio.h>
 #include <string>
+#include <cocos2d.h>
 
 NS_EE_BEGIN
 

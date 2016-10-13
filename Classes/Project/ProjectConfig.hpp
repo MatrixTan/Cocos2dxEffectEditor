@@ -10,6 +10,9 @@
 #define ProjectConfig_hpp
 
 #include <stdio.h>
+#include <string>
+#include <vector>
+#include <map>
 #include "GlobalDefine.hpp"
 #include "BackgroundConfig.hpp"
 #include "ParticleConfig.hpp"

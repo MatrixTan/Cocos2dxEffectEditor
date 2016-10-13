@@ -178,6 +178,14 @@ bool Project::init(const std::string& projectPath)
                 pParticle->position.x = particlePos["x"].GetDouble();
                 pParticle->position.y = particlePos["y"].GetDouble();
                 pParticle->position.z = particlePos["z"].GetDouble();
+                
+                if(particle.HasMember("scale")){
+                    rapidjson::Value& particleScale = particle["scale"];
+                    pParticle->scale.x = particleScale["x"].GetDouble();
+                    pParticle->scale.y = particleScale["y"].GetDouble();
+                    
+                }
+                
                 if(particle.HasMember("radial")){
                     pParticle->radial = particle["radial"].GetBool();
                 }
@@ -192,6 +200,8 @@ bool Project::init(const std::string& projectPath)
                     pParticle->tileX = particle["random_tile"]["x"].GetInt();
                     pParticle->tileY = particle["random_tile"]["y"].GetInt();
                 }
+                
+                
                 mConfig.particles.push_back(pParticle);
             }
         }
@@ -413,6 +423,7 @@ void Project::loadProject()
         auto particle = ParticleSystemExt::create(mConfig.projectPath + (*iter)->file);
         particle->setPosition((*iter)->position.x + spriteOrigin.width
                               , (*iter)->position.y+spriteOrigin.height);
+        particle->MainLayer::setScale((*iter)->scale.x, (*iter)->scale.y);
         particle->setRadial((*iter)->radial);
         if((*iter)->frameTile){
             particle->setFrameTile((*iter)->tileX, (*iter)->tileY, (*iter)->frameInterval);

@@ -10,11 +10,14 @@
 #define ParticleSystemExt_hpp
 
 #include <stdio.h>
+#include <cocos2d.h>
 #include "GlobalDefine.hpp"
+
+USING_NS_CC;
 
 NS_EE_BEGIN
 
-USING_NS_CC;
+
 
 /*class ParticleFrameData
 {

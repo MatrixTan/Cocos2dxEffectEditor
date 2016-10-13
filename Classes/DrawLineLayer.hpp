@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include "Common/NodeSingleton.hpp"
+#include <cocos2d.h>
 
 NS_EE_BEGIN
 

@@ -10,6 +10,8 @@
 #define ParticleConfig_hpp
 
 #include <stdio.h>
+#include <string>
+#include <cocos2d.h>
 #include "GlobalDefine.hpp"
 
 NS_EE_BEGIN
@@ -23,6 +25,7 @@ public:
     std::string file;
     std::string timeline;
     cocos2d::Vec3 position;
+    cocos2d::Vec2 scale;
     bool radial;
     
     bool frameTile;

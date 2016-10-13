@@ -20,6 +20,7 @@
 #include "MainScene.hpp"
 #include "UIControlPropertySlider.hpp"
 #include "MessageDispatcher.hpp"
+#include "AudioPlayer.hpp"
 
 NS_EE_BEGIN
 
@@ -51,7 +52,14 @@ void UILayer::bindListener()
     Layout *uiRoot = static_cast<Layout*>(mContainer->getChildByName("root_node"));
     mStatusText = static_cast<Text*>(mContainer->getChildByName("tb_status"));
     
-    Button *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
+    auto *pTest1Button = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_test1"));
+    pTest1Button->addTouchEventListener(CC_CALLBACK_2(UILayer::onTest1Event, this));
+    auto *pTest2Button = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_test2"));
+    pTest2Button->addTouchEventListener(CC_CALLBACK_2(UILayer::onTest2Event, this));
+    auto *pTest3Button = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_test3"));
+    pTest3Button->addTouchEventListener(CC_CALLBACK_2(UILayer::onTest3Event, this));
+    
+    auto *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
     pButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onUserTouchEvent, this));
     
     auto penButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_pen"));
@@ -63,11 +71,36 @@ void UILayer::bindListener()
     MessageDispatcher::getInstance()->addListener("msg_hue_hue", this, std::bind(&UILayer::onSliderMessage1, this, std::placeholders::_1, std::placeholders::_2));
     MessageDispatcher::getInstance()->addListener("msg_hue_saturation", this, std::bind(&UILayer::onSliderMessage2, this, std::placeholders::_1, std::placeholders::_2));
     MessageDispatcher::getInstance()->addListener("msg_hue_value", this, std::bind(&UILayer::onSliderMessage3, this, std::placeholders::_1, std::placeholders::_2));
+    
 }
 
 UI_STATE UILayer::getState()
 {
     return mState;
+}
+
+void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3");
+    }
+}
+
+void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3", true, 1);
+    }
+}
+
+void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        AudioPlayer::getInstance()->stopMusic(1);
+    }
 }
 
 void UILayer::onPenTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
@@ -81,7 +114,12 @@ void UILayer::onPenTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
         }else{
             pButton->setColor(Color3B(255, 255, 255));
         }
+        
+        //AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "music1.ogg");
+        AudioPlayer::getInstance()->stopMusic();
     }
+    
+    
 }
 
 void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
@@ -89,7 +127,8 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         
-        MainLayer::getInstance()->getParticle("3002")->resetSystem();
+        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "soda_crush.wav", true);
+        //MainLayer::getInstance()->getParticle("3002")->resetSystem();
         
         
         /*std::string csbFile = "res/horizontal_effect2.csb";
