@@ -115,6 +115,8 @@
 		66B0BCC61D76D98B00C844BF /* UITimelineItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */; };
 		66DAF5951D5DCC2000313562 /* MaskConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DAF5931D5DCC2000313562 /* MaskConfig.cpp */; };
 		66DAF5961D5DCC2000313562 /* MaskConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DAF5931D5DCC2000313562 /* MaskConfig.cpp */; };
+		66FB57591DAB6A93004E70A6 /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FB57571DAB6A93004E70A6 /* AudioPlayer.cpp */; };
+		66FB575A1DAB6A93004E70A6 /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FB57571DAB6A93004E70A6 /* AudioPlayer.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -275,6 +277,8 @@
 		66B0BCC41D76D98B00C844BF /* UITimelineItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UITimelineItem.hpp; path = UI/UITimelineItem.hpp; sourceTree = "<group>"; };
 		66DAF5931D5DCC2000313562 /* MaskConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaskConfig.cpp; path = Project/MaskConfig.cpp; sourceTree = "<group>"; };
 		66DAF5941D5DCC2000313562 /* MaskConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MaskConfig.hpp; path = Project/MaskConfig.hpp; sourceTree = "<group>"; };
+		66FB57571DAB6A93004E70A6 /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioPlayer.cpp; path = Audio/AudioPlayer.cpp; sourceTree = "<group>"; };
+		66FB57581DAB6A93004E70A6 /* AudioPlayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AudioPlayer.hpp; path = Audio/AudioPlayer.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -419,6 +423,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66FB57551DAB6A5F004E70A6 /* Audio */,
 				66431C1A1D79A92500F63D7B /* Message */,
 				66AEF1951D6D926B003000F0 /* UI */,
 				6636BE331D46FEE2004E09DD /* Project */,
@@ -565,6 +570,15 @@
 				66431C151D79A4B000F63D7B /* UIControlPropertySlider.hpp */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		66FB57551DAB6A5F004E70A6 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				66FB57571DAB6A93004E70A6 /* AudioPlayer.cpp */,
+				66FB57581DAB6A93004E70A6 /* AudioPlayer.hpp */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,6 +729,7 @@
 			files = (
 				660E668D1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
+				66FB57591DAB6A93004E70A6 /* AudioPlayer.cpp in Sources */,
 				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				66DAF5951D5DCC2000313562 /* MaskConfig.cpp in Sources */,
@@ -767,6 +782,7 @@
 				6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
 				6636BE381D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				660E66811D24AE8B00145F7E /* Version.cpp in Sources */,
+				66FB575A1DAB6A93004E70A6 /* AudioPlayer.cpp in Sources */,
 				66431C171D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */,
 				666B4CEC1D58802D000990CB /* AnimationConfig.cpp in Sources */,
 				6610FE111D7A775700618BE4 /* MessageListener.cpp in Sources */,

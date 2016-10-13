@@ -11,11 +11,20 @@ LOCAL_MODULE := MyGame_shared
 
 LOCAL_MODULE_FILENAME := libMyGame
 
-LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   ../../../Classes/AppDelegate.cpp \
-                   ../../../Classes/HelloWorldScene.cpp
+MY_SRC_FILES := $(wildcard $(LOCAL_PATH)/../../../Classes/*.c*)
+MY_SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../Classes/**/*.c*)
+MY_SRC_FILES := $(MY_SRC_FILES:$(LOCAL_PATH)/%=%)
+LOCAL_SRC_FILES := hellocpp/main.cpp
+LOCAL_SRC_FILES += $(MY_SRC_FILES)
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Classes
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Classes \
+                    $(LOCAL_PATH)/../../../Classes/Common \
+                    $(LOCAL_PATH)/../../../Classes/Audio \
+                    $(LOCAL_PATH)/../../../Classes/Project \
+                    $(LOCAL_PATH)/../../../Classes/Message \
+                    $(LOCAL_PATH)/../../../Classes/UI
+
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
