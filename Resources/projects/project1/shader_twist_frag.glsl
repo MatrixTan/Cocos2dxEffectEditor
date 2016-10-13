@@ -31,7 +31,6 @@ void main(void)
     uv.y = u_uv_rect.w - pow(( u_uv_rect.w - v_texcoord.y), time_factor_y);
     uv.y = min(uv.y, u_uv_rect.w);
     uv.y = max(uv.y, u_uv_rect.z);
-    //uv.y = v_texcoord.y;
+
     gl_FragColor = texture2D(CC_Texture0,uv);
-    //gl_FragColor = vec4((v_texcoord.y-u_uv_rect.z)/scaley, 0, 0, 1);
 }
