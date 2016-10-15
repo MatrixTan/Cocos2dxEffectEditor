@@ -83,7 +83,15 @@ void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3");
+        if(!AudioPlayer::getInstance()->isOtherAudioPlaying())
+        {
+            mStatusText->setString("NONONONO");
+        }
+        else
+        {
+            mStatusText->setString("YYYYYYYY");
+        }
+        //AudioPlayer::getInstance()->playSound(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3");
     }
 }
 
@@ -91,7 +99,8 @@ void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3", true, 1);
+        AudioPlayer::getInstance()->stopOtherAudio();
+        AudioPlayer::getInstance()->playSound(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3", 2);
     }
 }
 
@@ -99,7 +108,7 @@ void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        AudioPlayer::getInstance()->stopMusic(1);
+        AudioPlayer::getInstance()->stopSound(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3");
     }
 }
 

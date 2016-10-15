@@ -46,13 +46,19 @@ public:
     
     void playMusic(const std::string& musicPath, bool loop = true, int channel = 0);
     void stopMusic(int channel = 0);
+    void pauseMusic(int channel = 0);
+    void resumeMusic(int channel = 0);
     
     void playSound(const std::string& soundPath, bool loop = false);
     void playSound(const std::string& soundPath, int max, bool loop = false);
     void stopSound(const std::string& soundPath);
     
-    //bool isOtherAppPlaying(void);
-    
+    bool isOtherAudioPlaying(void);
+    void stopOtherAudio(void);
+    void resumeOtherAudio(void);
+    void stopAll(void);
+    void pauseAll(void);
+    void resumeAll(void);
     
 private:
     bool mEnableMusic;

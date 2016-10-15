@@ -9,6 +9,7 @@
 #include "AudioPlayer.hpp"
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
+#include "PlatformAdapter.h"
 
 NS_EE_BEGIN
 
@@ -37,7 +38,7 @@ bool AudioPlayer::init()
         enableSoundKey = AUDIO_ENABLE_KEY_ENABLE;
         UserDefault::getInstance()->flush();
     }
-    mEnableMusic = enableSoundKey == AUDIO_ENABLE_KEY_ENABLE;
+    mEnableSound = enableSoundKey == AUDIO_ENABLE_KEY_ENABLE;
     for(int i=0; i<MAX_MUSIC_NUM; i++){
         mMusic[i] = nullptr;
     }
@@ -70,7 +71,7 @@ bool AudioPlayer::isSoundEnabled()
 
 void AudioPlayer::playMusic(const std::string &musicPath, bool loop, int channel)
 {
-    if(mEnableMusic && channel >=0 && channel < 8){
+    if(mEnableMusic && channel >=0 && channel < MAX_MUSIC_NUM){
         int audioId = experimental::AudioEngine::play2d(musicPath.c_str(), loop);
         MusicPlayTask* task = new MusicPlayTask();
         task->audioId = audioId;
@@ -91,10 +92,28 @@ void AudioPlayer::playMusic(const std::string &musicPath, bool loop, int channel
     }
 }
 
+void AudioPlayer::pauseMusic(int channel)
+{
+    if(channel >=0 && channel <MAX_MUSIC_NUM){
+        if(mMusic[channel] != nullptr){
+            experimental::AudioEngine::pause(mMusic[channel]->audioId);
+        }
+    }
+}
+
+void AudioPlayer::resumeMusic(int channel)
+{
+    if(channel >=0 && channel <MAX_MUSIC_NUM){
+        if(mMusic[channel] != nullptr){
+            experimental::AudioEngine::resume(mMusic[channel]->audioId);
+        }
+    }
+}
+
 
 void AudioPlayer::stopMusic(int channel)
 {
-    if(channel >= 0 && channel < 8)
+    if(channel >= 0 && channel < MAX_MUSIC_NUM)
     {
         if(mMusic[channel] != nullptr){
             experimental::AudioEngine::stop(mMusic[channel]->audioId);
@@ -114,6 +133,7 @@ void AudioPlayer::playSound(const std::string &soundPath, bool loop)
             auto soundTask = new SoundPlayTask();
             soundTask->audioName = soundPath;
             soundTask->audioIds.push_back(audioId);
+            mPlayingSounds[soundPath] = soundTask;
         }
         
         auto onSoundComplete = [&](int audio, const std::string& info)
@@ -154,13 +174,52 @@ void AudioPlayer::stopSound(const std::string &soundPath)
     std::map<std::string, SoundPlayTask*>::iterator task = mPlayingSounds.find(soundPath);
     if(task != mPlayingSounds.end()){
         for(std::vector<int>::iterator iter = task->second->audioIds.begin();
-            iter != task->second->audioIds.end();){
+            iter != task->second->audioIds.end(); iter++){
             experimental::AudioEngine::stop(*iter);
         }
         task->second->audioIds.clear();
     }
 }
 
+bool AudioPlayer::isOtherAudioPlaying()
+{
+    return PlatformAdapter::isOtherAudioPlaying();
+}
 
+void AudioPlayer::stopOtherAudio()
+{
+    PlatformAdapter::stopOtherAudio();
+}
+
+void AudioPlayer::resumeOtherAudio()
+{
+    PlatformAdapter::resumeOtherAudio();
+}
+
+void AudioPlayer::stopAll()
+{
+    for(int i=0; i<MAX_MUSIC_NUM; i++){
+        stopMusic(i);
+    }
+    
+    std::map<std::string, SoundPlayTask*>::iterator task = mPlayingSounds.begin();
+    for(; task != mPlayingSounds.end(); task++){
+        for(std::vector<int>::iterator iter = task->second->audioIds.begin();
+            iter != task->second->audioIds.end(); iter++){
+            experimental::AudioEngine::stop(*iter);
+        }
+    }
+    mPlayingSounds.clear();
+}
+
+void AudioPlayer::pauseAll()
+{
+    experimental::AudioEngine::pauseAll();
+}
+
+void AudioPlayer::resumeAll()
+{
+    experimental::AudioEngine::resumeAll();
+}
 
 NS_EE_END
