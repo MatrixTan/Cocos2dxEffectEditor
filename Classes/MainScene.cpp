@@ -22,6 +22,7 @@ bool MainScene::init()
     mProject->init("projects/project1/project1.json");
     
     this->addChild(MainLayer::getInstance(), (int)LAYER_ZORDER::MAIN);
+    MainLayer::getInstance()->addChild(UILayer::getInstance(), (int)SPRITE_ZORDER::UI);
     this->addChild(PostRenderEffectLayer::getInstance(), (int)LAYER_ZORDER::POST_RENDER);
     
     UILayer::getInstance()->loadProject(mProject->getConfig());

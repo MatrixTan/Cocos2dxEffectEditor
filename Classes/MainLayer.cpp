@@ -29,8 +29,6 @@ bool MainLayer::init()
     
     FileUtils::getInstance()->addSearchPath("res/");
     
-    addChild(UILayer::getInstance(), (int)SPRITE_ZORDER::UI);
-    
     /*auto test = CSLoader::createNode("res/horizontal_dispose.csb");
     cocostudio::timeline::ActionTimeline *timeline = CSLoader::createTimeline("res/horizontal_dispose.csb");
     test->runAction(timeline);

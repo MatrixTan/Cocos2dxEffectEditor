@@ -19,6 +19,7 @@
 #include "ProjectConfig.hpp"
 #include "MessageParam.hpp"
 #include "MessageListener.hpp"
+#include "UIDrawView.hpp"
 
 NS_EE_BEGIN
 
@@ -60,6 +61,7 @@ private:
     UIPropertyView *mPropertyView;
     ui::Text *mStatusText;
     UI_STATE mState;
+    UIDrawView* mDrawPanel;
 };
 
 NS_EE_END

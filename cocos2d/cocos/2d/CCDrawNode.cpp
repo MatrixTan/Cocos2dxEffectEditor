@@ -619,7 +619,6 @@ void DrawNode::drawCubicBezier(const Vec2 &origin, const Vec2 &control1, const V
     vertices[segments].y = destination.y;
     
     drawPoly(vertices, segments+1, false, color);
-
     CC_SAFE_DELETE_ARRAY(vertices);
 }
 

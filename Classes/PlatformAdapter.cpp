@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include "PlatformAdapter.h"
-#include "platform/android/jni/JniHelper.h"
+
 #include <string>
 
 USING_NS_CC;
@@ -16,6 +16,8 @@ USING_NS_CC;
 NS_EE_BEGIN
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
+#include "platform/android/jni/JniHelper.h"
 
 #define ANDROID_ADAPTER_CLASS "org/cocos2dx/cpp/AndroidAdapter"
 

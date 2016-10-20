@@ -21,6 +21,7 @@
 #include "UIControlPropertySlider.hpp"
 #include "MessageDispatcher.hpp"
 #include "AudioPlayer.hpp"
+#include "ActionEx.hpp"
 
 NS_EE_BEGIN
 
@@ -67,10 +68,48 @@ void UILayer::bindListener()
     
     auto saveButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_save"));
     saveButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onSaveTouchEvent, this));
+    mDrawPanel =  new UIDrawView(mContainer->getChildByName("draw_panel"));
+    mDrawPanel->setVisible(false);
     
     MessageDispatcher::getInstance()->addListener("msg_hue_hue", this, std::bind(&UILayer::onSliderMessage1, this, std::placeholders::_1, std::placeholders::_2));
     MessageDispatcher::getInstance()->addListener("msg_hue_saturation", this, std::bind(&UILayer::onSliderMessage2, this, std::placeholders::_1, std::placeholders::_2));
     MessageDispatcher::getInstance()->addListener("msg_hue_value", this, std::bind(&UILayer::onSliderMessage3, this, std::placeholders::_1, std::placeholders::_2));
+    
+    auto effectNode = Node::create();
+    auto effectHead = Sprite::create("projects/project1/2.png");
+    effectHead->setAnchorPoint(Vec2(0.5f, 0.0f));
+    //effectHead->setPosition(Vec2(0.0f, 40.0f));
+    auto effectStreak = MotionStreak::create(0.22f, 5.0f, 40.0f, Color3B(255, 255, 255), "projects/project1/1_1.png");
+    //effectNode->addChild(effectStreak);
+    //effectNode->addChild(effectHead);
+    //effectStreak->addChild(effectHead);
+    addChild(effectStreak);
+    addChild(effectHead);
+    ccBezierConfig config;
+    config.controlPoint_1 = Vec2(300, 100);
+    config.controlPoint_2 = Vec2(1000, 0);
+    config.endPosition = Vec2(1000, 100);
+    
+    ccBezierConfig config2;
+    config2.controlPoint_1 = Vec2(500, 700);
+    config2.controlPoint_2 = config2.controlPoint_1;
+    config2.endPosition = Vec2(300, 0);
+    
+    effectStreak->setPosition(Vec2(300, 0));
+    effectHead->setPosition(Vec2(300, 0));
+    auto action = RepeatForever::create(
+                                        Sequence::create(
+                                                         BezierRotateTo::create(1.0f, config),
+                                                         MoveBy::create(1.5f, Vec2(0.0f, 800.0f)),
+
+                                                         NULL));
+    auto action2 = RepeatForever::create(
+                                        Sequence::create(
+                                                         BezierTo::create(1.0f, config),
+                                                         MoveBy::create(1.5f, Vec2(0.0f, 800.0f)),
+                                                         NULL));
+    effectStreak->runAction(action2);
+    effectHead->runAction(action);
     
 }
 
@@ -120,12 +159,13 @@ void UILayer::onPenTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
         auto pButton = static_cast<Button*>(sender);
         if(mState == UI_STATE::PEN){
             pButton->setColor(Color3B(200, 200, 255));
+            mDrawPanel->setVisible(true);
         }else{
             pButton->setColor(Color3B(255, 255, 255));
+            mDrawPanel->setVisible(false);
         }
         
-        //AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "music1.ogg");
-        AudioPlayer::getInstance()->stopMusic();
+        
     }
     
     

@@ -67,6 +67,10 @@
 		6610FE111D7A775700618BE4 /* MessageListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610FE0E1D7A775700618BE4 /* MessageListener.cpp */; };
 		66111AF91DB0FC6B0075E617 /* PlatformAdapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66111AF81DB0FC6B0075E617 /* PlatformAdapter.cpp */; };
 		66111AFA1DB0FC6B0075E617 /* PlatformAdapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66111AF81DB0FC6B0075E617 /* PlatformAdapter.cpp */; };
+		66111B131DB5F7D50075E617 /* ActionEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66111B111DB5F7D50075E617 /* ActionEx.cpp */; };
+		66111B141DB5F7D50075E617 /* ActionEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66111B111DB5F7D50075E617 /* ActionEx.cpp */; };
+		66111B181DB622C50075E617 /* UIDrawView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66111B161DB622C50075E617 /* UIDrawView.cpp */; };
+		66111B191DB622C50075E617 /* UIDrawView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66111B161DB622C50075E617 /* UIDrawView.cpp */; };
 		6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE351D46FF0C004E09DD /* ProjectConfig.cpp */; };
 		6636BE381D46FF0C004E09DD /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE351D46FF0C004E09DD /* ProjectConfig.cpp */; };
 		6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE391D4700CE004E09DD /* Project.cpp */; };
@@ -233,6 +237,10 @@
 		6610FE0E1D7A775700618BE4 /* MessageListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MessageListener.cpp; path = Message/MessageListener.cpp; sourceTree = "<group>"; };
 		6610FE0F1D7A775700618BE4 /* MessageListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MessageListener.hpp; path = Message/MessageListener.hpp; sourceTree = "<group>"; };
 		66111AF81DB0FC6B0075E617 /* PlatformAdapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlatformAdapter.cpp; sourceTree = "<group>"; };
+		66111B111DB5F7D50075E617 /* ActionEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ActionEx.cpp; path = Timeline/ActionEx.cpp; sourceTree = "<group>"; };
+		66111B121DB5F7D50075E617 /* ActionEx.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ActionEx.hpp; path = Timeline/ActionEx.hpp; sourceTree = "<group>"; };
+		66111B161DB622C50075E617 /* UIDrawView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIDrawView.cpp; path = UI/UIDrawView.cpp; sourceTree = "<group>"; };
+		66111B171DB622C50075E617 /* UIDrawView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIDrawView.hpp; path = UI/UIDrawView.hpp; sourceTree = "<group>"; };
 		6636BE351D46FF0C004E09DD /* ProjectConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectConfig.cpp; path = Project/ProjectConfig.cpp; sourceTree = "<group>"; };
 		6636BE361D46FF0C004E09DD /* ProjectConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ProjectConfig.hpp; path = Project/ProjectConfig.hpp; sourceTree = "<group>"; };
 		6636BE391D4700CE004E09DD /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Project.cpp; path = Project/Project.cpp; sourceTree = "<group>"; };
@@ -430,6 +438,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66111B0F1DB5F4DE0075E617 /* Timeline */,
 				66FB57551DAB6A5F004E70A6 /* Audio */,
 				66431C1A1D79A92500F63D7B /* Message */,
 				66AEF1951D6D926B003000F0 /* UI */,
@@ -511,6 +520,15 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		66111B0F1DB5F4DE0075E617 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				66111B111DB5F7D50075E617 /* ActionEx.cpp */,
+				66111B121DB5F7D50075E617 /* ActionEx.hpp */,
+			);
+			name = Timeline;
+			sourceTree = "<group>";
+		};
 		6636BE331D46FEE2004E09DD /* Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +596,8 @@
 				66B0BCC41D76D98B00C844BF /* UITimelineItem.hpp */,
 				66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */,
 				66431C151D79A4B000F63D7B /* UIControlPropertySlider.hpp */,
+				66111B161DB622C50075E617 /* UIDrawView.cpp */,
+				66111B171DB622C50075E617 /* UIDrawView.hpp */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -748,6 +768,7 @@
 				660E66801D24AE8B00145F7E /* Version.cpp in Sources */,
 				66AEF19D1D6D9557003000F0 /* UILayer.cpp in Sources */,
 				669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
+				66111B181DB622C50075E617 /* UIDrawView.cpp in Sources */,
 				66B0BCC51D76D98B00C844BF /* UITimelineItem.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
@@ -765,6 +786,7 @@
 				6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */,
 				6610FE0B1D7A6E7200618BE4 /* MessageParam.cpp in Sources */,
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
+				66111B131DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				666B4CF61D597010000990CB /* ThunderLinkEffect.cpp in Sources */,
@@ -801,6 +823,8 @@
 				6610FE111D7A775700618BE4 /* MessageListener.cpp in Sources */,
 				666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
+				66111B191DB622C50075E617 /* UIDrawView.cpp in Sources */,
+				66111B141DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,

@@ -235,6 +235,19 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
+          <AbstractNodeData Name="draw_panel" ActionTag="753056741" Tag="40" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="40.0001" RightMargin="1039.9999" TopMargin="554.0041" BottomMargin="45.9959" TouchEnable="True" ClipAble="False" BackColorAlpha="41" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="200.0000" Y="200.0000" />
+            <AnchorPoint />
+            <Position X="40.0001" Y="45.9959" />
+            <Scale ScaleX="5.9800" ScaleY="3.3900" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0313" Y="0.0575" />
+            <PreSize X="0.1563" Y="0.2500" />
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

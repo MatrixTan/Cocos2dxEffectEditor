@@ -18,20 +18,6 @@ NS_EE_BEGIN
 
 USING_NS_CC;
 
-class BezierPoint
-{
-public:
-    Vec2 pos;
-    Vec2 control1;
-    Vec2 control2;
-};
-
-class BezierLine
-{
-public:
-    BezierPoint* start;
-    BezierPoint* end;
-};
 
 class DrawLineLayer: public NodeSingleton<DrawLineLayer>, public Layer
 {
