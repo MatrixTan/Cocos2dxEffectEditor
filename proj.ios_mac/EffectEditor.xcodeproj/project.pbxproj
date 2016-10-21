@@ -101,6 +101,8 @@
 		666B4CFF1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4CFC1D5ADC86000990CB /* ParticleSystemExt.cpp */; };
 		666B4D241D5C35C7000990CB /* DrawLineLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */; };
 		666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */; };
+		6670C9CC1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */; };
+		6670C9CD1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
 		6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */; };
@@ -270,6 +272,8 @@
 		666B4CFD1D5ADC86000990CB /* ParticleSystemExt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParticleSystemExt.hpp; sourceTree = "<group>"; };
 		666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawLineLayer.cpp; sourceTree = "<group>"; };
 		666B4D231D5C35C7000990CB /* DrawLineLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawLineLayer.hpp; sourceTree = "<group>"; };
+		6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BezierPathManager.cpp; path = Timeline/BezierPathManager.cpp; sourceTree = "<group>"; };
+		6670C9CB1DB9C08C00EBA27F /* BezierPathManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BezierPathManager.hpp; path = Timeline/BezierPathManager.hpp; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
 		6694EA0F1D2F54F0007212E9 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Singleton.hpp; path = Common/Singleton.hpp; sourceTree = "<group>"; };
 		6694EA121D2F5B8A007212E9 /* NodeSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeSingleton.cpp; path = Common/NodeSingleton.cpp; sourceTree = "<group>"; };
@@ -525,6 +529,8 @@
 			children = (
 				66111B111DB5F7D50075E617 /* ActionEx.cpp */,
 				66111B121DB5F7D50075E617 /* ActionEx.hpp */,
+				6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */,
+				6670C9CB1DB9C08C00EBA27F /* BezierPathManager.hpp */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -772,6 +778,7 @@
 				66B0BCC51D76D98B00C844BF /* UITimelineItem.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
+				6670C9CC1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */,
 				666B4CFE1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				66B0BCC01D76CBA300C844BF /* UIPropertyView.cpp in Sources */,
 				666B4CF11D589313000990CB /* Utils.cpp in Sources */,
@@ -816,6 +823,7 @@
 				6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
 				6636BE381D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				660E66811D24AE8B00145F7E /* Version.cpp in Sources */,
+				6670C9CD1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */,
 				66FB575A1DAB6A93004E70A6 /* AudioPlayer.cpp in Sources */,
 				66111AFA1DB0FC6B0075E617 /* PlatformAdapter.cpp in Sources */,
 				66431C171D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */,

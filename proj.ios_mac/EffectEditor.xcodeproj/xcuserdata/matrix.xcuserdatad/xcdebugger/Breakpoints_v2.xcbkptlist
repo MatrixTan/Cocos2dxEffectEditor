@@ -168,12 +168,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/UI/UIDrawView.cpp"
-            timestampString = "498656562.859348"
+            timestampString = "498725296.991791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "UIDrawView::UIDrawView(Node* root)"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "UIDrawView::savePath()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Timeline/BezierPathManager.cpp"
+            timestampString = "498725378.850699"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "BezierPathManager::getBezierPathSequence(const std::string&amp; pathFile, float duration, Vec2 from, Vec2 to, bool rotate)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Timeline/BezierPathManager.cpp"
+            timestampString = "498725598.037506"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "BezierPathManager::getBezierPathSequence(const std::string&amp; pathFile, float duration, Vec2 from, Vec2 to, bool rotate)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Timeline/BezierPathManager.cpp"
+            timestampString = "498728702.941626"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "BezierPathManager::getBezierPathSequence(const std::string&amp; pathFile, float duration, Vec2 from, Vec2 to, bool rotate)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

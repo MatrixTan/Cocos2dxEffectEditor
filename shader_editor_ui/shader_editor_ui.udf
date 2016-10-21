@@ -28,14 +28,5 @@
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="main_scene.csd" />
-          <FilePathData Path="control_property_slider.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="main_scene.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>

@@ -22,6 +22,7 @@
 #include "MessageDispatcher.hpp"
 #include "AudioPlayer.hpp"
 #include "ActionEx.hpp"
+#include "BezierPathManager.hpp"
 
 NS_EE_BEGIN
 
@@ -78,11 +79,7 @@ void UILayer::bindListener()
     auto effectNode = Node::create();
     auto effectHead = Sprite::create("projects/project1/2.png");
     effectHead->setAnchorPoint(Vec2(0.5f, 0.0f));
-    //effectHead->setPosition(Vec2(0.0f, 40.0f));
     auto effectStreak = MotionStreak::create(0.22f, 5.0f, 40.0f, Color3B(255, 255, 255), "projects/project1/1_1.png");
-    //effectNode->addChild(effectStreak);
-    //effectNode->addChild(effectHead);
-    //effectStreak->addChild(effectHead);
     addChild(effectStreak);
     addChild(effectHead);
     ccBezierConfig config;
@@ -108,8 +105,11 @@ void UILayer::bindListener()
                                                          BezierTo::create(1.0f, config),
                                                          MoveBy::create(1.5f, Vec2(0.0f, 800.0f)),
                                                          NULL));
-    effectStreak->runAction(action2);
-    effectHead->runAction(action);
+    auto action3 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + "test.bezier", 2.0f, Vec2(500, 600), Vec2::ZERO, true);
+    auto action4 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + "test.bezier", 2.0f, Vec2(500, 600), Vec2::ZERO);
+    
+    effectStreak->runAction(RepeatForever::create(action4));
+    effectHead->runAction(RepeatForever::create(action3));
     
 }
 
