@@ -122,13 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainLayer.cpp"
-            timestampString = "498629916.739492"
+            timestampString = "501155095.068249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "MainLayer::addSprite(const std::string &amp;id, ee::ShaderSprite *pSprite, const std::string &amp;maskId)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,7 +158,7 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "BezierRotateTo::clone()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -174,7 +174,7 @@
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "BezierPathManager::getBezierPathSequence(const std::string&amp; pathFile, float duration, Vec2 from, Vec2 to, bool rotate)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -191,6 +191,54 @@
             endingLineNumber = "194"
             landmarkName = "UIDrawView::onLoadEvent(cocos2d::Ref *sender, ui::Widget::TouchEventType type)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/DrawLineLayer.cpp"
+            timestampString = "501130557.09549"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "DrawLineLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Timeline/ActionDrawBezierPath.cpp"
+            timestampString = "501161434.08869"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "ActionDrawBezierPath::startWithTarget(Node* pTarget)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Timeline/BezierPathManager.cpp"
+            timestampString = "501155557.96496"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "BezierPathManager::getBezierPath(const std::string &amp;pathKey)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

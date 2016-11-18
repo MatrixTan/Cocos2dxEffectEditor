@@ -25,6 +25,7 @@
 #include "BezierPathManager.hpp"
 #include "ParticleSystemExt.hpp"
 #include "PlatformAdapter.h"
+#include "ActionDrawBezierPath.hpp"
 
 NS_EE_BEGIN
 
@@ -132,8 +133,19 @@ void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 
 void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
-    std::string file = PlatformAdapter::getFilePath("bezier");
-    std::string x = file;
+    auto maskSprite = DrawNode::create();
+    auto clipingNode = ClippingNode::create(maskSprite);
+    auto show = Sprite::create("projects/project1/monster.png");
+    //show->setPosition(Vec2(0.0f, -show->getContentSize().height/2));
+    show->setAnchorPoint(Vec2(0.0f, 0.0f));
+    //show->setScale(3.0f);
+    clipingNode->addChild(show);
+    clipingNode->setPosition(Vec2(300, 300));
+    addChild(clipingNode, (int)SPRITE_ZORDER::MASK);
+    maskSprite->drawDot(Vec2(0, 0), 10, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
+    
+    BezierPointList list = BezierPathManager::getInstance()->getBezierPath("projects/project1/monster2.bezier");
+    maskSprite->runAction(ActionDrawBezierPath::create(5.0f, list, 10.0f));
 }
 
 void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)

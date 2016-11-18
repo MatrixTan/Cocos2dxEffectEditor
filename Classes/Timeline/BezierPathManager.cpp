@@ -167,6 +167,9 @@ void BezierPathManager::clearList(BezierPointList &list)
 BezierPointList BezierPathManager::getBezierPath(const std::string &pathKey)
 {
     BezierPointList list;
+    if(mCacheMap.find(pathKey) == mCacheMap.end()){
+        loadBezierPath(pathKey);
+    }
     if(mCacheMap.find(pathKey) != mCacheMap.end()){
         for(BezierPoint* point : mCacheMap[pathKey]){
             BezierPoint* tempPoint = new BezierPoint(*point);

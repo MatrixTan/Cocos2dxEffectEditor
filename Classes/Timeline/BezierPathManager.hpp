@@ -49,8 +49,13 @@ class BezierPathManager : public Singleton<BezierPathManager>
 public:
     bool loadBezierPath(const std::string& pathFile);
     BezierPointList getBezierPath(const std::string& pathKey);
-    //bezier path in config files is based on (0, 0) point, so the 
+    
+    //bezier path in config files is based on (0, 0) point, and the base direction is (-1, 0), so, if the from point is not
+    //(0, 0) point, all of the bezier points will be transformed by the "from" point as offset. if the "form -> to" direction
+    // is not (-1, 0), the whole path will be rotated to the "from -> to" angle.
+    // param rotate means if the sprite rotate itself, not the path.
     Sequence* getBezierPathSequence(const std::string& pathFile, float duration, Vec2 from, Vec2 to, bool rotate = false);
+    
     bool saveBezierPath(BezierPointList& list, const std::string& filePath);
     static void clearList(BezierPointList& list);
 private:

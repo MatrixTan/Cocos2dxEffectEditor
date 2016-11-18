@@ -13,18 +13,18 @@ void main(void)
 {
     vec2 offset1 = v_texcoord - point1;
     float distance1 = length(offset1);
-    float factor1 = cos(distance1 * 12.0 + u_time * 17.0) * 0.02;
+    float factor1 = cos(distance1 * 12.0 + u_time * 17.0) * 0.002;
     offset1 = normalize(offset1) * factor1;
     
     vec2 offset2 = v_texcoord - point2;
     float distance2 = length(offset2);
-    float factor2 = cos(distance2 * 2.0 + u_time * 23.0) * 0.09;
+    float factor2 = cos(distance2 * 2.0 + u_time * 23.0) * 0.009;
     offset2 = normalize(offset2) * factor2;
     
     
     vec2 offset3 = v_texcoord - point3;
     float distance3 = length(offset3);
-    float factor3 = sin(distance3 * 7.0 + u_time * 17.0) * 0.07;
+    float factor3 = sin(distance3 * 7.0 + u_time * 17.0) * 0.007;
     offset3 = normalize(offset3) * factor3;
  
     vec2 offset = offset1 + offset2 + offset3;

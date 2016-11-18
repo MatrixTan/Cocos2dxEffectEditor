@@ -60,7 +60,7 @@
         },
         {
             "id":"4",
-            "visible":true,
+            "visible":false,
             "texture":"item_desert.png",
             "source_type":"FILE",
             "v_shader":"shader_erode_vert.glsl",
@@ -82,10 +82,11 @@
         },
         {
             "id":"5",
-            "visible":false,
-            "texture":"water.png",
+            "visible":true,
+            "texture":"target.png",
             "source_type":"FILE",
-            "f_shader":"shader_water_wave_frag.glsl",
+            "scale":{"x":3.0, "y":3.0},
+            "f_shader":"shader_wave_frag.glsl",
             "pos":{"x":-200, "y":200, "z":2},
             "uniform":
             [
@@ -96,7 +97,7 @@
         },
         {
             "id":"6",
-            "visible":true,
+            "visible":false,
             "texture":"item_14.png",
             "source_type":"FILE",
             "scale":{"x":0.5, "y":0.5},
@@ -113,8 +114,8 @@
         {
             "id":"7",
             "visible":true,
-            "texture":"item_14.png",
-            "scale":{"x":0.5, "y":0.5},
+            "texture":"monster.png",
+            "scale":{"x":1.0, "y":1.0},
             "source_type":"FILE",
             "pos":{"x":0, "y":0, "z":0}
         },
@@ -156,7 +157,7 @@
         },
         {
             "id":"9",
-            "visible":true,
+            "visible":false,
             "texture":"rainbow_create_aura.png",
             "scale":{"x":1.0, "y":1.0},
             "source_type":"FILE",
@@ -197,22 +198,7 @@
     ],
     "particles":
     [
-        {
-            "id":"3001",
-            "file":"sand_suck.plist",
-            "pos":{"x":0, "y":80, "z":3}
-        },
-        {
-            "id":"3002",
-            "file":"rainbow_create_particle.plist",
-            "pos":{"x":-100, "y":-100, "z":3}
-        },
-        {
-            "id":"3002",
-            "file":"rainbow_create_particle2.plist",
-            "pos":{"x":-100, "y":-100, "z":3},
-            "radial":true
-        }
+    
     ],
     "animations":
     [
@@ -229,7 +215,8 @@
             "interval":0.02,
             "repeat":999999,
             "delay":0,
-            "timeline":"2001"
+            "timeline":"2001",
+            "visible":false
         },
         {
             "id":"4002",
@@ -243,7 +230,8 @@
             "scale":{"x":1.0, "y":1.0},
             "interval":0.02,
             "repeat":999999,
-            "delay":0
+            "delay":0,
+            "visible":false
         }
     ]
 }

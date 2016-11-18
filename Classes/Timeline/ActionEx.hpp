@@ -29,6 +29,7 @@ private:
     Vec2 mLastPos;
 };
 
+
 NS_EE_END
 
 

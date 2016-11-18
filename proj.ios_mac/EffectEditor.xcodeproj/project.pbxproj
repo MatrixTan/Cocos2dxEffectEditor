@@ -131,6 +131,8 @@
 		66AEF19A1D6D93E2003000F0 /* UIProjectView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AEF1971D6D9283003000F0 /* UIProjectView.cpp */; };
 		66AEF19D1D6D9557003000F0 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AEF19B1D6D9557003000F0 /* UILayer.cpp */; };
 		66AEF19E1D6D9565003000F0 /* UILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AEF19B1D6D9557003000F0 /* UILayer.cpp */; };
+		66B00BC11DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B00BBF1DDEB220006B22FD /* ActionDrawBezierPath.cpp */; };
+		66B00BC21DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B00BBF1DDEB220006B22FD /* ActionDrawBezierPath.cpp */; };
 		66B0BCC01D76CBA300C844BF /* UIPropertyView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */; };
 		66B0BCC11D76CBA300C844BF /* UIPropertyView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */; };
 		66B0BCC51D76D98B00C844BF /* UITimelineItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */; };
@@ -316,6 +318,8 @@
 		66AEF1981D6D9283003000F0 /* UIProjectView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIProjectView.hpp; path = UI/UIProjectView.hpp; sourceTree = "<group>"; };
 		66AEF19B1D6D9557003000F0 /* UILayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UILayer.cpp; path = UI/UILayer.cpp; sourceTree = "<group>"; };
 		66AEF19C1D6D9557003000F0 /* UILayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UILayer.hpp; path = UI/UILayer.hpp; sourceTree = "<group>"; };
+		66B00BBF1DDEB220006B22FD /* ActionDrawBezierPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ActionDrawBezierPath.cpp; path = Timeline/ActionDrawBezierPath.cpp; sourceTree = "<group>"; };
+		66B00BC01DDEB220006B22FD /* ActionDrawBezierPath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ActionDrawBezierPath.hpp; path = Timeline/ActionDrawBezierPath.hpp; sourceTree = "<group>"; };
 		66B0BCBE1D76CBA300C844BF /* UIPropertyView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIPropertyView.cpp; path = UI/UIPropertyView.cpp; sourceTree = "<group>"; };
 		66B0BCBF1D76CBA300C844BF /* UIPropertyView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIPropertyView.hpp; path = UI/UIPropertyView.hpp; sourceTree = "<group>"; };
 		66B0BCC31D76D98B00C844BF /* UITimelineItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UITimelineItem.cpp; path = UI/UITimelineItem.cpp; sourceTree = "<group>"; };
@@ -573,6 +577,8 @@
 				66A98ADE1DC84F0000CE157C /* TimelineRepeat.hpp */,
 				66A98AE11DC8508900CE157C /* TimelineSpawn.cpp */,
 				66A98AE21DC8508900CE157C /* TimelineSpawn.hpp */,
+				66B00BBF1DDEB220006B22FD /* ActionDrawBezierPath.cpp */,
+				66B00BC01DDEB220006B22FD /* ActionDrawBezierPath.hpp */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -824,6 +830,7 @@
 				66A98ACF1DC84B5E00CE157C /* TimelineMoveBy.cpp in Sources */,
 				666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				6670C9CC1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */,
+				66B00BC11DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */,
 				666B4CFE1D5ADC86000990CB /* ParticleSystemExt.cpp in Sources */,
 				66B0BCC01D76CBA300C844BF /* UIPropertyView.cpp in Sources */,
 				666B4CF11D589313000990CB /* Utils.cpp in Sources */,
@@ -884,6 +891,7 @@
 				666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */,
 				660E668E1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				66A98AD81DC84D5200CE157C /* TimelineRotateBy.cpp in Sources */,
+				66B00BC21DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */,
 				66111B191DB622C50075E617 /* UIDrawView.cpp in Sources */,
 				66111B141DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,

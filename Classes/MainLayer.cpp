@@ -12,6 +12,7 @@
 #include "PostRenderEffectLayer.hpp"
 #include "UILayer.hpp"
 #include "DrawLineLayer.hpp"
+#include "ActionDrawBezierPath.hpp"
 
 NS_EE_BEGIN
 
@@ -129,6 +130,7 @@ bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
     if(UILayer::getInstance()->getState() == UI_STATE::PEN){
         return DrawLineLayer::getInstance()->onTouchBegin(touch, event);
     }
+    
     return true;
 }
 
