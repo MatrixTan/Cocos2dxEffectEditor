@@ -24,6 +24,21 @@ public:
     Vec2 pos;
     Vec2 control1;
     Vec2 control2;
+    
+    BezierPoint(){}
+    
+    BezierPoint(const BezierPoint& p){
+        pos = p.pos;
+        control1 = p.control1;
+        control2 = p.control2;
+    }
+    
+    BezierPoint& operator = (const BezierPoint& p){
+        pos = p.pos;
+        control1 = p.control1;
+        control2 = p.control2;
+        return *this;
+    }
 };
 
 typedef std::list<BezierPoint*> BezierPointList;
@@ -33,12 +48,12 @@ class BezierPathManager : public Singleton<BezierPathManager>
 {
 public:
     bool loadBezierPath(const std::string& pathFile);
+    BezierPointList getBezierPath(const std::string& pathKey);
     //bezier path in config files is based on (0, 0) point, so the 
     Sequence* getBezierPathSequence(const std::string& pathFile, float duration, Vec2 from, Vec2 to, bool rotate = false);
     bool saveBezierPath(BezierPointList& list, const std::string& filePath);
-    
+    static void clearList(BezierPointList& list);
 private:
-    void clearList(BezierPointList& list);
     
 private:
     

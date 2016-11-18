@@ -20,6 +20,9 @@ NS_EE_BEGIN
 class AnimationConfig
 {
 public:
+    
+    AnimationConfig();
+    
     std::string id;
     std::string frameFile;
     std::string texture;
@@ -33,6 +36,7 @@ public:
     int repeat;
     float delay;
     std::string timeline;
+    bool visible;
 };
 
 NS_EE_END

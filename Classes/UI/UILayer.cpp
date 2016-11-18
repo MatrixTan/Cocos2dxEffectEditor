@@ -23,6 +23,8 @@
 #include "AudioPlayer.hpp"
 #include "ActionEx.hpp"
 #include "BezierPathManager.hpp"
+#include "ParticleSystemExt.hpp"
+#include "PlatformAdapter.h"
 
 NS_EE_BEGIN
 
@@ -76,41 +78,6 @@ void UILayer::bindListener()
     MessageDispatcher::getInstance()->addListener("msg_hue_saturation", this, std::bind(&UILayer::onSliderMessage2, this, std::placeholders::_1, std::placeholders::_2));
     MessageDispatcher::getInstance()->addListener("msg_hue_value", this, std::bind(&UILayer::onSliderMessage3, this, std::placeholders::_1, std::placeholders::_2));
     
-    auto effectNode = Node::create();
-    auto effectHead = Sprite::create("projects/project1/2.png");
-    effectHead->setAnchorPoint(Vec2(0.5f, 0.0f));
-    auto effectStreak = MotionStreak::create(0.22f, 5.0f, 40.0f, Color3B(255, 255, 255), "projects/project1/1_1.png");
-    addChild(effectStreak);
-    addChild(effectHead);
-    ccBezierConfig config;
-    config.controlPoint_1 = Vec2(300, 100);
-    config.controlPoint_2 = Vec2(1000, 0);
-    config.endPosition = Vec2(1000, 100);
-    
-    ccBezierConfig config2;
-    config2.controlPoint_1 = Vec2(500, 700);
-    config2.controlPoint_2 = config2.controlPoint_1;
-    config2.endPosition = Vec2(300, 0);
-    
-    effectStreak->setPosition(Vec2(300, 0));
-    effectHead->setPosition(Vec2(300, 0));
-    auto action = RepeatForever::create(
-                                        Sequence::create(
-                                                         BezierRotateTo::create(1.0f, config),
-                                                         MoveBy::create(1.5f, Vec2(0.0f, 800.0f)),
-
-                                                         NULL));
-    auto action2 = RepeatForever::create(
-                                        Sequence::create(
-                                                         BezierTo::create(1.0f, config),
-                                                         MoveBy::create(1.5f, Vec2(0.0f, 800.0f)),
-                                                         NULL));
-    auto action3 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + "test.bezier", 2.0f, Vec2(500, 600), Vec2::ZERO, true);
-    auto action4 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + "test.bezier", 2.0f, Vec2(500, 600), Vec2::ZERO);
-    
-    effectStreak->runAction(RepeatForever::create(action4));
-    effectHead->runAction(RepeatForever::create(action3));
-    
 }
 
 UI_STATE UILayer::getState()
@@ -122,25 +89,51 @@ void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        if(!AudioPlayer::getInstance()->isOtherAudioPlaying())
-        {
-            mStatusText->setString("NONONONO");
+        for(int i=0; i<5; i++){
+            auto from = Vec2(random(400.0f, 878.0f), random(78.0f, 721.0f));
+            auto to = Vec2(random(400.0f, 878.0f), random(78.0f, 721.0f));
+            auto effectHead = Sprite::create("projects/project1/2.png");
+            effectHead->setAnchorPoint(Vec2(0.5f, 0.0f));
+            auto effectStreak = MotionStreak::create(0.22f, 5.0f, 40.0f, Color3B(255, 255, 255), "projects/project1/1_1.png");
+            addChild(effectStreak);
+            addChild(effectHead);
+            
+            effectStreak->setPosition(from);
+            effectHead->setPosition(from);
+            
+            std::string bezierName = "";
+            if(from.distance(to) > 210.0f){
+                bezierName = "f";
+            }else{
+                bezierName = "n";
+            }
+            int randomPath = random(1, 5);
+            bezierName += std::to_string(randomPath);
+            bezierName += ".bezier";
+            CCLOG("%s",bezierName.c_str());
+            
+            auto action3 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + bezierName, 1.5f, from, to, true);
+            auto action4 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + bezierName, 1.5f, from, to);
+            
+            auto callfunc1 = [&, to](){
+                auto particle = ParticleSystemExt::create("projects/project1/test.plist");
+                particle->setPosition(to);
+                particle->setAutoRemoveOnFinish(true);
+                addChild(particle);
+            };
+            
+            effectStreak->runAction(Sequence::create(action4, RemoveSelf::create(), CallFunc::create(callfunc1), NULL));
+            effectHead->runAction(Sequence::create(action3, RemoveSelf::create(),  NULL));
+
         }
-        else
-        {
-            mStatusText->setString("YYYYYYYY");
-        }
-        //AudioPlayer::getInstance()->playSound(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3");
+        
     }
 }
 
 void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
-    if(type == Widget::TouchEventType::ENDED)
-    {
-        AudioPlayer::getInstance()->stopOtherAudio();
-        AudioPlayer::getInstance()->playSound(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3", 2);
-    }
+    std::string file = PlatformAdapter::getFilePath("bezier");
+    std::string x = file;
 }
 
 void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)

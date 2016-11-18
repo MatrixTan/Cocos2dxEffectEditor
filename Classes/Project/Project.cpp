@@ -91,6 +91,12 @@ bool Project::init(const std::string& projectPath)
                 spriteConfig->scale.y = scale["y"].GetDouble();
             }
             
+            if(sprites[i].HasMember("anchor")){
+                rapidjson::Value &scale = sprites[i]["anchor"];
+                spriteConfig->anchor.x = scale["x"].GetDouble();
+                spriteConfig->anchor.y = scale["y"].GetDouble();
+            }
+            
             if(sprites[i].HasMember("uniform")){
                 rapidjson::Value &uniform = sprites[i]["uniform"];
                 for(int j=0; j<uniform.Size(); j++){
@@ -249,6 +255,9 @@ bool Project::init(const std::string& projectPath)
                 if(animation.HasMember("timeline")){
                     animationConfig->timeline = animation["timeline"].GetString();
                 }
+                if(animation.HasMember("visible")){
+                    animationConfig->visible = animation["visible"].GetBool();
+                }
                 mConfig.animations[animationConfig->id] = animationConfig;
             }
         }
@@ -361,6 +370,7 @@ void Project::loadProject()
             blendFunc.dst = (*iter)->blendDst;
             shaderSprite->setBlendFunc(blendFunc);
         }
+        shaderSprite->setAnchorPoint((*iter)->anchor);
         
         uint32_t uniformFlag = 0;
         for(std::vector<ShaderUniformConfig*>::iterator iterUniform = (*iter)->uniforms.begin();
@@ -460,6 +470,7 @@ void Project::loadProject()
         sprite->setBlendFunc(BlendFunc::ADDITIVE);
         sprite->runAction(Sequence::create(DelayTime::create(iter->second->delay), Repeat::create(animator, iter->second->repeat), NULL));
         sprite->runAction(animator);
+        sprite->setVisible(iter->second->visible);
         if(iter->second->timeline.length() > 0){
             sprite->runAction(mConfig.timelines[iter->second->timeline]->getAction());
         }

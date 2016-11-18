@@ -19,6 +19,8 @@ public:
     static bool isOtherAudioPlaying(void);
     static void stopOtherAudio(void);
     static void resumeOtherAudio(void);
+    static std::string getFilePath(const std::string& types);
+    static std::string getSaveFilePath(const std::string& type);
 };
 
 NS_EE_END

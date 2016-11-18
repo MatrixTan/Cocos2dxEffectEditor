@@ -7,3 +7,12 @@
 //
 
 #include "AnimationConfig.hpp"
+
+NS_EE_BEGIN
+
+AnimationConfig::AnimationConfig()
+{
+    visible = true;
+}
+
+NS_EE_END

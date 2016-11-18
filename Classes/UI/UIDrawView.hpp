@@ -35,8 +35,11 @@ public:
     
     void onTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onSaveEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onLoadEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onClearEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void setVisible(bool visible);
     void savePath(void);
+    void clear();
     
 private:
     void reDraw(void);
@@ -45,6 +48,7 @@ private:
 private:
     ui::Widget* mRoot;
     DrawNode* mDrawNode;
+    
     std::list<BezierPoint*> mBezierPoints;
     BezierPoint* mCurrentBezierPoint;
     E_SELECT_POINT_TYPE mSelectType;

@@ -13,6 +13,7 @@ NS_EE_BEGIN
 SpriteConfig::SpriteConfig()
 {
     scale = Vec2(1.0f, 1.0f);
+    anchor = Vec2(0.5f, 0.5f);
     customBlend = false;
     alpha = 1.0f;
     rotation = 0.0f;

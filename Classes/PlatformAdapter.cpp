@@ -64,6 +64,16 @@ void PlatformAdapter::resumeOtherAudio(void)
     callStaticVoidMethod(ANDROID_ADAPTER_CLASS, "abandonAudioFocus");
 }
 
+std::string PlatformAdapter::getFilePath(const std::string &types)
+{
+    return "";
+}
+
+std::string PlatformAdapter::getSaveFilePath(const std::string &types)
+{
+    return "";
+}
+
 #endif
 
 NS_EE_END

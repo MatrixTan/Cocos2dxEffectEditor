@@ -41,6 +41,7 @@ public:
     SPRITE_SOURCE_TYPE sourceType;
     Vec3 position;
     Vec2 scale;
+    Vec2 anchor;
     float rotation;
     std::string vShader;
     std::string fShader;

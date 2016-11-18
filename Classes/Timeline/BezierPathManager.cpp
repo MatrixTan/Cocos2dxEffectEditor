@@ -70,15 +70,24 @@ Sequence* BezierPathManager::getBezierPathSequence(const std::string& pathFile, 
         lastPoint = *iter;
     }
     
+    float lastDistance = 0.0f;
+    lastDistance += lastPoint->pos.distance(lastPoint->control2);
+    lastDistance += lastPoint->control2.distance(to - from);
+    distances.push_back(lastDistance);
+    allDistance += lastDistance;
+    
+    auto offset = to - from;
+    auto angle = Vec2::angle(Vec2(-1.0f, 0.0f), offset);
+    
     lastPoint = nullptr;
     Vector<FiniteTimeAction*> actions;
     int index = 0;
     for(BezierPointList::iterator iter = list.begin(); iter != list.end(); iter++){
         if(lastPoint != nullptr){
             ccBezierConfig config;
-            config.controlPoint_1 = lastPoint->control2 + from;
-            config.controlPoint_2 = (*iter)->control1 + from;
-            config.endPosition = (*iter)->pos + from;
+            config.controlPoint_1 = lastPoint->control2.rotateByAngle(Vec2(0.0f, 0.0f), angle) + from;
+            config.controlPoint_2 = (*iter)->control1.rotateByAngle(Vec2(0.0f, 0.0f), angle) + from;
+            config.endPosition = (*iter)->pos.rotateByAngle(Vec2(0.0f, 0.0f), angle) + from;
             if(rotate){
                 auto oneAction = BezierRotateTo::create(duration * distances[index++] / allDistance, config);
                 actions.pushBack(oneAction);
@@ -90,6 +99,19 @@ Sequence* BezierPathManager::getBezierPathSequence(const std::string& pathFile, 
         }
         lastPoint = *iter;
     }
+    
+    ccBezierConfig lastConfig;
+    lastConfig.endPosition = to;
+    lastConfig.controlPoint_1 = lastPoint->control2.rotateByAngle(Vec2(0.0f, 0.0f), angle) + from;
+    lastConfig.controlPoint_2 = to;
+    if(rotate){
+        auto lastAction = BezierRotateTo::create(duration * distances[index]/allDistance, lastConfig);
+        actions.pushBack(lastAction);
+    }else{
+        auto lastAction = BezierTo::create(duration * distances[index]/allDistance, lastConfig);
+        actions.pushBack(lastAction);
+    }
+    
     return Sequence::create(actions);
 }
 
@@ -140,6 +162,18 @@ void BezierPathManager::clearList(BezierPointList &list)
         delete (*iter);
     }
     list.clear();
+}
+
+BezierPointList BezierPathManager::getBezierPath(const std::string &pathKey)
+{
+    BezierPointList list;
+    if(mCacheMap.find(pathKey) != mCacheMap.end()){
+        for(BezierPoint* point : mCacheMap[pathKey]){
+            BezierPoint* tempPoint = new BezierPoint(*point);
+            list.push_back(tempPoint);
+        }
+    }
+    return list;
 }
 
 NS_EE_END

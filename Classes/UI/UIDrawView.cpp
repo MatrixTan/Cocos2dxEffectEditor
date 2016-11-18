@@ -8,7 +8,7 @@
 
 #include "UIDrawView.hpp"
 #include "MainLayer.hpp"
-
+#include "PlatformAdapter.h"
 
 
 NS_EE_BEGIN
@@ -25,6 +25,10 @@ UIDrawView::UIDrawView(Node* root)
     
     auto *pSaveButton = static_cast<ui::Button*>(ui::Helper::seekWidgetByName(mRoot, "bt_save"));
     pSaveButton->addTouchEventListener(CC_CALLBACK_2(UIDrawView::onSaveEvent, this));
+    auto *pLoadButton = static_cast<ui::Button*>(ui::Helper::seekWidgetByName(mRoot, "bt_load"));
+    pLoadButton->addTouchEventListener(CC_CALLBACK_2(UIDrawView::onLoadEvent, this));
+    auto *pClearButton = static_cast<ui::Button*>(ui::Helper::seekWidgetByName(mRoot, "bt_clear"));
+    pClearButton->addTouchEventListener(CC_CALLBACK_2(UIDrawView::onClearEvent, this));
     
     auto keyListener = EventListenerKeyboard::create();
     keyListener->onKeyReleased = [&](EventKeyboard::KeyCode keyCode , Event *event){
@@ -40,6 +44,17 @@ UIDrawView::UIDrawView(Node* root)
                     }
                 }
             }
+        }else if(keyCode == EventKeyboard::KeyCode::KEY_ESCAPE){
+            if(mSelectType != E_SELECT_POINT_TYPE::NONE){
+                mSelectedPoint = nullptr;
+                mSelectType = E_SELECT_POINT_TYPE::NONE;
+            }else{
+                if(mBezierPoints.size() > 0){
+                    mBezierPoints.pop_back();
+                }
+            }
+            
+            reDraw();
         }
     };
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(keyListener, 1);
@@ -172,9 +187,53 @@ void UIDrawView::onSaveEvent(cocos2d::Ref *sender, ui::Widget::TouchEventType ty
     }
 }
 
+void UIDrawView::onLoadEvent(cocos2d::Ref *sender, ui::Widget::TouchEventType type)
+{
+    if(type == ui::Widget::TouchEventType::ENDED){
+        std::string filePath = PlatformAdapter::getFilePath("bezier");
+        if(filePath.length() > 0){
+            if(BezierPathManager::getInstance()->loadBezierPath(filePath)){
+                BezierPointList list = BezierPathManager::getInstance()->getBezierPath(filePath);
+                if(list.size() > 0){
+                    
+                    Size screenSize = Director::getInstance()->getWinSize() * 0.5;
+                    for(BezierPoint* orPoint : list){
+                        orPoint->pos += Vec2(screenSize.width, screenSize.height);
+                        orPoint->control1 += Vec2(screenSize.width, screenSize.height);
+                        orPoint->control2 += Vec2(screenSize.width, screenSize.height);
+                    }
+                    
+                    clear();
+                    mBezierPoints = list;
+                    reDraw();
+                }
+            }
+        }
+    }
+}
+
+void UIDrawView::onClearEvent(cocos2d::Ref *sender, ui::Widget::TouchEventType type)
+{
+    if(type == ui::Widget::TouchEventType::ENDED){
+        clear();
+    }
+}
+
 void UIDrawView::savePath()
 {
-    BezierPathManager::getInstance()->saveBezierPath(mBezierPoints, FileUtils::getInstance()->getWritablePath() + "test.bezier");
+    std::string savePath = PlatformAdapter::getSaveFilePath("bezier");
+    if(savePath.size() > 0){
+        BezierPathManager::getInstance()->saveBezierPath(mBezierPoints, savePath);
+    }
+}
+
+void UIDrawView::clear()
+{
+    BezierPathManager::clearList(mBezierPoints);
+    mSelectedPoint = nullptr;
+    mCurrentBezierPoint = nullptr;
+    mSelectType = E_SELECT_POINT_TYPE::NONE;
+    reDraw();
 }
 
 NS_EE_END
