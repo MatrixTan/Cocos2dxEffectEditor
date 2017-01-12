@@ -26,6 +26,7 @@
 #include "ParticleSystemExt.hpp"
 #include "PlatformAdapter.h"
 #include "ActionDrawBezierPath.hpp"
+#include "TimelineManager.hpp"
 
 NS_EE_BEGIN
 
@@ -133,26 +134,38 @@ void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 
 void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
-    auto maskSprite = DrawNode::create();
-    auto clipingNode = ClippingNode::create(maskSprite);
-    auto show = Sprite::create("projects/project1/monster.png");
-    //show->setPosition(Vec2(0.0f, -show->getContentSize().height/2));
-    show->setAnchorPoint(Vec2(0.0f, 0.0f));
-    //show->setScale(3.0f);
-    clipingNode->addChild(show);
-    clipingNode->setPosition(Vec2(300, 300));
-    addChild(clipingNode, (int)SPRITE_ZORDER::MASK);
-    maskSprite->drawDot(Vec2(0, 0), 10, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        auto maskSprite = DrawNode::create();
+        auto clipingNode = ClippingNode::create(maskSprite);
+        auto show = Sprite::create("projects/project1/monster.png");
+        //show->setPosition(Vec2(0.0f, -show->getContentSize().height/2));
+        show->setAnchorPoint(Vec2(0.0f, 0.0f));
+        //show->setScale(3.0f);
+        clipingNode->addChild(show);
+        clipingNode->setPosition(Vec2(300, 300));
+        addChild(clipingNode, (int)SPRITE_ZORDER::MASK);
+        maskSprite->drawDot(Vec2(0, 0), 10, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
+        
+        BezierPointList list = BezierPathManager::getInstance()->getBezierPath("projects/project1/monster2.bezier");
+        maskSprite->runAction(ActionDrawBezierPath::create(5.0f, list, 10.0f));
+    }
     
-    BezierPointList list = BezierPathManager::getInstance()->getBezierPath("projects/project1/monster2.bezier");
-    maskSprite->runAction(ActionDrawBezierPath::create(5.0f, list, 10.0f));
 }
 
 void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        AudioPlayer::getInstance()->stopSound(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "haochunguang.mp3");
+        auto sprite = MainLayer::getInstance()->getSprite("5");
+        sprite->resetTimeUniform();
+        /*Timeline* timeline = TimelineManager::getInstance()->getTimelineFromFile(
+                                                                  FileUtils::getInstance()->getWritablePath()
+                                                                  + "effect_editor/project2/magic_word2.timeline");
+        
+        sprite->runAction(timeline->getAction());
+         */
+        
     }
 }
 

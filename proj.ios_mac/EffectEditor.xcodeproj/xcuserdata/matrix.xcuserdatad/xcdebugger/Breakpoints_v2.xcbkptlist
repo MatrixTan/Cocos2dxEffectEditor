@@ -80,7 +80,7 @@
             startingLineNumber = "457"
             endingLineNumber = "457"
             landmarkName = "GLProgramState::apply(const Mat4&amp; modelView)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -238,6 +238,22 @@
             startingLineNumber = "173"
             endingLineNumber = "173"
             landmarkName = "BezierPathManager::getBezierPath(const std::string &amp;pathKey)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Timeline/TimelineManager.cpp"
+            timestampString = "502687546.629538"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "TimelineManager::getTimelineFromFile(const std::string &amp;path, bool cache)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

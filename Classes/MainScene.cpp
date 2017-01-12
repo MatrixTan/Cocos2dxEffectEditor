@@ -19,7 +19,7 @@ bool MainScene::init()
 {
     mProject = new Project();
     std::string strProject = FileUtils::getInstance()->getWritablePath() + "effect_editor/project2/project.json";
-    mProject->init("projects/project1/project1.json");
+    mProject->init(strProject);
     
     this->addChild(MainLayer::getInstance(), (int)LAYER_ZORDER::MAIN);
     MainLayer::getInstance()->addChild(UILayer::getInstance(), (int)SPRITE_ZORDER::UI);

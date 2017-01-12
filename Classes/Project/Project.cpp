@@ -19,6 +19,7 @@
 #include "Utils.hpp"
 #include "ParticleSystemExt.hpp"
 #include "MaskConfig.hpp"
+#include "TimelineManager.hpp"
 
 NS_EE_BEGIN
 
@@ -68,13 +69,28 @@ bool Project::init(const std::string& projectPath)
             spriteConfig->sourceType = SpriteConfig::getSpriteSouceType(sourceType);
             
             if(sprites[i].HasMember("v_shader")){
-                spriteConfig->vShader = mConfig.projectPath + sprites[i]["v_shader"].GetString();
+                std::string vShaderFile = mConfig.projectPath + sprites[i]["v_shader"].GetString();
+                if(!FileUtils::getInstance()->isFileExist(vShaderFile)){
+                    vShaderFile = std::string("shader/") + sprites[i]["v_shader"].GetString();
+                    std::string message = sprites[i]["v_shader"].GetString();
+                    message += "not exit";
+                    CCASSERT(FileUtils::getInstance()->isFileExist(vShaderFile), message.c_str());
+                }
+                spriteConfig->vShader = vShaderFile;
+                
             }else{
                 spriteConfig->vShader = "shader/shader_default_vert.glsl";
             }
             
             if(sprites[i].HasMember("f_shader")){
-                spriteConfig->fShader = mConfig.projectPath + sprites[i]["f_shader"].GetString();
+                std::string fShader = mConfig.projectPath + sprites[i]["f_shader"].GetString();
+                if(!FileUtils::getInstance()->isFileExist(fShader)){
+                    fShader = std::string("shader/")+sprites[i]["f_shader"].GetString();
+                    std::string message = sprites[i]["f_shader"].GetString();
+                    message += "not exit";
+                    CCASSERT(FileUtils::getInstance()->isFileExist(fShader), message.c_str());
+                }
+                spriteConfig->fShader = fShader;
             }else{
                 spriteConfig->fShader = "shader/shader_default_frag.glsl";
             }
@@ -287,40 +303,11 @@ bool Project::init(const std::string& projectPath)
 
 Timeline* Project::parseTimeline(const rapidjson::Value &value)
 {
-    std::string type = value["type"].GetString();
-    if(type == "SEQUENCE"){
-        auto sequenceTimeline = new(std::nothrow) TimelineSequence();
-        const rapidjson::Value& children = value["children"];
-        for(int i=0; i<children.Size(); i++){
-            sequenceTimeline->children.push_back(parseTimeline(children[i]));
-        }
-        return sequenceTimeline;
-    }else if(type == "MOVE_BY"){
-        auto moveByTimeline = new(std::nothrow) TimelineMoveBy();
-        moveByTimeline->duration = value["duration"].GetDouble();
-        moveByTimeline->x = value["x"].GetDouble();
-        moveByTimeline->y = value["y"].GetDouble();
-        return moveByTimeline;
-    }else if(type == "REPEAT"){
-        auto repeatTimeline = new(std::nothrow) TimelineRepeat();
-        repeatTimeline->repeat = value["repeat"].GetInt();
-        repeatTimeline->child = parseTimeline(value["child"]);
-        return repeatTimeline;
-    }else if(type == "SPAWN"){
-        auto spawnTimeline = new(std::nothrow) TimelineSpawn();
-        const rapidjson::Value& children = value["children"];
-        for(int i=0; i<children.Size(); i++){
-            spawnTimeline->children.push_back(parseTimeline(children[i]));
-        }
-        return spawnTimeline;
-    }else if(type == "SCALE_TO"){
-        auto scaleTo = new(std::nothrow) TimelineScaleTo();
-        scaleTo->duration = value["duration"].GetDouble();
-        scaleTo->x = value["x"].GetDouble();
-        scaleTo->y = value["y"].GetDouble();
-        return scaleTo;
+    if(value.HasMember("file")){
+        return TimelineManager::getInstance()->getTimelineFromFile(mConfig.projectPath + value["file"].GetString());
+    }else{
+        return TimelineManager::getInstance()->getTimelineFromJson(value);
     }
-    return nullptr;
 }
 
 void Project::loadProject()

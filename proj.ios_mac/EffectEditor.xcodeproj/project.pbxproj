@@ -79,6 +79,10 @@
 		6636BE401D47016D004E09DD /* SpriteConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE3D1D47016D004E09DD /* SpriteConfig.cpp */; };
 		6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
 		6636BE441D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */; };
+		6642846B1DF65D8B00FE0D12 /* TimelineFade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664284691DF65D8B00FE0D12 /* TimelineFade.cpp */; };
+		6642846C1DF65D8B00FE0D12 /* TimelineFade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664284691DF65D8B00FE0D12 /* TimelineFade.cpp */; };
+		664284701DF6626700FE0D12 /* TimelineDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642846E1DF6626700FE0D12 /* TimelineDelay.cpp */; };
+		664284711DF6626700FE0D12 /* TimelineDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642846E1DF6626700FE0D12 /* TimelineDelay.cpp */; };
 		66431C161D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */; };
 		66431C171D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */; };
 		66431C1D1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */; };
@@ -87,6 +91,12 @@
 		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
 		665A26891D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
+		665C99E31DF5457D0094D011 /* TimelineManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C99E11DF5457D0094D011 /* TimelineManager.cpp */; };
+		665C99E41DF5457D0094D011 /* TimelineManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C99E11DF5457D0094D011 /* TimelineManager.cpp */; };
+		665C99E81DF5611A0094D011 /* TimelineEase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C99E61DF5611A0094D011 /* TimelineEase.cpp */; };
+		665C99E91DF5611A0094D011 /* TimelineEase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C99E61DF5611A0094D011 /* TimelineEase.cpp */; };
+		665C99EC1DF56EFE0094D011 /* TimelineElastic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C99EA1DF56EFE0094D011 /* TimelineElastic.cpp */; };
+		665C99ED1DF56EFE0094D011 /* TimelineElastic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C99EA1DF56EFE0094D011 /* TimelineElastic.cpp */; };
 		666778741D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666778751D48B6CB00D0E000 /* LinkEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666778721D48B6CB00D0E000 /* LinkEffect.cpp */; };
 		666915CB1D365D8100E5C8A7 /* projects in Resources */ = {isa = PBXBuildFile; fileRef = 666915CA1D365D8100E5C8A7 /* projects */; };
@@ -111,8 +121,6 @@
 		6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA161D2F7B6B007212E9 /* PostRenderEffectLayer.cpp */; };
 		669996371D4F06F000AA2783 /* ParticleConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996351D4F06F000AA2783 /* ParticleConfig.cpp */; };
 		669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996351D4F06F000AA2783 /* ParticleConfig.cpp */; };
-		6699963B1D4F228800AA2783 /* TimelineConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996391D4F228800AA2783 /* TimelineConfig.cpp */; };
-		6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 669996391D4F228800AA2783 /* TimelineConfig.cpp */; };
 		66A98ACB1DC84B4300CE157C /* Timeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A98AC91DC84B4300CE157C /* Timeline.cpp */; };
 		66A98ACC1DC84B4300CE157C /* Timeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A98AC91DC84B4300CE157C /* Timeline.cpp */; };
 		66A98ACF1DC84B5E00CE157C /* TimelineMoveBy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A98ACD1DC84B5E00CE157C /* TimelineMoveBy.cpp */; };
@@ -267,6 +275,10 @@
 		6636BE3E1D47016D004E09DD /* SpriteConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SpriteConfig.hpp; path = Project/SpriteConfig.hpp; sourceTree = "<group>"; };
 		6636BE411D4704F0004E09DD /* ShaderUniformConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderUniformConfig.cpp; path = Project/ShaderUniformConfig.cpp; sourceTree = "<group>"; };
 		6636BE421D4704F0004E09DD /* ShaderUniformConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderUniformConfig.hpp; path = Project/ShaderUniformConfig.hpp; sourceTree = "<group>"; };
+		664284691DF65D8B00FE0D12 /* TimelineFade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineFade.cpp; path = Timeline/TimelineFade.cpp; sourceTree = "<group>"; };
+		6642846A1DF65D8B00FE0D12 /* TimelineFade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineFade.hpp; path = Timeline/TimelineFade.hpp; sourceTree = "<group>"; };
+		6642846E1DF6626700FE0D12 /* TimelineDelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineDelay.cpp; path = Timeline/TimelineDelay.cpp; sourceTree = "<group>"; };
+		6642846F1DF6626700FE0D12 /* TimelineDelay.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineDelay.hpp; path = Timeline/TimelineDelay.hpp; sourceTree = "<group>"; };
 		66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIControlPropertySlider.cpp; path = UI/UIControlPropertySlider.cpp; sourceTree = "<group>"; };
 		66431C151D79A4B000F63D7B /* UIControlPropertySlider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIControlPropertySlider.hpp; path = UI/UIControlPropertySlider.hpp; sourceTree = "<group>"; };
 		66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MessageDispatcher.cpp; path = Message/MessageDispatcher.cpp; sourceTree = "<group>"; };
@@ -275,6 +287,12 @@
 		665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BackgroundConfig.hpp; path = Project/BackgroundConfig.hpp; sourceTree = "<group>"; };
 		665A26861D49F8B1007511EB /* RingEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingEffect.cpp; sourceTree = "<group>"; };
 		665A26871D49F8B1007511EB /* RingEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RingEffect.hpp; sourceTree = "<group>"; };
+		665C99E11DF5457D0094D011 /* TimelineManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineManager.cpp; path = Timeline/TimelineManager.cpp; sourceTree = "<group>"; };
+		665C99E21DF5457D0094D011 /* TimelineManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineManager.hpp; path = Timeline/TimelineManager.hpp; sourceTree = "<group>"; };
+		665C99E61DF5611A0094D011 /* TimelineEase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineEase.cpp; path = Timeline/TimelineEase.cpp; sourceTree = "<group>"; };
+		665C99E71DF5611A0094D011 /* TimelineEase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineEase.hpp; path = Timeline/TimelineEase.hpp; sourceTree = "<group>"; };
+		665C99EA1DF56EFE0094D011 /* TimelineElastic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineElastic.cpp; path = Timeline/TimelineElastic.cpp; sourceTree = "<group>"; };
+		665C99EB1DF56EFE0094D011 /* TimelineElastic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineElastic.hpp; path = Timeline/TimelineElastic.hpp; sourceTree = "<group>"; };
 		666778721D48B6CB00D0E000 /* LinkEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkEffect.cpp; sourceTree = "<group>"; };
 		666778731D48B6CB00D0E000 /* LinkEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinkEffect.hpp; sourceTree = "<group>"; };
 		666915CA1D365D8100E5C8A7 /* projects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = projects; sourceTree = "<group>"; };
@@ -298,8 +316,6 @@
 		6694EA171D2F7B6B007212E9 /* PostRenderEffectLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PostRenderEffectLayer.hpp; sourceTree = "<group>"; };
 		669996351D4F06F000AA2783 /* ParticleConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleConfig.cpp; path = Project/ParticleConfig.cpp; sourceTree = "<group>"; };
 		669996361D4F06F000AA2783 /* ParticleConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParticleConfig.hpp; path = Project/ParticleConfig.hpp; sourceTree = "<group>"; };
-		669996391D4F228800AA2783 /* TimelineConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineConfig.cpp; path = Project/TimelineConfig.cpp; sourceTree = "<group>"; };
-		6699963A1D4F228800AA2783 /* TimelineConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimelineConfig.hpp; path = Project/TimelineConfig.hpp; sourceTree = "<group>"; };
 		66A98AC91DC84B4300CE157C /* Timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Timeline.cpp; path = Timeline/Timeline.cpp; sourceTree = "<group>"; };
 		66A98ACA1DC84B4300CE157C /* Timeline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Timeline.hpp; path = Timeline/Timeline.hpp; sourceTree = "<group>"; };
 		66A98ACD1DC84B5E00CE157C /* TimelineMoveBy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimelineMoveBy.cpp; path = Timeline/TimelineMoveBy.cpp; sourceTree = "<group>"; };
@@ -579,6 +595,16 @@
 				66A98AE21DC8508900CE157C /* TimelineSpawn.hpp */,
 				66B00BBF1DDEB220006B22FD /* ActionDrawBezierPath.cpp */,
 				66B00BC01DDEB220006B22FD /* ActionDrawBezierPath.hpp */,
+				665C99E11DF5457D0094D011 /* TimelineManager.cpp */,
+				665C99E21DF5457D0094D011 /* TimelineManager.hpp */,
+				665C99E61DF5611A0094D011 /* TimelineEase.cpp */,
+				665C99E71DF5611A0094D011 /* TimelineEase.hpp */,
+				665C99EA1DF56EFE0094D011 /* TimelineElastic.cpp */,
+				665C99EB1DF56EFE0094D011 /* TimelineElastic.hpp */,
+				664284691DF65D8B00FE0D12 /* TimelineFade.cpp */,
+				6642846A1DF65D8B00FE0D12 /* TimelineFade.hpp */,
+				6642846E1DF6626700FE0D12 /* TimelineDelay.cpp */,
+				6642846F1DF6626700FE0D12 /* TimelineDelay.hpp */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -598,8 +624,6 @@
 				665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */,
 				669996351D4F06F000AA2783 /* ParticleConfig.cpp */,
 				669996361D4F06F000AA2783 /* ParticleConfig.hpp */,
-				669996391D4F228800AA2783 /* TimelineConfig.cpp */,
-				6699963A1D4F228800AA2783 /* TimelineConfig.hpp */,
 				666B4CE91D58802D000990CB /* AnimationConfig.cpp */,
 				666B4CEA1D58802D000990CB /* AnimationConfig.hpp */,
 				66DAF5931D5DCC2000313562 /* MaskConfig.cpp */,
@@ -811,11 +835,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665C99E81DF5611A0094D011 /* TimelineEase.cpp in Sources */,
 				66A98AE31DC8508900CE157C /* TimelineSpawn.cpp in Sources */,
 				660E668D1D24C2D600145F7E /* MainLayer.cpp in Sources */,
 				6694EA181D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				66FB57591DAB6A93004E70A6 /* AudioPlayer.cpp in Sources */,
 				6694EA141D2F5B8A007212E9 /* NodeSingleton.cpp in Sources */,
+				665C99EC1DF56EFE0094D011 /* TimelineElastic.cpp in Sources */,
+				665C99E31DF5457D0094D011 /* TimelineManager.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				66DAF5951D5DCC2000313562 /* MaskConfig.cpp in Sources */,
 				66E215261DAFA35700D8D656 /* PlatformAdapter.mm in Sources */,
@@ -844,14 +871,15 @@
 				6610FE101D7A775700618BE4 /* MessageListener.cpp in Sources */,
 				66431C161D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */,
 				6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */,
+				664284701DF6626700FE0D12 /* TimelineDelay.cpp in Sources */,
 				6610FE0B1D7A6E7200618BE4 /* MessageParam.cpp in Sources */,
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				66111B131DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
 				6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				666B4CF61D597010000990CB /* ThunderLinkEffect.cpp in Sources */,
-				6699963B1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				66A98AD71DC84D5200CE157C /* TimelineRotateBy.cpp in Sources */,
+				6642846B1DF65D8B00FE0D12 /* TimelineFade.cpp in Sources */,
 				66A98ADF1DC84F0000CE157C /* TimelineRepeat.cpp in Sources */,
 				665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -868,11 +896,13 @@
 			files = (
 				66A98AE41DC8508900CE157C /* TimelineSpawn.cpp in Sources */,
 				66AEF19E1D6D9565003000F0 /* UILayer.cpp in Sources */,
+				665C99E91DF5611A0094D011 /* TimelineEase.cpp in Sources */,
 				66AEF19A1D6D93E2003000F0 /* UIProjectView.cpp in Sources */,
 				665A26891D49F8B1007511EB /* RingEffect.cpp in Sources */,
 				66A98ADC1DC84DDF00CE157C /* TimelineSequence.cpp in Sources */,
 				666B4CF71D597010000990CB /* ThunderLinkEffect.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				664284711DF6626700FE0D12 /* TimelineDelay.cpp in Sources */,
 				6694EA111D2F54F0007212E9 /* Singleton.cpp in Sources */,
 				66A98ACC1DC84B4300CE157C /* Timeline.cpp in Sources */,
 				660E66881D24BF1800145F7E /* MainScene.cpp in Sources */,
@@ -893,11 +923,14 @@
 				66A98AD81DC84D5200CE157C /* TimelineRotateBy.cpp in Sources */,
 				66B00BC21DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */,
 				66111B191DB622C50075E617 /* UIDrawView.cpp in Sources */,
+				665C99E41DF5457D0094D011 /* TimelineManager.cpp in Sources */,
 				66111B141DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
+				665C99ED1DF56EFE0094D011 /* TimelineElastic.cpp in Sources */,
 				6694EA191D2F7B6B007212E9 /* PostRenderEffectLayer.cpp in Sources */,
 				66B0BCC11D76CBA300C844BF /* UIPropertyView.cpp in Sources */,
+				6642846C1DF65D8B00FE0D12 /* TimelineFade.cpp in Sources */,
 				66B0BCC61D76D98B00C844BF /* UITimelineItem.cpp in Sources */,
 				66A98AE01DC84F0000CE157C /* TimelineRepeat.cpp in Sources */,
 				666B4CF21D589313000990CB /* Utils.cpp in Sources */,
@@ -910,7 +943,6 @@
 				66E215271DAFA35700D8D656 /* PlatformAdapter.mm in Sources */,
 				66A98AD01DC84B5E00CE157C /* TimelineMoveBy.cpp in Sources */,
 				666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
-				6699963C1D4F228800AA2783 /* TimelineConfig.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

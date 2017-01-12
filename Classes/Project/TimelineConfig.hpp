@@ -9,13 +9,7 @@
 #ifndef TimelineConfig_hpp
 #define TimelineConfig_hpp
 
-#include "Timeline.hpp"
-#include "TimelineSpawn.hpp"
-#include "TimelineMoveBy.hpp"
-#include "TimelineRepeat.hpp"
-#include "TimelineScaleTo.hpp"
-#include "TimelineRotateBy.hpp"
-#include "TimelineSequence.hpp"
+
 
 
 NS_EE_BEGIN

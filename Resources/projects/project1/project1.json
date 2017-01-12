@@ -60,19 +60,18 @@
         },
         {
             "id":"4",
-            "visible":false,
-            "texture":"item_desert.png",
+            "visible":true,
+            "texture":"donut_1.png",
             "source_type":"FILE",
-            "v_shader":"shader_erode_vert.glsl",
-            "f_shader":"shader_erode_frag.glsl",
+            "f_shader":"shader_ring_wave_frag.glsl",
             "pos":{"x":0, "y":0, "z":2},
-            "scale":{"x":0.5, "y":0.5},
+            "scale":{"x":1.0, "y":1.0},
             "uniform":
             [
             	{
             		"type":"TEXTURE",
-            		"name":"u_erode_map",
-            		"texture":"erode_map.png",
+            		"name":"u_normal_map",
+            		"texture":"steam_normal_map.png",
                     "source_type":"FILE"
             	},
             	{
@@ -198,7 +197,16 @@
     ],
     "particles":
     [
-    
+        {
+            "id":"3001",
+            "file":"particle_hot_steam.plist",
+            "pos":
+            {
+                "x":0.0,
+                "y":10.0,
+                "z":2.0
+            }
+        }
     ],
     "animations":
     [

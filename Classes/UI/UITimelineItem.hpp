@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include "TimelineConfig.hpp"
+#include "TimelineManager.hpp"
 
 NS_EE_BEGIN
 

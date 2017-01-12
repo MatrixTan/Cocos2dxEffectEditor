@@ -19,6 +19,7 @@
 #include "TimelineConfig.hpp"
 #include "AnimationConfig.hpp"
 #include "MaskConfig.hpp"
+#include "Timeline.hpp"
 
 NS_EE_BEGIN
 

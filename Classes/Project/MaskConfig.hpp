@@ -25,7 +25,7 @@ public:
     
     std::string id;
     std::string stencil;
-    Vec2 offset;
+    Vec2 offset; //相对于屏幕中心的偏移
     Vec2 scale;
     float alphaThreshold;
 };

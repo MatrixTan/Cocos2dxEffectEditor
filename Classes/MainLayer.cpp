@@ -87,7 +87,7 @@ void MainLayer::addSprite(const std::string &id, ee::ShaderSprite *pSprite, cons
         auto maskWordPos = iter->second->getPosition();
         pSprite->setPosition(worldPos - maskWordPos);
         pSprite->retain();
-        mSprites["id"] = pSprite;
+        mSprites[id] = pSprite;
     }
 }
 
