@@ -948,6 +948,10 @@ bool Bundle3D::loadMaterialsBinary(MaterialDatas& materialdatas)
             textureData.type  = parseGLTextureType(_binaryReader.readString());
             textureData.wrapS= parseGLType(_binaryReader.readString());
             textureData.wrapT= parseGLType(_binaryReader.readString());
+            std::string type = textureData.filename.substr(textureData.filename.size()-3, 3);
+            if(type == "png"){
+                textureData.type = NTextureData::Usage::Transparency;
+            }
             materialData.textures.push_back(textureData);
         }
         materialdatas.materials.push_back(materialData);

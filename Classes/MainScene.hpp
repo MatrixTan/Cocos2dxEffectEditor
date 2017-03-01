@@ -24,6 +24,7 @@ class MainScene : public Scene, public NodeSingleton<MainScene>
 public:
     virtual bool init() override;
     Project* getCurrentProject(void);
+    std::string getProjectPath(void);
     
     CREATE_FUNC(MainScene);
 private:

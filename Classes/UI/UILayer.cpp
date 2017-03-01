@@ -91,44 +91,8 @@ void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        for(int i=0; i<5; i++){
-            auto from = Vec2(random(400.0f, 878.0f), random(78.0f, 721.0f));
-            auto to = Vec2(random(400.0f, 878.0f), random(78.0f, 721.0f));
-            auto effectHead = Sprite::create("projects/project1/2.png");
-            effectHead->setAnchorPoint(Vec2(0.5f, 0.0f));
-            auto effectStreak = MotionStreak::create(0.22f, 5.0f, 40.0f, Color3B(255, 255, 255), "projects/project1/1_1.png");
-            addChild(effectStreak);
-            addChild(effectHead);
-            
-            effectStreak->setPosition(from);
-            effectHead->setPosition(from);
-            
-            std::string bezierName = "";
-            if(from.distance(to) > 210.0f){
-                bezierName = "f";
-            }else{
-                bezierName = "n";
-            }
-            int randomPath = random(1, 5);
-            bezierName += std::to_string(randomPath);
-            bezierName += ".bezier";
-            CCLOG("%s",bezierName.c_str());
-            
-            auto action3 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + bezierName, 1.5f, from, to, true);
-            auto action4 = BezierPathManager::getInstance()->getBezierPathSequence(FileUtils::getInstance()->getWritablePath() + bezierName, 1.5f, from, to);
-            
-            auto callfunc1 = [&, to](){
-                auto particle = ParticleSystemExt::create("projects/project1/test.plist");
-                particle->setPosition(to);
-                particle->setAutoRemoveOnFinish(true);
-                addChild(particle);
-            };
-            
-            effectStreak->runAction(Sequence::create(action4, RemoveSelf::create(), CallFunc::create(callfunc1), NULL));
-            effectHead->runAction(Sequence::create(action3, RemoveSelf::create(),  NULL));
-
-        }
-        
+        MainLayer::getInstance()->getSprite("1")->resetTimeUniform();
+        MainLayer::getInstance()->getSprite("2")->resetTimeUniform();
     }
 }
 
@@ -138,16 +102,14 @@ void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
     {
         auto maskSprite = DrawNode::create();
         auto clipingNode = ClippingNode::create(maskSprite);
-        auto show = Sprite::create("projects/project1/monster.png");
-        //show->setPosition(Vec2(0.0f, -show->getContentSize().height/2));
+        auto show = Sprite::create(MainScene::getInstance()->getProjectPath() + "monster.png");
         show->setAnchorPoint(Vec2(0.0f, 0.0f));
-        //show->setScale(3.0f);
         clipingNode->addChild(show);
-        clipingNode->setPosition(Vec2(300, 300));
+        clipingNode->setPosition(Vec2(50, 300));
         addChild(clipingNode, (int)SPRITE_ZORDER::MASK);
         maskSprite->drawDot(Vec2(0, 0), 10, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
         
-        BezierPointList list = BezierPathManager::getInstance()->getBezierPath("projects/project1/monster2.bezier");
+        BezierPointList list = BezierPathManager::getInstance()->getBezierPath(MainScene::getInstance()->getProjectPath() + "monster2.bezier");
         maskSprite->runAction(ActionDrawBezierPath::create(5.0f, list, 10.0f));
     }
     
@@ -182,11 +144,7 @@ void UILayer::onPenTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
             pButton->setColor(Color3B(255, 255, 255));
             mDrawPanel->setVisible(false);
         }
-        
-        
     }
-    
-    
 }
 
 void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type)
@@ -194,7 +152,7 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
     if(type == Widget::TouchEventType::ENDED)
     {
         
-        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getCurrentProject()->getConfig()->projectPath + "soda_crush.wav", true);
+        AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getProjectPath() + "soda_crush.wav", true);
         //MainLayer::getInstance()->getParticle("3002")->resetSystem();
         
         

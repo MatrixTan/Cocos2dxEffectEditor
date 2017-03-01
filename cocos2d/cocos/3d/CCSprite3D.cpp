@@ -397,6 +397,22 @@ Sprite3D* Sprite3D::createSprite3DNode(NodeData* nodedata,ModelData* modeldata,c
                         mesh->_isTransparent = (materialData->getTextureData(NTextureData::Usage::Transparency) != nullptr);
                     }
                 }
+                textureData = materialData->getTextureData(NTextureData::Usage::Transparency);
+                if(textureData)
+                {
+                    mesh->setTexture(textureData->filename);
+                    auto tex = mesh->getTexture();
+                    if(tex)
+                    {
+                        Texture2D::TexParams texParams;
+                        texParams.minFilter = GL_LINEAR;
+                        texParams.magFilter = GL_LINEAR;
+                        texParams.wrapS = textureData->wrapS;
+                        texParams.wrapT = textureData->wrapT;
+                        tex->setTexParameters(texParams);
+                        mesh->_isTransparent = (materialData->getTextureData(NTextureData::Usage::Transparency) != nullptr);
+                    }
+                }
                 textureData = materialData->getTextureData(NTextureData::Usage::Normal);
                 if (textureData)
                 {
@@ -546,6 +562,22 @@ void Sprite3D::createNode(NodeData* nodedata, Node* root, const MaterialDatas& m
                         if(materialData)
                         {
                             const NTextureData* textureData = materialData->getTextureData(NTextureData::Usage::Diffuse);
+                            if(textureData)
+                            {
+                                mesh->setTexture(textureData->filename);
+                                auto tex = mesh->getTexture();
+                                if(tex)
+                                {
+                                    Texture2D::TexParams texParams;
+                                    texParams.minFilter = GL_LINEAR;
+                                    texParams.magFilter = GL_LINEAR;
+                                    texParams.wrapS = textureData->wrapS;
+                                    texParams.wrapT = textureData->wrapT;
+                                    tex->setTexParameters(texParams);
+                                    mesh->_isTransparent = (materialData->getTextureData(NTextureData::Usage::Transparency) != nullptr);
+                                }
+                            }
+                            textureData = materialData->getTextureData(NTextureData::Usage::Transparency);
                             if(textureData)
                             {
                                 mesh->setTexture(textureData->filename);
