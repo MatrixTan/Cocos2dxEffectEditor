@@ -15,6 +15,7 @@
 #include "ui/CocosGUI.h"
 #include <list>
 #include "BezierPathManager.hpp"
+#include "ShaderSprite.hpp"
 
 USING_NS_CC;
 NS_EE_BEGIN
@@ -40,6 +41,7 @@ public:
     void setVisible(bool visible);
     void savePath(void);
     void clear();
+    
     
 private:
     void reDraw(void);

@@ -13,6 +13,7 @@
 #include "GlobalDefine.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "UIControlPropertyCommon.hpp"
 
 USING_NS_CC;
 
@@ -24,6 +25,7 @@ class UIPropertyView
 {
 public:
     UIPropertyView(Node* root);
+    void setCurrentSprite(ShaderSprite *sprite);
     
 protected:
     void onOpenButtonTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
@@ -33,6 +35,7 @@ private:
     Button* mOpenButton;
     
     bool mOpened;
+    UIControlPropertyCommon *mCommonProperty;
 };
 
 NS_EE_END

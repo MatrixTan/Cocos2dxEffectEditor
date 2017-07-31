@@ -79,7 +79,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     auto scene = MainScene::getInstance();
-
+    scene->initScene();
     // run
     director->runWithScene(scene);
 

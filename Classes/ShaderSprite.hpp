@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string>
 #include <cocos2d.h>
+#include "SpriteConfig.hpp"
 
 NS_EE_BEGIN
 
@@ -36,9 +37,10 @@ public:
     CREATE_FUNC(ShaderSprite);
     
     bool initShader(const std::string& vfile, const std::string& ffile);
+    bool initConfig(SpriteConfig *config);
     void setUniformFlag(uint32_t flag);
     void resetTimeUniform();
-    
+    void enableSelect(bool enable);
 private:
     
     cocos2d::GLProgram* getProgram(const std::string& vfile, const std::string& ffile);
@@ -48,6 +50,8 @@ private:
     float m_startTime;
     cocos2d::Vec3 m_lightPos;
     uint32_t m_uniformFlag;
+    DrawNode *m_SelectFlag;
+    SpriteConfig *m_Config;
 
 };
 

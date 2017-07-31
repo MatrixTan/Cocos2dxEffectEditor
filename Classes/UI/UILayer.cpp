@@ -65,7 +65,7 @@ void UILayer::bindListener()
     auto *pTest3Button = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_test3"));
     pTest3Button->addTouchEventListener(CC_CALLBACK_2(UILayer::onTest3Event, this));
     
-    auto *pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
+    auto pButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_sprite"));
     pButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onUserTouchEvent, this));
     
     auto penButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_pen"));
@@ -73,6 +73,13 @@ void UILayer::bindListener()
     
     auto saveButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_save"));
     saveButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onSaveTouchEvent, this));
+    
+    auto loadButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_load"));
+    loadButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onLoadTouchEvent, this));
+    
+    auto newButton = static_cast<Button*>(ui::Helper::seekWidgetByName(uiRoot, "bt_new"));
+    newButton->addTouchEventListener(CC_CALLBACK_2(UILayer::onNewTouchEvent, this));
+    
     mDrawPanel =  new UIDrawView(mContainer->getChildByName("draw_panel"));
     mDrawPanel->setVisible(false);
     
@@ -86,6 +93,7 @@ UI_STATE UILayer::getState()
 {
     return mState;
 }
+
 
 void UILayer::onTest1Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
@@ -105,7 +113,7 @@ void UILayer::onTest2Event(cocos2d::Ref *sender, Widget::TouchEventType type)
         auto show = Sprite::create(MainScene::getInstance()->getProjectPath() + "monster.png");
         show->setAnchorPoint(Vec2(0.0f, 0.0f));
         clipingNode->addChild(show);
-        clipingNode->setPosition(Vec2(50, 300));
+        clipingNode->setPosition(Vec2(250, 300));
         addChild(clipingNode, (int)SPRITE_ZORDER::MASK);
         maskSprite->drawDot(Vec2(0, 0), 10, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
         
@@ -207,6 +215,25 @@ void UILayer::onSaveTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchE
     }
 }
 
+void UILayer::onLoadTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        std::string path = PlatformAdapter::getFilePath("json");
+        if(path.length() > 0){
+            MainScene::getInstance()->loadProject(path);
+        }
+    }
+}
+
+void UILayer::onNewTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        MainScene::getInstance()->newProject();
+    }
+}
+
 void UILayer::setStatus(const std::string &status)
 {
     mStatusText->setString(status);
@@ -231,6 +258,10 @@ void UILayer::onSliderMessage3(void* sender, MessageParam *param)
 {
     SliderMessageParam *p = static_cast<SliderMessageParam*>(param);
     MainLayer::getInstance()->getSprite("13")->getGLProgramState()->setUniformFloat("u_value", p->value);
+}
+
+void UILayer::setCurrentSprite(ShaderSprite *sprite){
+    
 }
 
 NS_EE_END

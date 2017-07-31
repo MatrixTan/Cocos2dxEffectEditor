@@ -37,7 +37,7 @@ public:
     float value;
 };
 
-class UIControlPropertySlider
+class UIControlPropertySlider : public Node
 {
 public:
     UIControlPropertySlider(Node* root, PropertySliderData* pdata);

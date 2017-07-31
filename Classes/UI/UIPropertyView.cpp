@@ -27,6 +27,9 @@ UIPropertyView::UIPropertyView(Node* root)
     data->minValue = 0.0f;
     data->name = "色相";
     auto silder = new UIControlPropertySlider(root->getChildByName("color1"), data);
+    mRootNode->addChild(silder);
+    silder->setPosition(Vec2(125.0f, 300.0f));
+    
     PropertySliderData *data1 = new PropertySliderData();
     data1->messageName = "msg_hue_saturation";
     data1->defaultValue = 0.0f;
@@ -34,6 +37,9 @@ UIPropertyView::UIPropertyView(Node* root)
     data1->minValue = 0.0f;
     data1->name = "饱和度";
     auto silder1 = new UIControlPropertySlider(root->getChildByName("color2"), data1);
+    mRootNode->addChild(silder1);
+    silder1->setPosition(Vec2(125.0f, 250.0f));
+    
     PropertySliderData *data2 = new PropertySliderData();
     data2->messageName = "msg_hue_value";
     data2->defaultValue = 0.0f;
@@ -41,6 +47,12 @@ UIPropertyView::UIPropertyView(Node* root)
     data2->minValue = 0.0f;
     data2->name = "明度";
     auto silder2 = new UIControlPropertySlider(root->getChildByName("color3"), data2);
+    mRootNode->addChild(silder2);
+    silder2->setPosition(Vec2(125.0f, 200.0f));
+    
+    mCommonProperty = new UIControlPropertyCommon();
+    mRootNode->addChild(mCommonProperty);
+    mCommonProperty->setPosition(Vec2(125.0f, 400.0f));
 }
 
 void UIPropertyView::onOpenButtonTouchEvent(cocos2d::Ref *sender, ui::Widget::TouchEventType type)
@@ -63,6 +75,10 @@ void UIPropertyView::onOpenButtonTouchEvent(cocos2d::Ref *sender, ui::Widget::To
             mOpenButton->setTitleText(">>");
         }
     }
+}
+
+void UIPropertyView::setCurrentSprite(ee::ShaderSprite *sprite){
+    mCommonProperty->setCurrentSprite(sprite);
 }
 
 NS_EE_END

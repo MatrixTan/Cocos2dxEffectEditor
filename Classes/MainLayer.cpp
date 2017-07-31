@@ -13,10 +13,14 @@
 #include "UILayer.hpp"
 #include "DrawLineLayer.hpp"
 #include "ActionDrawBezierPath.hpp"
+#include "Project.hpp"
+#include "ParticleSystemExt.hpp"
+#include "Utils.hpp"
 
 NS_EE_BEGIN
 
 MainLayer::MainLayer()
+:mCurrentSprite(nullptr)
 {
 }
 
@@ -59,6 +63,11 @@ bool MainLayer::init()
     touchEventListener->onTouchEnded = CC_CALLBACK_2(MainLayer::onTouchEnd, this);
     touchEventListener->onTouchCancelled = CC_CALLBACK_2(MainLayer::onTouchCancel, this);
     getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchEventListener, this);
+    
+    mRootNode = Node::create();
+    addChild(mRootNode);
+    mRootNode->setPosition(Director::getInstance()->getWinSize() * 0.5f);
+    
     return Layer::init();
 }
 
@@ -66,14 +75,13 @@ bool MainLayer::init()
 void MainLayer::setBackground(const std::string &file, const Vec2& scale)
 {
     auto background = Sprite::create(file);
-    background->setPosition(Director::getInstance()->getWinSize() * 0.5f);
     background->setScale(scale.x, scale.y);
-    addChild(background);
+    mRootNode->addChild(background);
 }
 
 void MainLayer::addSprite(const std::string& id, ShaderSprite* pSprite, int zorder)
 {
-    addChild(pSprite, (int)SPRITE_ZORDER::SPRITE + zorder);
+    mRootNode->addChild(pSprite, (int)SPRITE_ZORDER::SPRITE + zorder);
     pSprite->retain();
     mSprites.insert(std::pair<std::string, ShaderSprite*>(id, pSprite));
 }
@@ -103,7 +111,7 @@ ShaderSprite* MainLayer::getSprite(const std::string& id)
 
 void MainLayer::addParticleSystem(const std::string &id, cocos2d::ParticleSystemQuad *particle, int zorder)
 {
-    addChild(particle, (int)SPRITE_ZORDER::SPRITE + zorder);
+    mRootNode->addChild(particle, (int)SPRITE_ZORDER::SPRITE + zorder);
     particle->retain();
     mParticles.insert(std::pair<std::string, ParticleSystemQuad*>(id, particle));
 }
@@ -120,7 +128,7 @@ ParticleSystemQuad* MainLayer::getParticle(const std::string &id)
 
 void MainLayer::addMask(const std::string& id, ClippingNode* node)
 {
-    addChild(node, (int)SPRITE_ZORDER::MASK);
+    mRootNode->addChild(node, (int)SPRITE_ZORDER::MASK);
     node->retain();
     mMasks[id] = node;
 }
@@ -147,6 +155,18 @@ void MainLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
         return DrawLineLayer::getInstance()->onTouchEnd(touch, event);
     }
     auto pos = touch->getLocation();
+    ShaderSpriteMap::iterator iter = mSprites.begin();
+    for(; iter != mSprites.end(); iter++){
+        ShaderSprite* sprite = iter->second;
+        auto size = sprite->getContentSize();
+        Vec2 spritePos = sprite->convertToWorldSpace(Vec2::ZERO);
+        auto r = sprite->getBoundingBox();
+        if(r.containsPoint(pos)){
+            setCurrentSprite(sprite);
+        }
+    }
+    
+    
     //PostRenderEffectLayer::getInstance()->setDrawRect(Rect(pos.x - 300, pos.y - 300, 600, 600), 0.70f);
 }
 
@@ -154,6 +174,123 @@ void MainLayer::onTouchCancel(Touch *touch, Event *event)
 {
     if(UILayer::getInstance()->getState() == UI_STATE::PEN){
         return DrawLineLayer::getInstance()->onTouchCancel(touch, event);
+    }
+}
+
+void MainLayer::setCurrentSprite(ee::ShaderSprite *sprite){
+    if(mCurrentSprite != nullptr && mCurrentSprite != sprite){
+        mCurrentSprite->enableSelect(false);
+    }
+    mCurrentSprite = sprite;
+    mCurrentSprite->enableSelect(true);
+}
+
+void MainLayer::clear(){
+    for(auto eachNode : mSprites){
+        eachNode.second->release();
+    }
+    mSprites.clear();
+    for(auto eachNode : mMasks){
+        eachNode.second->release();
+    }
+    mMasks.clear();
+    for(auto eachNode : mParticles){
+        eachNode.second->release();
+    }
+    mParticles.clear();
+    mRootNode->removeAllChildren();
+}
+
+void MainLayer::loadProject(ee::Project *project){
+    if(project == nullptr){
+        return;
+    }
+    ProjectConfig* config = project->getConfig();
+    setBackground(config->projectPath + config->background.file, config->background.scale);
+    for(std::vector<std::string>::iterator iter = config->atlas.begin(); iter != config->atlas.end(); iter++)
+    {
+        SpriteFrameCache::getInstance()->addSpriteFramesWithFile(config->projectPath + *iter);
+    }
+    
+    for(std::map<std::string, MaskConfig*>::iterator iter = config->masks.begin(); iter != config->masks.end(); iter++)
+    {
+        auto stentil = Sprite::create(config->projectPath + iter->second->stencil);
+        stentil->setScale(iter->second->scale.x, iter->second->scale.y);
+        stentil->setPosition(Vec2::ZERO);
+        auto clipNode = ClippingNode::create(stentil);
+        
+        clipNode->setAlphaThreshold(iter->second->alphaThreshold);
+        clipNode->setPosition(iter->second->offset);
+        addMask(iter->second->id, clipNode);
+    }
+    
+    for(std::vector<SpriteConfig*>::iterator iter = config->sprites.begin()
+        ; iter != config->sprites.end()
+        ; iter++)
+    {
+        auto shaderSprite = ShaderSprite::create();
+        shaderSprite->initConfig(*iter);
+        
+        if((*iter)->timeline.length() > 0){
+            shaderSprite->runAction(config->timelines[(*iter)->timeline]->getAction());
+        }
+        
+        if((*iter)->mask.length() > 0){
+            addSprite((*iter)->id, shaderSprite, (*iter)->mask);
+        }else{
+            addSprite((*iter)->id, shaderSprite, shaderSprite->getLocalZOrder());
+        }
+        
+    }
+    
+    for(std::vector<ParticleConfig*>::iterator iter = config->particles.begin();
+        iter != config->particles.end();
+        iter++){
+        auto particle = ParticleSystemExt::create(config->projectPath + (*iter)->file);
+        particle->setPosition((*iter)->position.x, (*iter)->position.y);
+        particle->MainLayer::setScale((*iter)->scale.x, (*iter)->scale.y);
+        particle->setRadial((*iter)->radial);
+        if((*iter)->frameTile){
+            particle->setFrameTile((*iter)->tileX, (*iter)->tileY, (*iter)->frameInterval);
+        }
+        if((*iter)->timeline.length() > 0){
+            particle->runAction(config->timelines[(*iter)->timeline]->getAction());
+        }
+        if((*iter)->randomTile){
+            particle->setRandomFrame((*iter)->tileX, (*iter)->tileY);
+        }
+        addParticleSystem((*iter)->id, particle, (*iter)->position.z);
+    }
+    
+    for(std::map<std::string, AnimationConfig*>::iterator iter = config->animations.begin();
+        iter != config->animations.end();
+        iter++)
+    {
+        SpriteFrameCache::getInstance()->addSpriteFramesWithFile(config->projectPath + iter->second->frameFile
+                                                                 , config->projectPath + iter->second->texture);
+        int frameFrom = iter->second->frameFrom;
+        int frameTo = iter->second->frameTo;
+        cocos2d::Vector<SpriteFrame*> frames;
+        for(int i=frameFrom; i<=frameTo; i++){
+            std::string frameName = Utils::stringFormat(iter->second->frameName.c_str(), 256, i);
+            auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(frameName);
+            frames.pushBack(spriteFrame);
+        }
+        auto animations = Animation::createWithSpriteFrames(frames, iter->second->interval*2);
+        auto animator = Animate::create(animations);
+        auto sprite = ShaderSprite::create();
+        sprite->setPosition(iter->second->pos.x, iter->second->pos.y);
+        sprite->setScale(iter->second->scale.x, iter->second->scale.y);
+        sprite->setRotation(iter->second->rotation);
+        sprite->setBlendFunc(BlendFunc::ADDITIVE);
+        sprite->runAction(Sequence::create(DelayTime::create(iter->second->delay), Repeat::create(animator, iter->second->repeat), NULL));
+        sprite->runAction(animator);
+        sprite->setVisible(iter->second->visible);
+        if(iter->second->timeline.length() > 0){
+            sprite->runAction(config->timelines[iter->second->timeline]->getAction());
+        }
+        
+        addSprite(iter->first, sprite, iter->second->pos.z);
     }
 }
 

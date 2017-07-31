@@ -16,6 +16,7 @@ class Utils
 {
 public:
     static std::string stringFormat(const char* format, int size=256,  ...);
+    static std::string jsonFormat(const char* jsonStream);
 };
 
 #endif /* Utils_hpp */

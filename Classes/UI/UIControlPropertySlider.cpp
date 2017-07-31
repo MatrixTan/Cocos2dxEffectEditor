@@ -17,7 +17,8 @@ using namespace cocos2d::ui;
 
 UIControlPropertySlider::UIControlPropertySlider(Node* root, PropertySliderData* data)
 {
-    mNode = root;
+    mNode = CSLoader::createNode("res/control_property_slider.csb");
+    addChild(mNode);
     mData = data;
     
     Layout *rootLayout = static_cast<Layout*>(mNode);
@@ -31,7 +32,6 @@ UIControlPropertySlider::UIControlPropertySlider(Node* root, PropertySliderData*
     mValueText->setString(std::to_string(mData->defaultValue));
     mSlider = static_cast<Slider*>(ui::Helper::seekWidgetByName(rootLayout, "slider"));
     mSlider->addEventListener(CC_CALLBACK_2(UIControlPropertySlider::onSliderChange, this));
-
 }
 
 UIControlPropertySlider::~UIControlPropertySlider()

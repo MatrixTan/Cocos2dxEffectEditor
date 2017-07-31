@@ -20,6 +20,7 @@
 #include "ParticleSystemExt.hpp"
 #include "MaskConfig.hpp"
 #include "TimelineManager.hpp"
+#include "PlatformAdapter.h"
 
 NS_EE_BEGIN
 
@@ -29,6 +30,7 @@ Project::Project()
 
 Project::~Project()
 {
+    mConfig.version = "1.0.0.1";
 }
 
 bool Project::init(const std::string& projectPath)
@@ -295,9 +297,6 @@ bool Project::init(const std::string& projectPath)
             mConfig.masks[maskConfig->id] = maskConfig;
         }
     }
-
-    
-    loadProject();
     return true;
 }
 
@@ -310,169 +309,18 @@ Timeline* Project::parseTimeline(const rapidjson::Value &value)
     }
 }
 
-void Project::loadProject()
-{
-    MainLayer::getInstance()->setBackground(mConfig.projectPath + mConfig.background.file, mConfig.background.scale);
-    for(std::vector<std::string>::iterator iter = mConfig.atlas.begin(); iter != mConfig.atlas.end(); iter++)
-    {
-        SpriteFrameCache::getInstance()->addSpriteFramesWithFile(mConfig.projectPath + *iter);
-    }
-    auto spriteOrigin = Director::getInstance()->getWinSize() * 0.5f;
-    
-    for(std::map<std::string, MaskConfig*>::iterator iter = mConfig.masks.begin(); iter != mConfig.masks.end(); iter++)
-    {
-        auto stentil = Sprite::create(mConfig.projectPath + iter->second->stencil);
-        stentil->setScale(iter->second->scale.x, iter->second->scale.y);
-        stentil->setPosition(Vec2::ZERO);
-        auto clipNode = ClippingNode::create(stentil);
-        
-        clipNode->setAlphaThreshold(iter->second->alphaThreshold);
-        clipNode->setPosition(iter->second->offset + Vec2(spriteOrigin.width, spriteOrigin.height));
-        MainLayer::getInstance()->addMask(iter->second->id, clipNode);
-    }
-    
-    for(std::vector<SpriteConfig*>::iterator iter = mConfig.sprites.begin()
-        ; iter != mConfig.sprites.end()
-        ; iter++)
-    {
-        auto shaderSprite = ShaderSprite::create();
-        if((*iter)->sourceType == SPRITE_SOURCE_TYPE::FILE){
-            shaderSprite->initWithFile(mConfig.projectPath + (*iter)->texture);
-        }else if((*iter)->sourceType == SPRITE_SOURCE_TYPE::ATLAS){
-            shaderSprite->initWithSpriteFrameName((*iter)->texture);
-        }else{
-            CC_ASSERT(false);
-        }
-        shaderSprite->initShader((*iter)->vShader, (*iter)->fShader);
-        Vec2 pos;
-        pos.x = (*iter)->position.x + spriteOrigin.width;
-        pos.y = (*iter)->position.y + spriteOrigin.height;
-        int zOrder = (int)(*iter)->position.z;
-        shaderSprite->setPosition(pos);
-        shaderSprite->setScale((*iter)->scale.x, (*iter)->scale.y);
-        shaderSprite->setLocalZOrder(zOrder);
-        if((*iter)->customBlend){
-            BlendFunc blendFunc;
-            blendFunc.src = (*iter)->blendSrc;
-            blendFunc.dst = (*iter)->blendDst;
-            shaderSprite->setBlendFunc(blendFunc);
-        }
-        shaderSprite->setAnchorPoint((*iter)->anchor);
-        
-        uint32_t uniformFlag = 0;
-        for(std::vector<ShaderUniformConfig*>::iterator iterUniform = (*iter)->uniforms.begin();
-            iterUniform != (*iter)->uniforms.end(); iterUniform++)
-        {
-            if((*iterUniform)->type == SHADER_UNIFORM_TYPE::TIME){
-                uniformFlag |= (uint32_t) SHADER_UNIFORM_FLAG::TIME;
-            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::UV_RECT){
-                Rect textureRect = shaderSprite->getSpriteFrame()->getRectInPixels();
-                float width = (float)shaderSprite->getTexture()->getPixelsWide();
-                float height = (float)shaderSprite->getTexture()->getPixelsHigh();
-                Vec4 uvRect;
-                uvRect.x = textureRect.origin.x / width;
-                uvRect.y = (textureRect.origin.x + textureRect.size.width) / width;
-                uvRect.z = textureRect.origin.y / height;
-                uvRect.w = (textureRect.origin.y + textureRect.size.height) / height;
-                shaderSprite->getGLProgramState()->setUniformVec4("u_uv_rect", uvRect);
-            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::RANDOM){
-                auto randomUniform = static_cast<ShaderUniformConfigRandom*>(*iterUniform);
-                shaderSprite->getGLProgramState()->setUniformFloat(randomUniform->name, random<float>(randomUniform->min, randomUniform->max));
-            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::TEXTURE){
-                auto textureUniform = static_cast<ShaderUniformConfigTexture*>(*iterUniform);
-                Texture2D* texture = nullptr;
-                if(textureUniform->sourceType == SPRITE_SOURCE_TYPE::FILE){
-                    texture = Director::getInstance()->getTextureCache()->addImage(mConfig.projectPath + textureUniform->texture);
-                }else if(textureUniform->sourceType == SPRITE_SOURCE_TYPE::ATLAS){
-                    texture = SpriteFrameCache::getInstance()->getSpriteFrameByName(textureUniform->texture)->getTexture();
-                }
-                shaderSprite->getGLProgramState()->setUniformTexture(textureUniform->name, texture);
-            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::FLOAT){
-                auto floatUniform = static_cast<ShaderUniformConfigFloat*>(*iterUniform);
-                shaderSprite->getGLProgramState()->setUniformFloat(floatUniform->name, floatUniform->value);
-            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::VEC4){
-                auto vec4Uniform = static_cast<ShaderUniformConfigVec4*>(*iterUniform);
-                shaderSprite->getGLProgramState()->setUniformVec4(vec4Uniform->name, vec4Uniform->value);
-            }else if((*iterUniform)->type == SHADER_UNIFORM_TYPE::VEC2){
-                auto vec2Uniform = static_cast<ShaderUniformConfigVec2*>(*iterUniform);
-                shaderSprite->getGLProgramState()->setUniformVec2(vec2Uniform->name, vec2Uniform->value);
-            }
-        }
-        shaderSprite->setUniformFlag(uniformFlag);
-        shaderSprite->setVisible((*iter)->visible);
-        shaderSprite->setOpacity(255 * (*iter)->alpha);
-        shaderSprite->setRotation((*iter)->rotation);
-        if((*iter)->timeline.length() > 0){
-            shaderSprite->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
-        }
-        
-        if((*iter)->mask.length() > 0){
-            MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite, (*iter)->mask);
-        }else{
-            MainLayer::getInstance()->addSprite((*iter)->id, shaderSprite, zOrder);
-        }
-        
-    }
-    
-    for(std::vector<ParticleConfig*>::iterator iter = mConfig.particles.begin();
-        iter != mConfig.particles.end();
-        iter++){
-        auto particle = ParticleSystemExt::create(mConfig.projectPath + (*iter)->file);
-        particle->setPosition((*iter)->position.x + spriteOrigin.width
-                              , (*iter)->position.y+spriteOrigin.height);
-        particle->MainLayer::setScale((*iter)->scale.x, (*iter)->scale.y);
-        particle->setRadial((*iter)->radial);
-        if((*iter)->frameTile){
-            particle->setFrameTile((*iter)->tileX, (*iter)->tileY, (*iter)->frameInterval);
-        }
-        if((*iter)->timeline.length() > 0){
-            particle->runAction(mConfig.timelines[(*iter)->timeline]->getAction());
-        }
-        if((*iter)->randomTile){
-            particle->setRandomFrame((*iter)->tileX, (*iter)->tileY);
-        }
-        MainLayer::getInstance()->addParticleSystem((*iter)->id, particle, (*iter)->position.z);
-    }
-
-    for(std::map<std::string, AnimationConfig*>::iterator iter = mConfig.animations.begin();
-        iter != mConfig.animations.end();
-        iter++)
-    {
-        SpriteFrameCache::getInstance()->addSpriteFramesWithFile(mConfig.projectPath + iter->second->frameFile
-                                                                 , mConfig.projectPath + iter->second->texture);
-        int frameFrom = iter->second->frameFrom;
-        int frameTo = iter->second->frameTo;
-        cocos2d::Vector<SpriteFrame*> frames;
-        for(int i=frameFrom; i<=frameTo; i++){
-            std::string frameName = Utils::stringFormat(iter->second->frameName.c_str(), 256, i);
-            auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(frameName);
-            frames.pushBack(spriteFrame);
-        }
-        auto animations = Animation::createWithSpriteFrames(frames, iter->second->interval*2);
-        auto animator = Animate::create(animations);
-        auto sprite = ShaderSprite::create();
-        sprite->setPosition(iter->second->pos.x + spriteOrigin.width, iter->second->pos.y + spriteOrigin.height);
-        sprite->setScale(iter->second->scale.x, iter->second->scale.y);
-        sprite->setRotation(iter->second->rotation);
-        sprite->setBlendFunc(BlendFunc::ADDITIVE);
-        sprite->runAction(Sequence::create(DelayTime::create(iter->second->delay), Repeat::create(animator, iter->second->repeat), NULL));
-        sprite->runAction(animator);
-        sprite->setVisible(iter->second->visible);
-        if(iter->second->timeline.length() > 0){
-            sprite->runAction(mConfig.timelines[iter->second->timeline]->getAction());
-        }
-        
-        MainLayer::getInstance()->addSprite(iter->first, sprite, iter->second->pos.z);
-    }
-}
-
 bool Project::saveProject()
 {
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     mRoot.Accept(writer);
     mConfig.projectString = buffer.GetString();
-    return FileUtils::getInstance()->writeStringToFile(mConfig.projectString, mConfig.projectFilePath);
+    std::string savePath = PlatformAdapter::getSaveFilePath("json");
+    if(savePath.length() > 0){
+        std::string formatString = Utils::jsonFormat(mConfig.projectString.c_str());
+        return FileUtils::getInstance()->writeStringToFile(formatString, savePath);
+    }
+    return false;
 }
 
 ProjectConfig* Project::getConfig()

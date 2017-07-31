@@ -17,19 +17,7 @@ NS_EE_BEGIN
 
 bool MainScene::init()
 {
-    mProject = new Project();
-    std::string strProject = FileUtils::getInstance()->getWritablePath() + "effect_editor/project1/project1.json";
-    //std::string strProject = "projects/project1/project1.json";
-    mProject->init(strProject);
-    
-    this->addChild(MainLayer::getInstance(), (int)LAYER_ZORDER::MAIN);
-    MainLayer::getInstance()->addChild(UILayer::getInstance(), (int)SPRITE_ZORDER::UI);
-    this->addChild(PostRenderEffectLayer::getInstance(), (int)LAYER_ZORDER::POST_RENDER);
-    
-    UILayer::getInstance()->loadProject(mProject->getConfig());
-    
-    AudioPlayer::getInstance()->init();
-    
+   
     return Scene::init();
 }
 
@@ -38,11 +26,41 @@ Project* MainScene::getCurrentProject()
     return mProject;
 }
 
+void MainScene::initScene(){
+    AudioPlayer::getInstance()->init();
+    
+    this->addChild(MainLayer::getInstance(), (int)LAYER_ZORDER::MAIN);
+    MainLayer::getInstance()->addChild(UILayer::getInstance(), (int)SPRITE_ZORDER::UI);
+    this->addChild(PostRenderEffectLayer::getInstance(), (int)LAYER_ZORDER::POST_RENDER);
+}
+
 std::string MainScene::getProjectPath(){
     if(mProject != nullptr){
         return mProject->getConfig()->projectPath;
     }
     return "";
+}
+
+bool MainScene::loadProject(const std::string &path){
+    if(mProject != nullptr){
+        delete mProject;
+        mProject = nullptr;
+    }
+    mProject = new Project();
+    if(mProject->init(path)){
+        MainLayer::getInstance()->loadProject(mProject);
+        return true;
+    }
+    return false;
+}
+
+void MainScene::newProject(){
+    if(mProject != nullptr){
+        delete mProject;
+        mProject = nullptr;
+    }
+    mProject = new Project();
+    MainLayer::getInstance()->clear();
 }
 
 NS_EE_END

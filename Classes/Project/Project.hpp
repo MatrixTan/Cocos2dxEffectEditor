@@ -34,7 +34,6 @@ public:
     
 private:
     Timeline* parseTimeline(const rapidjson::Value& value);
-    void loadProject(void);    
     
     ProjectConfig mConfig;
     rapidjson::Document mRoot;

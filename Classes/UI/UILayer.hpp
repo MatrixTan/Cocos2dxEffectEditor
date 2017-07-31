@@ -20,6 +20,7 @@
 #include "MessageParam.hpp"
 #include "MessageListener.hpp"
 #include "UIDrawView.hpp"
+#include "ShaderSprite.hpp"
 
 NS_EE_BEGIN
 
@@ -48,13 +49,19 @@ private:
     void onUserTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onPenTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onSaveTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onLoadTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    void onNewTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+    
     void onTest1Event(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onTest2Event(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     void onTest3Event(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
     
+    void onTouchBackground(Ref *sender, ui::Widget::TouchEventType type);
+    
     void onSliderMessage1(void* sender, MessageParam *param);
     void onSliderMessage2(void* sender, MessageParam *param);
     void onSliderMessage3(void* sender, MessageParam *param);
+    void setCurrentSprite(ShaderSprite *shader);
     
     Node *mContainer;
     UIProjectView *mProjectView;

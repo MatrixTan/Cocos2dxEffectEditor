@@ -23,13 +23,17 @@ class MainScene : public Scene, public NodeSingleton<MainScene>
 {
 public:
     virtual bool init() override;
+    void initScene(void);
+    
     Project* getCurrentProject(void);
     std::string getProjectPath(void);
+    bool loadProject(const std::string& path);
+    void newProject();
     
     CREATE_FUNC(MainScene);
 private:
     
-    Project *mProject;
+    Project *mProject = nullptr;
 };
 
 NS_EE_END
