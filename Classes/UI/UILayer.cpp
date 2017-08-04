@@ -28,6 +28,10 @@
 #include "ActionDrawBezierPath.hpp"
 #include "TimelineManager.hpp"
 
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#import "ARManager.hpp"
+#endif
+
 NS_EE_BEGIN
 
 USING_NS_CC;
@@ -127,15 +131,7 @@ void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        auto sprite = MainLayer::getInstance()->getSprite("5");
-        sprite->resetTimeUniform();
-        /*Timeline* timeline = TimelineManager::getInstance()->getTimelineFromFile(
-                                                                  FileUtils::getInstance()->getWritablePath()
-                                                                  + "effect_editor/project2/magic_word2.timeline");
-        
-        sprite->runAction(timeline->getAction());
-         */
-        
+        ARManager::getInstance()->startVRView();
     }
 }
 
