@@ -77,7 +77,7 @@
     if (glview)
     {
         CCEAGLView *eaglview = (CCEAGLView*) glview->getEAGLView();
-
+        
         if (eaglview)
         {
             CGSize s = CGSizeMake([eaglview getWidth], [eaglview getHeight]);

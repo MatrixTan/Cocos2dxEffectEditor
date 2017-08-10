@@ -15,7 +15,7 @@
 @interface ARViewController : UIViewController
 
 + (nonnull instancetype) createView;
-
+- (void*) update: (CVEAGLContext) glContext;
 @end
 
 #endif /* ARViewController_h */

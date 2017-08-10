@@ -7,10 +7,16 @@
 
 #import <Foundation/Foundation.h>
 #import "ARViewController.h"
+#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES2/glext.h>
+
+//#import "ARManager.hpp"
 
 @interface ARViewController () <ARSCNViewDelegate>
 
 @property (nonatomic, strong) IBOutlet ARSCNView *sceneView;
+@property CVEAGLContext *_context;
+@property CVOpenGLESTextureCacheRef _textureCache;
 
 @end
 
@@ -19,30 +25,47 @@
 
 + (instancetype) createView
 {
-    return [[self alloc] init];
+    ARViewController *controller = [[self alloc] init];
+    controller.sceneView = [[ARSCNView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    //[self.view addSubview:self.sceneView];
+    controller.view = controller.sceneView;
+    
+    controller.sceneView.showsStatistics = YES;
+    
+    // Create a new scene
+    SCNScene *scene = [SCNScene sceneNamed:@"arres.scnassets/yu_model.DAE"];
+    
+    SCNAnimation *animation = [SCNAnimation animationNamed:@"arres.scnassets/yu_animation.DAE"];
+    
+    //scene.rootNode
+    SCNNode *yu = [scene.rootNode childNodeWithName:@"Box002" recursively:true];
+    //scene.rootNode.scale = SCNVector3Make(0.01, 0.01, 0.01);
+    [yu addAnimation:animation forKey:@"yu_a"];
+    // Set the scene to the view
+    controller.sceneView.scene = scene;
+    
+    // Set the view's delegate
+    controller.sceneView.delegate = controller;
+    
+    return controller;
+}
+
+- (void*)update:(CVEAGLContext) glContext{
+    ARFrame *frame = self.sceneView.session.currentFrame;
+    CVPixelBufferRef image = frame.capturedImage;
+    if(!image){
+        return 0;
+    }
+    
+    return image;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)update {
     
-    UIView *test = [[UIView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:test];
-    test.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-    
-    self.sceneView = [[ARSCNView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.sceneView];
-    // Set the view's delegate
-    self.sceneView.delegate = self;
-    
-    // Show statistics such as fps and timing information
-    self.sceneView.showsStatistics = YES;
-    
-    // Create a new scene
-    SCNScene *scene = [SCNScene sceneNamed:@"arres.scnassets/arres.scn"];
-    
-    // Set the scene to the view
-    self.sceneView.scene = scene;
- 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,6 +76,8 @@
     
     // Run the view's session
     [self.sceneView.session runWithConfiguration:configuration];
+    
+    //[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(update) userInfo:nil repeats:true];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

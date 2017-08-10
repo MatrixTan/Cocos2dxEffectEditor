@@ -27,6 +27,7 @@
 #include "PlatformAdapter.h"
 #include "ActionDrawBezierPath.hpp"
 #include "TimelineManager.hpp"
+#include "ARLayer.hpp"
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #import "ARManager.hpp"
@@ -131,7 +132,9 @@ void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        ARManager::getInstance()->startVRView();
+        ARLayer* arlayer = new ARLayer();
+        arlayer->init();
+        addChild(arlayer);
     }
 }
 
