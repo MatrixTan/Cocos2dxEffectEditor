@@ -158,47 +158,7 @@ void UILayer::onUserTouchEvent(cocos2d::Ref *sender, Widget::TouchEventType type
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        
         AudioPlayer::getInstance()->playMusic(MainScene::getInstance()->getProjectPath() + "soda_crush.wav", true);
-        //MainLayer::getInstance()->getParticle("3002")->resetSystem();
-        
-        
-        /*std::string csbFile = "res/horizontal_effect2.csb";
-        auto horizontalEffect = cocos2d::CSLoader::createNode(csbFile);
-        auto timeLine = CSLoader::createTimeline(csbFile);
-        addChild(horizontalEffect, 9999999);
-        horizontalEffect->setPosition(Vec2(300, 300));
-        horizontalEffect->runAction(timeLine);
-        timeLine->setLastFrameCallFunc([horizontalEffect](){
-            horizontalEffect->removeFromParent();
-        });
-        timeLine->gotoFrameAndPlay(0, false);
-         */
-        // ===================
-        
-        /*auto shaderSprite = MainLayer::getInstance()->getSprite("1");
-        auto ringEffect = RingEffect::create(300.0f, 2.0f);
-        addChild(ringEffect);
-        ringEffect->setPosition(shaderSprite->getPosition());
-         */
-        
-        /*shaderSprite->runAction(Sequence::create(DelayTime::create(2.0f),
-                                                                       MoveBy::create(2.0f, Vec2(400.0f, 0.0f)),
-                                                                       DelayTime::create(1.0f),
-                                                                       MoveBy::create(2.0f, Vec2(-400.0f, 0.0f)),
-                                                                       RemoveSelf::create(true), NULL));
-          */
-        //shaderSprite->resetTimeUniform();
-        
-        //auto sprite2 = MainLayer::getInstance()->getSprite("2");
-        //auto link = LinkEffect::create(sprite2, shaderSprite, 500.0f);
-        //addChild(link);
-        
-        /*auto test = ParticleSystemQuad::create("res/link_light.plist");
-        addChild(test, 99999);
-        test->setAnchorPoint(Vec2(0.0f, 0.0f));
-        test->setPosition(shaderSprite->getPosition());
-        test->setRotation(60);*/
     }
 }
 

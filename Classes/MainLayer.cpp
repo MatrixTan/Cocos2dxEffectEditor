@@ -224,42 +224,38 @@ void MainLayer::loadProject(ee::Project *project){
         addMask(iter->second->id, clipNode);
     }
     
-    for(std::vector<SpriteConfig*>::iterator iter = config->sprites.begin()
-        ; iter != config->sprites.end()
-        ; iter++)
+    for(auto spriteIter : config->sprites)
     {
         auto shaderSprite = ShaderSprite::create();
-        shaderSprite->initConfig(*iter);
+        shaderSprite->initConfig(spriteIter.second);
         
-        if((*iter)->timeline.length() > 0){
-            shaderSprite->runAction(config->timelines[(*iter)->timeline]->getAction());
+        if(spriteIter.second->timeline.length() > 0){
+            shaderSprite->runAction(config->timelines[spriteIter.second->timeline]->getAction());
         }
         
-        if((*iter)->mask.length() > 0){
-            addSprite((*iter)->id, shaderSprite, (*iter)->mask);
+        if(spriteIter.second->mask.length() > 0){
+            addSprite(spriteIter.second->id, shaderSprite, spriteIter.second->mask);
         }else{
-            addSprite((*iter)->id, shaderSprite, shaderSprite->getLocalZOrder());
+            addSprite(spriteIter.second->id, shaderSprite, shaderSprite->getLocalZOrder());
         }
         
     }
     
-    for(std::vector<ParticleConfig*>::iterator iter = config->particles.begin();
-        iter != config->particles.end();
-        iter++){
-        auto particle = ParticleSystemExt::create(config->projectPath + (*iter)->file);
-        particle->setPosition((*iter)->position.x, (*iter)->position.y);
-        particle->MainLayer::setScale((*iter)->scale.x, (*iter)->scale.y);
-        particle->setRadial((*iter)->radial);
-        if((*iter)->frameTile){
-            particle->setFrameTile((*iter)->tileX, (*iter)->tileY, (*iter)->frameInterval);
+    for(auto particleIter : config->particles){
+        auto particle = ParticleSystemExt::create(config->projectPath + particleIter.second->file);
+        particle->setPosition(particleIter.second->position.x, particleIter.second->position.y);
+        particle->MainLayer::setScale(particleIter.second->scale.x, particleIter.second->scale.y);
+        particle->setRadial(particleIter.second->radial);
+        if(particleIter.second->frameTile){
+            particle->setFrameTile(particleIter.second->tileX, particleIter.second->tileY, particleIter.second->frameInterval);
         }
-        if((*iter)->timeline.length() > 0){
-            particle->runAction(config->timelines[(*iter)->timeline]->getAction());
+        if(particleIter.second->timeline.length() > 0){
+            particle->runAction(config->timelines[particleIter.second->timeline]->getAction());
         }
-        if((*iter)->randomTile){
-            particle->setRandomFrame((*iter)->tileX, (*iter)->tileY);
+        if(particleIter.second->randomTile){
+            particle->setRandomFrame(particleIter.second->tileX, particleIter.second->tileY);
         }
-        addParticleSystem((*iter)->id, particle, (*iter)->position.z);
+        addParticleSystem(particleIter.second->id, particle, particleIter.second->position.z);
     }
     
     for(std::map<std::string, AnimationConfig*>::iterator iter = config->animations.begin();
