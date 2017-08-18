@@ -132,9 +132,11 @@ void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        ARLayer* arlayer = new ARLayer();
-        arlayer->init();
-        addChild(arlayer);
+        //ARLayer* arlayer = new ARLayer();
+        //arlayer->init();
+        //addChild(arlayer);
+        
+        ARManager::getInstance()->showSceneView();
     }
 }
 

@@ -118,6 +118,8 @@
 		666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B4D221D5C35C7000990CB /* DrawLineLayer.cpp */; };
 		6670C9CC1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */; };
 		6670C9CD1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */; };
+		6673B9441F442506009B8F96 /* ARSceneViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6673B9431F442506009B8F96 /* ARSceneViewController.mm */; };
+		6673B9451F442506009B8F96 /* ARSceneViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6673B9431F442506009B8F96 /* ARSceneViewController.mm */; };
 		668B86021E66B0A8007EA9FD /* UIControlPropertyCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668B86001E66B0A8007EA9FD /* UIControlPropertyCommon.cpp */; };
 		668B86031E66B0A8007EA9FD /* UIControlPropertyCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668B86001E66B0A8007EA9FD /* UIControlPropertyCommon.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
@@ -324,6 +326,8 @@
 		666B4D231D5C35C7000990CB /* DrawLineLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawLineLayer.hpp; sourceTree = "<group>"; };
 		6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BezierPathManager.cpp; path = Timeline/BezierPathManager.cpp; sourceTree = "<group>"; };
 		6670C9CB1DB9C08C00EBA27F /* BezierPathManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BezierPathManager.hpp; path = Timeline/BezierPathManager.hpp; sourceTree = "<group>"; };
+		6673B9431F442506009B8F96 /* ARSceneViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ARSceneViewController.mm; path = AR/ARSceneViewController.mm; sourceTree = "<group>"; };
+		6673B9471F442520009B8F96 /* ARSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARSceneViewController.h; path = AR/ARSceneViewController.h; sourceTree = "<group>"; };
 		668B86001E66B0A8007EA9FD /* UIControlPropertyCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIControlPropertyCommon.cpp; path = UI/UIControlPropertyCommon.cpp; sourceTree = "<group>"; };
 		668B86011E66B0A8007EA9FD /* UIControlPropertyCommon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIControlPropertyCommon.hpp; path = UI/UIControlPropertyCommon.hpp; sourceTree = "<group>"; };
 		6694EA0E1D2F54F0007212E9 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Singleton.cpp; path = Common/Singleton.cpp; sourceTree = "<group>"; };
@@ -643,6 +647,8 @@
 				6621226C1F34591100097AE0 /* ARManager.hpp */,
 				6633CC021F3B03860007640F /* ARLayer.cpp */,
 				6633CC031F3B03860007640F /* ARLayer.hpp */,
+				6673B9431F442506009B8F96 /* ARSceneViewController.mm */,
+				6673B9471F442520009B8F96 /* ARSceneViewController.h */,
 			);
 			name = AR;
 			sourceTree = "<group>";
@@ -922,6 +928,7 @@
 				6636BE3B1D4700CE004E09DD /* Project.cpp in Sources */,
 				664284701DF6626700FE0D12 /* TimelineDelay.cpp in Sources */,
 				6610FE0B1D7A6E7200618BE4 /* MessageParam.cpp in Sources */,
+				6673B9441F442506009B8F96 /* ARSceneViewController.mm in Sources */,
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				66111B131DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
@@ -976,6 +983,7 @@
 				66B00BC21DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */,
 				66111B191DB622C50075E617 /* UIDrawView.cpp in Sources */,
 				665C99E41DF5457D0094D011 /* TimelineManager.cpp in Sources */,
+				6673B9451F442506009B8F96 /* ARSceneViewController.mm in Sources */,
 				66111B141DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,

@@ -41,7 +41,8 @@ class ARManager : public Singleton<ARManager>
 public:
     void startVRView(void);
     ARFrameInfo* getARFrameInfo(void);
-    
+    void showSceneView(void);
+    void stopSceneView(void);
 private:
     void* mARView = nullptr;
     ARFrameInfo *mARFrameInfo = nullptr;

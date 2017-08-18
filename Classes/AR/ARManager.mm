@@ -11,6 +11,7 @@
 #include "AppController.h"
 #include <cocos2d.h>
 #import "platform/ios/CCEAGLView-ios.h"
+#import "ARSceneViewController.h"
 
 NS_EE_BEGIN
 
@@ -24,6 +25,19 @@ void ARManager::startVRView()
     [rootView addSubview: arviewController.view];
     mARView = arviewController;
     mARFrameInfo = new ARFrameInfo();
+}
+
+void ARManager::showSceneView(void)
+{
+    ARSceneViewController* arview = [ARSceneViewController createView];
+    AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
+    [appController.viewController presentViewController:arview animated:YES completion:nil];
+}
+
+void ARManager::stopSceneView()
+{
+    AppController *appController = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appController.viewController dismissViewControllerAnimated:NO completion:nil];
 }
 
 ARFrameInfo* ARManager::getARFrameInfo(){
