@@ -15,7 +15,7 @@
 #include <cocos2d.h>
 #include "GlobalDefine.hpp"
 #include "ProjectConfig.hpp"
-#include "TimelineConfig.hpp";
+#include "TimelineConfig.hpp"//
 
 NS_EE_BEGIN
 
@@ -27,16 +27,15 @@ public:
     Project();
     ~Project();
     
-    bool init(const std::string& projectPath);
-    
+    bool load(const std::string& projectPath);
     bool saveProject();
+    void reset();
+    
     ProjectConfig* getConfig();
-    
+    void clear();
 private:
-    Timeline* parseTimeline(const rapidjson::Value& value);
     
-    ProjectConfig mConfig;
-    rapidjson::Document mRoot;
+    ProjectConfig *mConfig = nullptr;
 };
 
 NS_EE_END

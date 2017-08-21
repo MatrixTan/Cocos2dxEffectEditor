@@ -47,7 +47,7 @@ bool MainScene::loadProject(const std::string &path){
         mProject = nullptr;
     }
     mProject = new Project();
-    if(mProject->init(path)){
+    if(mProject->load(path)){
         MainLayer::getInstance()->loadProject(mProject);
         return true;
     }
@@ -60,6 +60,7 @@ void MainScene::newProject(){
         mProject = nullptr;
     }
     mProject = new Project();
+    mProject->reset();
     MainLayer::getInstance()->clear();
 }
 

@@ -20,6 +20,10 @@
 #include "AnimationConfig.hpp"
 #include "MaskConfig.hpp"
 #include "Timeline.hpp"
+#include <json/rapidjson.h>
+#include <json/document.h>
+#include <json/writer.h>
+#include <json/stringbuffer.h>
 
 NS_EE_BEGIN
 
@@ -32,17 +36,24 @@ public:
     ProjectConfig();
     ~ProjectConfig();
     
+    bool loadFile(const std::string& file);
+    std::string getJsonString() const;
+    
     std::string version;
     BackgroundConfig background;
     std::string projectPath;
     std::string projectFilePath;
-    std::string projectString;
     std::vector<std::string> atlas;
-    std::vector<SpriteConfig*> sprites;
-    std::vector<ParticleConfig*> particles;
+    std::map<std::string, SpriteConfig*> sprites;
+    std::map<std::string, ParticleConfig*> particles;
     std::map<std::string, Timeline*> timelines;
     std::map<std::string, AnimationConfig*> animations;
     std::map<std::string, MaskConfig*> masks;
+    
+private:
+    Timeline* parseTimeline(const rapidjson::Value& value);
+    
+    
 };
 
 NS_EE_END
