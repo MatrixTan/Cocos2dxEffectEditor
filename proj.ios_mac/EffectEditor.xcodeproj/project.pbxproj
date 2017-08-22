@@ -94,6 +94,16 @@
 		66431C171D79A4B000F63D7B /* UIControlPropertySlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C141D79A4B000F63D7B /* UIControlPropertySlider.cpp */; };
 		66431C1D1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */; };
 		66431C1E1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */; };
+		664BF2A31F4ACCF3001F3CDB /* fly_effect.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A11F4ACCF3001F3CDB /* fly_effect.scnp */; };
+		664BF2A41F4ACCF3001F3CDB /* fly_effect.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A11F4ACCF3001F3CDB /* fly_effect.scnp */; };
+		664BF2A51F4ACCF3001F3CDB /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A21F4ACCF3001F3CDB /* star.png */; };
+		664BF2A61F4ACCF3001F3CDB /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A21F4ACCF3001F3CDB /* star.png */; };
+		664BF2A91F4AFD50001F3CDB /* star_tail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A71F4AFD50001F3CDB /* star_tail.sks */; };
+		664BF2AA1F4AFD50001F3CDB /* star_tail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A71F4AFD50001F3CDB /* star_tail.sks */; };
+		664BF2AB1F4AFD50001F3CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A81F4AFD50001F3CDB /* Assets.xcassets */; };
+		664BF2AC1F4AFD50001F3CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A81F4AFD50001F3CDB /* Assets.xcassets */; };
+		664BF2AF1F4B0229001F3CDB /* ARSceneUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */; };
+		664BF2B01F4B0229001F3CDB /* ARSceneUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */; };
 		665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
@@ -302,6 +312,14 @@
 		66431C151D79A4B000F63D7B /* UIControlPropertySlider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIControlPropertySlider.hpp; path = UI/UIControlPropertySlider.hpp; sourceTree = "<group>"; };
 		66431C1B1D79A94D00F63D7B /* MessageDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MessageDispatcher.cpp; path = Message/MessageDispatcher.cpp; sourceTree = "<group>"; };
 		66431C1C1D79A94D00F63D7B /* MessageDispatcher.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MessageDispatcher.hpp; path = Message/MessageDispatcher.hpp; sourceTree = "<group>"; };
+		664BF2A11F4ACCF3001F3CDB /* fly_effect.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; name = fly_effect.scnp; path = ../Resources/arres.scnassets/fly_effect.scnp; sourceTree = "<group>"; };
+		664BF2A21F4ACCF3001F3CDB /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../Resources/arres.scnassets/star.png; sourceTree = "<group>"; };
+		664BF2A71F4AFD50001F3CDB /* star_tail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = star_tail.sks; path = ../Resources/arres.xcassets/star_tail.sks; sourceTree = "<group>"; };
+		664BF2A81F4AFD50001F3CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Resources/arres.xcassets/Assets.xcassets; sourceTree = "<group>"; };
+		664BF2AD1F4AFE5C001F3CDB /* star_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_4.png; sourceTree = "<group>"; };
+		664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ARSceneUIView.mm; path = AR/ARSceneUIView.mm; sourceTree = "<group>"; };
+		664BF2B11F4B0244001F3CDB /* ARSceneUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ARSceneUIView.h; path = AR/ARSceneUIView.h; sourceTree = "<group>"; };
+		664BF2B21F4B0ADC001F3CDB /* item41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item41.png; sourceTree = "<group>"; };
 		665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackgroundConfig.cpp; path = Project/BackgroundConfig.cpp; sourceTree = "<group>"; };
 		665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BackgroundConfig.hpp; path = Project/BackgroundConfig.hpp; sourceTree = "<group>"; };
 		665A26861D49F8B1007511EB /* RingEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingEffect.cpp; sourceTree = "<group>"; };
@@ -463,6 +481,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				664BF2A71F4AFD50001F3CDB /* star_tail.sks */,
+				664BF2B21F4B0ADC001F3CDB /* item41.png */,
+				664BF2AD1F4AFE5C001F3CDB /* star_4.png */,
+				664BF2A81F4AFD50001F3CDB /* Assets.xcassets */,
+				664BF2A11F4ACCF3001F3CDB /* fly_effect.scnp */,
+				664BF2A21F4ACCF3001F3CDB /* star.png */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -649,6 +673,8 @@
 				6633CC031F3B03860007640F /* ARLayer.hpp */,
 				6673B9431F442506009B8F96 /* ARSceneViewController.mm */,
 				6673B9471F442520009B8F96 /* ARSceneViewController.h */,
+				664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */,
+				664BF2B11F4B0244001F3CDB /* ARSceneUIView.h */,
 			);
 			name = AR;
 			sourceTree = "<group>";
@@ -852,14 +878,17 @@
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				664BF2AB1F4AFD50001F3CDB /* Assets.xcassets in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				664BF2A51F4ACCF3001F3CDB /* star.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				664BF2A31F4ACCF3001F3CDB /* fly_effect.scnp in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
@@ -868,6 +897,7 @@
 				6621227D1F34AAE200097AE0 /* arres.scnassets in Resources */,
 				660E66951D24CB3600145F7E /* shader in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				664BF2A91F4AFD50001F3CDB /* star_tail.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +909,10 @@
 				660E66961D24CB3600145F7E /* shader in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
+				664BF2AA1F4AFD50001F3CDB /* star_tail.sks in Resources */,
+				664BF2A61F4ACCF3001F3CDB /* star.png in Resources */,
+				664BF2AC1F4AFD50001F3CDB /* Assets.xcassets in Resources */,
+				664BF2A41F4ACCF3001F3CDB /* fly_effect.scnp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +963,7 @@
 				664284701DF6626700FE0D12 /* TimelineDelay.cpp in Sources */,
 				6610FE0B1D7A6E7200618BE4 /* MessageParam.cpp in Sources */,
 				6673B9441F442506009B8F96 /* ARSceneViewController.mm in Sources */,
+				664BF2AF1F4B0229001F3CDB /* ARSceneUIView.mm in Sources */,
 				665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				66111B131DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				6636BE371D46FF0C004E09DD /* ProjectConfig.cpp in Sources */,
@@ -1005,6 +1040,7 @@
 				66A98AD01DC84B5E00CE157C /* TimelineMoveBy.cpp in Sources */,
 				666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
+				664BF2B01F4B0229001F3CDB /* ARSceneUIView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
