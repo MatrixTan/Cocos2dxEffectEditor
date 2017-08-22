@@ -16,7 +16,8 @@
 @interface ARSceneViewController : UIViewController
 
 + (nonnull instancetype) createView;
-
+- (void) setCurrentProcess:(int) process maxNumber:(int)maxProcess;
+- (void) setGetRewardString:(nullable NSString*) rewardString;
 @end
 
 

@@ -30,6 +30,8 @@ void ARManager::startVRView()
 void ARManager::showSceneView(void)
 {
     ARSceneViewController* arview = [ARSceneViewController createView];
+    [arview setCurrentProcess:1 maxNumber:3];
+    [arview setGetRewardString:[NSString stringWithUTF8String:"获取奖励"]];
     AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
     [appController.viewController presentViewController:arview animated:YES completion:nil];
 }
