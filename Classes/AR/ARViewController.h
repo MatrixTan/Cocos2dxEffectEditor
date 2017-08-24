@@ -16,6 +16,8 @@
 
 + (nonnull instancetype) createView;
 - (void*) update: (CVEAGLContext) glContext;
+- (ARSession*) getSession;
+
 @end
 
 #endif /* ARViewController_h */

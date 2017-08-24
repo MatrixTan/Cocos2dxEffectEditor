@@ -104,6 +104,7 @@
 		664BF2AC1F4AFD50001F3CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A81F4AFD50001F3CDB /* Assets.xcassets */; };
 		664BF2AF1F4B0229001F3CDB /* ARSceneUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */; };
 		664BF2B01F4B0229001F3CDB /* ARSceneUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */; };
+		664BF2BA1F4D5CD7001F3CDB /* ARCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2B81F4D5CD7001F3CDB /* ARCamera.cpp */; };
 		665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26881D49F8B1007511EB /* RingEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A26861D49F8B1007511EB /* RingEffect.cpp */; };
@@ -320,6 +321,8 @@
 		664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ARSceneUIView.mm; path = AR/ARSceneUIView.mm; sourceTree = "<group>"; };
 		664BF2B11F4B0244001F3CDB /* ARSceneUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ARSceneUIView.h; path = AR/ARSceneUIView.h; sourceTree = "<group>"; };
 		664BF2B21F4B0ADC001F3CDB /* item41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item41.png; sourceTree = "<group>"; };
+		664BF2B81F4D5CD7001F3CDB /* ARCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ARCamera.cpp; path = AR/ARCamera.cpp; sourceTree = "<group>"; };
+		664BF2B91F4D5CD7001F3CDB /* ARCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ARCamera.hpp; path = AR/ARCamera.hpp; sourceTree = "<group>"; };
 		665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackgroundConfig.cpp; path = Project/BackgroundConfig.cpp; sourceTree = "<group>"; };
 		665A267F1D49ACB2007511EB /* BackgroundConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BackgroundConfig.hpp; path = Project/BackgroundConfig.hpp; sourceTree = "<group>"; };
 		665A26861D49F8B1007511EB /* RingEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingEffect.cpp; sourceTree = "<group>"; };
@@ -675,6 +678,8 @@
 				6673B9471F442520009B8F96 /* ARSceneViewController.h */,
 				664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */,
 				664BF2B11F4B0244001F3CDB /* ARSceneUIView.h */,
+				664BF2B81F4D5CD7001F3CDB /* ARCamera.cpp */,
+				664BF2B91F4D5CD7001F3CDB /* ARCamera.hpp */,
 			);
 			name = AR;
 			sourceTree = "<group>";
@@ -955,6 +960,7 @@
 				6636BE431D4704F0004E09DD /* ShaderUniformConfig.cpp in Sources */,
 				66431C1D1D79A94D00F63D7B /* MessageDispatcher.cpp in Sources */,
 				66A98ACB1DC84B4300CE157C /* Timeline.cpp in Sources */,
+				664BF2BA1F4D5CD7001F3CDB /* ARCamera.cpp in Sources */,
 				666B4D241D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				6610FE101D7A775700618BE4 /* MessageListener.cpp in Sources */,

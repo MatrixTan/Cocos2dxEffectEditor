@@ -60,6 +60,10 @@
     return image;
 }
 
+- (ARSession*)getSession{
+    return self.sceneView.session;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

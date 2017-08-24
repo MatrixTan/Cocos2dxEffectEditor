@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include "ShaderSprite.hpp"
+#include "ARCamera.hpp"
 
 NS_EE_BEGIN
 
@@ -20,12 +21,12 @@ class ARLayer: public Layer{
 public:
     virtual bool init() override;
     virtual void update(float dt) override;
-    void onDraw(const Mat4 &transfrom, uint32_t flags);
 private:
     CustomCommand mRenderCommand;
     V3F_C4B_T2F_Quad mQuad;
-    Texture2D* test;
-    ShaderSprite* mCameraSprite;
+    Texture2D* test = nullptr;
+    ShaderSprite* mCameraSprite = nullptr;
+    ARCamera* mARCamera = nullptr;
 };
 
 NS_EE_END

@@ -132,7 +132,7 @@ public:
     const Mat4& getViewMatrix() const;
 
     /**get view projection matrix*/
-    const Mat4& getViewProjectionMatrix() const;
+    virtual const Mat4& getViewProjectionMatrix() const;
     
     /* convert the specified point in 3D world-space coordinates into the screen-space coordinates.
      *

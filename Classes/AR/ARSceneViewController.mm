@@ -157,6 +157,21 @@
     }
 }
 
+- (CAAnimation *)loadAnimationFromSceneNamed:(NSString *)sceneName {
+    SCNScene *scene = [SCNScene sceneNamed:sceneName];
+    
+    // find top level animation
+    __block CAAnimation *animation = nil;
+    [scene.rootNode enumerateChildNodesUsingBlock:^(SCNNode *child, BOOL *stop) {
+        if (child.animationKeys.count > 0) {
+            animation = [child animationForKey:child.animationKeys[0]];
+            *stop = YES;
+        }
+    }];
+    
+    return animation;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -188,6 +203,22 @@
     monsterNode.scale = replaceNode.scale;
     monsterNode.rotation = replaceNode.rotation;
     replaceNode.hidden = true;
+    
+    SCNScene *testScene = [SCNScene sceneNamed:@"arres.scnassets/monster_red.dae"];
+    SCNNode *test1Node = [testScene.rootNode childNodeWithName:@"polySurface1" recursively:TRUE];
+    CAAnimation* animation = [self loadAnimationFromSceneNamed:@"arres.scnassets/monster_red.dae"];
+    
+    SCNNode *testRoot = [SCNNode node];
+    [scene.rootNode addChildNode:testRoot];
+    [testRoot addChildNode:test1Node];
+    testRoot.scale = SCNVector3Make(0.01, 0.01, 0.01);
+    testRoot.worldPosition = SCNVector3Make(0.0, 0, -0.5);
+    [test1Node removeAllAnimations];
+    [test1Node addAnimation:animation forKey:@"test1Key"];
+    animation.repeatCount = 6;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    //animation.
     
     SCNParticleSystem* particle = [SCNParticleSystem particleSystemNamed:@"fly_effect.scnp" inDirectory:nil];
     [monsterNode addParticleSystem:particle];
@@ -229,7 +260,7 @@
     
     self.uiLabelGetReward = [[UILabel alloc] init];
     [self.uiButton addSubview:self.uiLabelGetReward];
-    self.uiLabelGetReward.frame = CGRectMake(20, 10, 160, 60);
+    self.uiLabelGetReward.frame = CGRectMake(10, 10, 180, 60);
     self.uiLabelGetReward.font = [UIFont systemFontOfSize:40];
     self.uiLabelGetReward.text = self.uiRewardString;
     self.uiLabelGetReward.textAlignment = NSTextAlignmentCenter;

@@ -20,6 +20,8 @@ class ARFrameInfo{
 public:
     Texture2D* textureY = nullptr;
     Texture2D* textureUV = nullptr;
+    Mat4 projection;
+    Mat4 view;
     
     ARFrameInfo(){
         textureY = new Texture2D();
