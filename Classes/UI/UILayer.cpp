@@ -135,8 +135,9 @@ void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
         //ARLayer* arlayer = new ARLayer();
         //arlayer->init();
         //addChild(arlayer);
-        
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
         ARManager::getInstance()->showSceneView();
+#endif
     }
 }
 
