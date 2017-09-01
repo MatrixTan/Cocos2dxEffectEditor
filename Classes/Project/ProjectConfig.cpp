@@ -53,6 +53,7 @@ ProjectConfig::~ProjectConfig()
 
 bool ProjectConfig::loadFile(const std::string &file)
 {
+    projectPath = file;
     std::string projectString = FileUtils::getInstance()->getStringFromFile(file);
     projectFilePath = FileUtils::getInstance()->fullPathForFilename(projectPath);
     projectPath = projectFilePath.substr(0, projectFilePath.find_last_of('/')) + "/";
