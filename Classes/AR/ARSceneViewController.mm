@@ -39,7 +39,11 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    [self nextUIMonsterAnimation];
+    int animationId = [[anim valueForKey:@"animation_name"] intValue];
+    if(animationId > 0 && animationId < 100){
+        [self nextUIMonsterAnimation];
+    }
+    
 }
 
 - (void)nextUIMonsterAnimation{

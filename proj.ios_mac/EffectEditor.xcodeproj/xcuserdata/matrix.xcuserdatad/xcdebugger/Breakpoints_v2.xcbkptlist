@@ -520,28 +520,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/AR/ARSceneViewController.mm"
-            timestampString = "525247876.906842"
+            timestampString = "525594586.646951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/AR/ARSceneViewController.mm"
-            timestampString = "525247876.907473"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-animationDidStop:finished:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -103,7 +103,6 @@
 		664BF2AB1F4AFD50001F3CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A81F4AFD50001F3CDB /* Assets.xcassets */; };
 		664BF2AC1F4AFD50001F3CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664BF2A81F4AFD50001F3CDB /* Assets.xcassets */; };
 		664BF2AF1F4B0229001F3CDB /* ARSceneUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */; };
-		664BF2B01F4B0229001F3CDB /* ARSceneUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2AE1F4B0229001F3CDB /* ARSceneUIView.mm */; };
 		664BF2BA1F4D5CD7001F3CDB /* ARCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664BF2B81F4D5CD7001F3CDB /* ARCamera.cpp */; };
 		665A26801D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
 		665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A267E1D49ACB2007511EB /* BackgroundConfig.cpp */; };
@@ -130,7 +129,6 @@
 		6670C9CC1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */; };
 		6670C9CD1DB9C08C00EBA27F /* BezierPathManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6670C9CA1DB9C08C00EBA27F /* BezierPathManager.cpp */; };
 		6673B9441F442506009B8F96 /* ARSceneViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6673B9431F442506009B8F96 /* ARSceneViewController.mm */; };
-		6673B9451F442506009B8F96 /* ARSceneViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6673B9431F442506009B8F96 /* ARSceneViewController.mm */; };
 		668B86021E66B0A8007EA9FD /* UIControlPropertyCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668B86001E66B0A8007EA9FD /* UIControlPropertyCommon.cpp */; };
 		668B86031E66B0A8007EA9FD /* UIControlPropertyCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668B86001E66B0A8007EA9FD /* UIControlPropertyCommon.cpp */; };
 		6694EA101D2F54F0007212E9 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6694EA0E1D2F54F0007212E9 /* Singleton.cpp */; };
@@ -1024,7 +1022,6 @@
 				66B00BC21DDEB220006B22FD /* ActionDrawBezierPath.cpp in Sources */,
 				66111B191DB622C50075E617 /* UIDrawView.cpp in Sources */,
 				665C99E41DF5457D0094D011 /* TimelineManager.cpp in Sources */,
-				6673B9451F442506009B8F96 /* ARSceneViewController.mm in Sources */,
 				66111B141DB5F7D50075E617 /* ActionEx.cpp in Sources */,
 				665A26811D49ACB2007511EB /* BackgroundConfig.cpp in Sources */,
 				669996381D4F06F000AA2783 /* ParticleConfig.cpp in Sources */,
@@ -1046,7 +1043,6 @@
 				66A98AD01DC84B5E00CE157C /* TimelineMoveBy.cpp in Sources */,
 				666B4D251D5C35C7000990CB /* DrawLineLayer.cpp in Sources */,
 				660E669A1D24CB6500145F7E /* ShaderSprite.cpp in Sources */,
-				664BF2B01F4B0229001F3CDB /* ARSceneUIView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
