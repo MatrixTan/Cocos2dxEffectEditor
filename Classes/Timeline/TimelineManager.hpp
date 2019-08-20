@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "GlobalDefine.hpp"
-#include "Singleton.hpp"
+#include "Common/Singleton.hpp"
 #include "Timeline.hpp"
 #include <json/rapidjson.h>
 #include <json/document.h>

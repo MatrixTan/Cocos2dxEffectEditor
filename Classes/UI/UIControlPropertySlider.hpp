@@ -14,7 +14,7 @@
 #include "GlobalDefine.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "MessageParam.hpp"
+#include "Message/MessageParam.hpp"
 
 NS_EE_BEGIN
 

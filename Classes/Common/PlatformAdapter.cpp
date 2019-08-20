@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "PlatformAdapter.h"
+#include "Common/PlatformAdapter.h"
 
 #include <string>
 

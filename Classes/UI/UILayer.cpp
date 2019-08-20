@@ -16,21 +16,23 @@
 #include "ThunderLinkEffect.hpp"
 #include <chrono>
 #include "DrawLineLayer.hpp"
-#include "Project.hpp"
+#include "Project/Project.hpp"
 #include "MainScene.hpp"
 #include "UIControlPropertySlider.hpp"
-#include "MessageDispatcher.hpp"
-#include "AudioPlayer.hpp"
-#include "ActionEx.hpp"
-#include "BezierPathManager.hpp"
+#include "Message/MessageDispatcher.hpp"
+#include "Audio/AudioPlayer.hpp"
+#include "Timeline/ActionEx.hpp"
+#include "Timeline/BezierPathManager.hpp"
 #include "ParticleSystemExt.hpp"
-#include "PlatformAdapter.h"
-#include "ActionDrawBezierPath.hpp"
-#include "TimelineManager.hpp"
-#include "ARLayer.hpp"
+#include "Common/PlatformAdapter.h"
+#include "Timeline/ActionDrawBezierPath.hpp"
+#include "Timeline/TimelineManager.hpp"
+
+
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 #import "ARManager.hpp"
+#include "ARLayer.hpp"
 #endif
 
 NS_EE_BEGIN

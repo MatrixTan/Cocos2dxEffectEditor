@@ -44,7 +44,7 @@ void MessageDispatcher::removeListener(std::string message, MessageListener* lis
     }
 }
 
-void MessageDispatcher::notifyMessage(std::string message, void *sender, ee::MessageParam *param)
+void MessageDispatcher::notifyMessage(std::string message, void *sender, MessageParam *param)
 {
     ListenerMap::iterator messageVector = mListenerMap.find(message);
     if(messageVector != mListenerMap.end()){

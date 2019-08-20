@@ -11,8 +11,8 @@
 #include "MainLayer.hpp"
 #include "ProjectConfig.hpp"
 #include "SpriteConfig.hpp"
-#include "Utils.hpp"
-#include "PlatformAdapter.h"
+#include "Common/Utils.hpp"
+#include "Common/PlatformAdapter.h"
 
 NS_EE_BEGIN
 

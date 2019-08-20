@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "EffectEditor.hpp"
-#include "NodeSingleton.hpp"
+#include "Common/NodeSingleton.hpp"
 
 using namespace cocos2d;
 

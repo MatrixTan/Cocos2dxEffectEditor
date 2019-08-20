@@ -10,12 +10,12 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ShaderSprite.hpp"
 #include "PostRenderEffectLayer.hpp"
-#include "UILayer.hpp"
+#include "UI/UILayer.hpp"
 #include "DrawLineLayer.hpp"
-#include "ActionDrawBezierPath.hpp"
-#include "Project.hpp"
+#include "Timeline/ActionDrawBezierPath.hpp"
+#include "Project/Project.hpp"
 #include "ParticleSystemExt.hpp"
-#include "Utils.hpp"
+#include "Common/Utils.hpp"
 
 NS_EE_BEGIN
 
@@ -86,7 +86,7 @@ void MainLayer::addSprite(const std::string& id, ShaderSprite* pSprite, int zord
     mSprites.insert(std::pair<std::string, ShaderSprite*>(id, pSprite));
 }
 
-void MainLayer::addSprite(const std::string &id, ee::ShaderSprite *pSprite, const std::string &maskId)
+void MainLayer::addSprite(const std::string &id, ShaderSprite *pSprite, const std::string &maskId)
 {
     auto iter = mMasks.find(maskId);
     if(iter != mMasks.end()){
@@ -177,7 +177,7 @@ void MainLayer::onTouchCancel(Touch *touch, Event *event)
     }
 }
 
-void MainLayer::setCurrentSprite(ee::ShaderSprite *sprite){
+void MainLayer::setCurrentSprite(ShaderSprite *sprite){
     if(mCurrentSprite != nullptr && mCurrentSprite != sprite){
         mCurrentSprite->enableSelect(false);
     }
@@ -201,7 +201,7 @@ void MainLayer::clear(){
     mRootNode->removeAllChildren();
 }
 
-void MainLayer::loadProject(ee::Project *project){
+void MainLayer::loadProject(Project *project){
     if(project == nullptr){
         return;
     }
@@ -244,7 +244,8 @@ void MainLayer::loadProject(ee::Project *project){
     for(auto particleIter : config->particles){
         auto particle = ParticleSystemExt::create(config->projectPath + particleIter.second->file);
         particle->setPosition(particleIter.second->position.x, particleIter.second->position.y);
-        particle->MainLayer::setScale(particleIter.second->scale.x, particleIter.second->scale.y);
+		particle->setScaleX(particleIter.second->scale.x);
+		particle->setScaleY(particleIter.second->scale.y);
         particle->setRadial(particleIter.second->radial);
         if(particleIter.second->frameTile){
             particle->setFrameTile(particleIter.second->tileX, particleIter.second->tileY, particleIter.second->frameInterval);

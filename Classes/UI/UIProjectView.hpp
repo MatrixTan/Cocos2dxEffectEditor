@@ -13,7 +13,7 @@
 #include "GlobalDefine.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "ProjectConfig.hpp"
+#include "Project/ProjectConfig.hpp"
 
 USING_NS_CC;
 

@@ -13,8 +13,8 @@
 #include "AnimationConfig.hpp"
 #include "ParticleSystemExt.hpp"
 #include "MaskConfig.hpp"
-#include "TimelineManager.hpp"
-#include "Utils.hpp"
+#include "Timeline/TimelineManager.hpp"
+#include "Common/Utils.hpp"
 
 NS_EE_BEGIN
 

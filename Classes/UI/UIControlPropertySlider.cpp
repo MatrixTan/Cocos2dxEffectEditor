@@ -9,7 +9,7 @@
 #include "UIControlPropertySlider.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "MessageDispatcher.hpp"
+#include "Message/MessageDispatcher.hpp"
 
 NS_EE_BEGIN
 

@@ -14,7 +14,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include <list>
-#include "BezierPathManager.hpp"
+#include "Timeline/BezierPathManager.hpp"
 #include "ShaderSprite.hpp"
 
 USING_NS_CC;

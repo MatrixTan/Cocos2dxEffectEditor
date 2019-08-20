@@ -8,7 +8,7 @@
 
 #include "UIDrawView.hpp"
 #include "MainLayer.hpp"
-#include "PlatformAdapter.h"
+#include "Common/PlatformAdapter.h"
 
 
 NS_EE_BEGIN

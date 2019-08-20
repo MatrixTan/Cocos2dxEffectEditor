@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 #include "GlobalDefine.hpp"
-#include "TimelineConfig.hpp"
-#include "TimelineManager.hpp"
+#include "Project/TimelineConfig.hpp"
+#include "Timeline/TimelineManager.hpp"
 
 NS_EE_BEGIN
 

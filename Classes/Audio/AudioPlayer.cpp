@@ -9,7 +9,7 @@
 #include "AudioPlayer.hpp"
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
-#include "PlatformAdapter.h"
+#include "Common/PlatformAdapter.h"
 
 NS_EE_BEGIN
 

@@ -10,6 +10,24 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{8fef7627-54af-4a33-b5c8-aa08bca74725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Common">
+      <UniqueIdentifier>{0894e3ff-b136-4abf-85cc-c08e4d3e09bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Audio">
+      <UniqueIdentifier>{d6e0bd2c-f953-4e6e-9e39-bc9a8a258c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Message">
+      <UniqueIdentifier>{74f46569-76f8-4016-aeb2-c1c60b561596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Project">
+      <UniqueIdentifier>{76525a08-3f22-40fa-b10c-4ce1ad89aa35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Timeline">
+      <UniqueIdentifier>{cc168f02-d4ec-4586-b367-4f2061357e01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,8 +36,152 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="..\Classes\DrawLineLayer.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LinkEffect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ParticleSystemExt.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PostRenderEffectLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RingEffect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ShaderSprite.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ThunderLinkEffect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Version.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIControlPropertyCommon.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIControlPropertySlider.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIDrawView.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UILayer.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIProjectView.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIPropertyView.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UITimelineItem.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\NodeSingleton.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\Singleton.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\Utils.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Audio\AudioPlayer.cpp">
+      <Filter>src\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Message\MessageDispatcher.cpp">
+      <Filter>src\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Message\MessageListener.cpp">
+      <Filter>src\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Message\MessageParam.cpp">
+      <Filter>src\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\ActionDrawBezierPath.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\ActionEx.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\BezierPathManager.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\Timeline.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineDelay.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineEase.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineElastic.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineFade.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineManager.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineMoveBy.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineRepeat.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineRotateBy.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineScaleTo.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineSequence.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Timeline\TimelineSpawn.cpp">
+      <Filter>src\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\AnimationConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\BackgroundConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\MaskConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\ParticleConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\Project.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\ProjectConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\ShaderUniformConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\SpriteConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Project\TimelineConfig.cpp">
+      <Filter>src\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\PlatformAdapter_Win.cpp">
+      <Filter>src\Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +191,158 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
+    <ClInclude Include="..\Classes\DrawLineLayer.hpp">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EffectEditor.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GlobalDefine.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LinkEffect.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainLayer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScene.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ParticleSystemExt.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PostRenderEffectLayer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RingEffect.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ShaderSprite.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ThunderLinkEffect.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Version.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIControlPropertyCommon.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIControlPropertySlider.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIDrawView.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UILayer.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIProjectView.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIPropertyView.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UITimelineItem.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\NodeSingleton.hpp">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\PlatformAdapter.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\Singleton.hpp">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\Utils.hpp">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Audio\AudioPlayer.hpp">
+      <Filter>src\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Message\MessageDispatcher.hpp">
+      <Filter>src\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Message\MessageListener.hpp">
+      <Filter>src\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Message\MessageParam.hpp">
+      <Filter>src\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\ActionDrawBezierPath.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\ActionEx.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\BezierPathManager.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\Timeline.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineDelay.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineEase.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineElastic.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineFade.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineManager.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineMoveBy.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineRepeat.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineRotateBy.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineScaleTo.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineSequence.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Timeline\TimelineSpawn.hpp">
+      <Filter>src\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\AnimationConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\BackgroundConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\MaskConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\ParticleConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\Project.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\ProjectConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\ShaderUniformConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\SpriteConfig.hpp">
+      <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Project\TimelineConfig.hpp">
+      <Filter>src\Project</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

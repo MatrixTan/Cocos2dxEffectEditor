@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <cocos2d.h>
-#include "NodeSingleton.hpp"
+#include "Common/NodeSingleton.hpp"
 #include "GlobalDefine.hpp"
 
 using namespace cocos2d;

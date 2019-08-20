@@ -15,7 +15,7 @@
 #include <map>
 #include <string>
 #include "GlobalDefine.hpp"
-#include "Singleton.hpp"
+#include "Common/Singleton.hpp"
 #include "MessageParam.hpp"
 #include "MessageListener.hpp"
 

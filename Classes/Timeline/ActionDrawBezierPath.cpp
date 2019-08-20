@@ -82,7 +82,7 @@ void ActionDrawBezierPath::step(float time)
     }
 }
 
-void ActionDrawBezierPath::drawBezierLine(BezierPoint *p1, ee::BezierPoint *p2, float percent)
+void ActionDrawBezierPath::drawBezierLine(BezierPoint *p1, BezierPoint *p2, float percent)
 {
     int segments = 100;
     Vec2* vertices = new (std::nothrow) Vec2[segments + 1];

@@ -7,6 +7,7 @@
 //
 
 #include "Utils.hpp"
+#include <stdarg.h>
 
 
 std::string Utils::stringFormat(const char *format, int size, ...)

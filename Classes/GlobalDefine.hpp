@@ -9,10 +9,12 @@
 #ifndef GlobalDefine_h
 #define GlobalDefine_h
 
-#define NS_EE_BEGIN namespace ee{
+#define NS_EE_BEGIN		namespace ee{
+#define NS_EE_END		}
+#define USING_NS_EE		using namespace ee
 
-#define NS_EE_END }
-#define USING_NS_EE using namespace ee
+
+NS_EE_BEGIN
 
 enum class LAYER_ZORDER
 {
@@ -27,5 +29,7 @@ enum class SPRITE_ZORDER
     MASK = 200,
     UI = 2000
 };
+
+NS_EE_END
 
 #endif /* GlobalDefine_h */

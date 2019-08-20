@@ -8,9 +8,9 @@
 
 #include "MainScene.hpp"
 #include "PostRenderEffectLayer.hpp"
-#include "Project.hpp"
-#include "UILayer.hpp"
-#include "AudioPlayer.hpp"
+#include "Project/Project.hpp"
+#include "UI/UILayer.hpp"
+#include "Audio/AudioPlayer.hpp"
 
 NS_EE_BEGIN
 

@@ -12,13 +12,13 @@
 #include <stdio.h>
 #include <cocos2d.h>
 #include "GlobalDefine.hpp"
-#include "NodeSingleton.hpp"
+#include "Common/NodeSingleton.hpp"
 #include "ui/CocosGUI.h"
 #include "UIProjectView.hpp"
 #include "UIPropertyView.hpp"
-#include "ProjectConfig.hpp"
-#include "MessageParam.hpp"
-#include "MessageListener.hpp"
+#include "Project/ProjectConfig.hpp"
+#include "Message/MessageParam.hpp"
+#include "Message/MessageListener.hpp"
 #include "UIDrawView.hpp"
 #include "ShaderSprite.hpp"
 

@@ -10,8 +10,8 @@
 
 #include "ShaderSprite.hpp"
 #include "MainScene.hpp"
-#include "SpriteConfig.hpp"
-#include "ShaderUniformConfig.hpp"
+#include "Project/SpriteConfig.hpp"
+#include "Project/ShaderUniformConfig.hpp"
 
 NS_EE_BEGIN
 

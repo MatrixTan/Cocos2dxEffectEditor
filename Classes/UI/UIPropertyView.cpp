@@ -35,7 +35,7 @@ UIPropertyView::UIPropertyView(Node* root)
     data1->defaultValue = 0.0f;
     data1->maxValue = 2.0f;
     data1->minValue = 0.0f;
-    data1->name = "饱和度";
+    data1->name = "Saturability";
     auto silder1 = new UIControlPropertySlider(root->getChildByName("color2"), data1);
     mRootNode->addChild(silder1);
     silder1->setPosition(Vec2(125.0f, 250.0f));

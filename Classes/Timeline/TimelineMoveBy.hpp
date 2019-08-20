@@ -9,7 +9,7 @@
 #ifndef TimelineMoveBy_hpp
 #define TimelineMoveBy_hpp
 
-#include <Timeline.hpp>
+#include <Timeline/Timeline.hpp>
 
 NS_EE_BEGIN
 

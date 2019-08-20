@@ -12,10 +12,10 @@
 #include <stdio.h>
 #include "EffectEditor.hpp"
 #include "GlobalDefine.hpp"
-#include "NodeSingleton.hpp"
+#include "Common/NodeSingleton.hpp"
 #include "ShaderSprite.hpp"
-#include "MaskConfig.hpp"
-#include "Project.hpp"
+#include "Project/MaskConfig.hpp"
+#include "Project/Project.hpp"
 
 NS_EE_BEGIN
 

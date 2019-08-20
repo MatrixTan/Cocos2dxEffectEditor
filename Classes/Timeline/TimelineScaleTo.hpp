@@ -9,7 +9,7 @@
 #ifndef TimelineScaleTo_hpp
 #define TimelineScaleTo_hpp
 
-#include <Timeline.hpp>
+#include "Timeline/Timeline.hpp"
 
 NS_EE_BEGIN
 

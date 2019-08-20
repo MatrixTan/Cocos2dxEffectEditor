@@ -19,7 +19,7 @@
 #include "TimelineConfig.hpp"
 #include "AnimationConfig.hpp"
 #include "MaskConfig.hpp"
-#include "Timeline.hpp"
+#include "Timeline/Timeline.hpp"
 #include <json/rapidjson.h>
 #include <json/document.h>
 #include <json/writer.h>

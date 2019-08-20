@@ -10,6 +10,8 @@
 #define PlatformAdapter_h
 #include "GlobalDefine.hpp"
 
+#include <string>
+
 NS_EE_BEGIN
 
 

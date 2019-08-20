@@ -9,13 +9,13 @@
 #ifndef TimelineConfig_hpp
 #define TimelineConfig_hpp
 
-
-
+#include "GlobalDefine.hpp"
 
 NS_EE_BEGIN
 
-USING_NS_CC;
-
+class TimelineConfig
+{
+};
 
 NS_EE_END
 

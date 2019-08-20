@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string>
 #include <cocos2d.h>
-#include "SpriteConfig.hpp"
+#include "Project/SpriteConfig.hpp"
 
 NS_EE_BEGIN
 

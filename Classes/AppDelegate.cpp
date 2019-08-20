@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "EffectEditor.hpp"
-#include "AudioPlayer.hpp"
+#include "Audio/AudioPlayer.hpp"
 
 NS_EE_BEGIN
 

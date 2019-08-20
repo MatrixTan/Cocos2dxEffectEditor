@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "GlobalDefine.hpp"
-#include "Singleton.hpp"
+#include "Common/Singleton.hpp"
 #include <cocos2d.h>
 #include <map>
 #include <vector>
