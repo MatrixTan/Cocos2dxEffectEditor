@@ -6,8 +6,8 @@
 //
 //
 
-#include "ThunderLinkEffect.hpp"
-#include "ShaderSprite.hpp"
+#include "Effect/ThunderLinkEffect.hpp"
+#include "EngineEx/ShaderSprite.hpp"
 
 NS_EE_BEGIN
 

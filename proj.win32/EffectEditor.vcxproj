@@ -55,7 +55,7 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\bin</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
@@ -155,14 +155,17 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Common\Singleton.cpp" />
     <ClCompile Include="..\Classes\Common\Utils.cpp" />
     <ClCompile Include="..\Classes\DrawLineLayer.cpp" />
-    <ClCompile Include="..\Classes\LinkEffect.cpp" />
+    <ClCompile Include="..\Classes\Effect\LinkEffect.cpp" />
+    <ClCompile Include="..\Classes\Effect\PostRenderEffectLayer.cpp" />
+    <ClCompile Include="..\Classes\Effect\RingEffect.cpp" />
+    <ClCompile Include="..\Classes\Effect\ThunderLinkEffect.cpp" />
+    <ClCompile Include="..\Classes\EngineEx\ParticleSystemExt.cpp" />
+    <ClCompile Include="..\Classes\EngineEx\ShaderSprite.cpp" />
     <ClCompile Include="..\Classes\MainLayer.cpp" />
     <ClCompile Include="..\Classes\MainScene.cpp" />
     <ClCompile Include="..\Classes\Message\MessageDispatcher.cpp" />
     <ClCompile Include="..\Classes\Message\MessageListener.cpp" />
     <ClCompile Include="..\Classes\Message\MessageParam.cpp" />
-    <ClCompile Include="..\Classes\ParticleSystemExt.cpp" />
-    <ClCompile Include="..\Classes\PostRenderEffectLayer.cpp" />
     <ClCompile Include="..\Classes\Project\AnimationConfig.cpp" />
     <ClCompile Include="..\Classes\Project\BackgroundConfig.cpp" />
     <ClCompile Include="..\Classes\Project\MaskConfig.cpp" />
@@ -172,9 +175,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Project\ShaderUniformConfig.cpp" />
     <ClCompile Include="..\Classes\Project\SpriteConfig.cpp" />
     <ClCompile Include="..\Classes\Project\TimelineConfig.cpp" />
-    <ClCompile Include="..\Classes\RingEffect.cpp" />
-    <ClCompile Include="..\Classes\ShaderSprite.cpp" />
-    <ClCompile Include="..\Classes\ThunderLinkEffect.cpp" />
     <ClCompile Include="..\Classes\Timeline\ActionDrawBezierPath.cpp" />
     <ClCompile Include="..\Classes\Timeline\ActionEx.cpp" />
     <ClCompile Include="..\Classes\Timeline\BezierPathManager.cpp" />
@@ -209,15 +209,18 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Common\Utils.hpp" />
     <ClInclude Include="..\Classes\DrawLineLayer.hpp" />
     <ClInclude Include="..\Classes\EffectEditor.hpp" />
+    <ClInclude Include="..\Classes\Effect\LinkEffect.hpp" />
+    <ClInclude Include="..\Classes\Effect\PostRenderEffectLayer.hpp" />
+    <ClInclude Include="..\Classes\Effect\RingEffect.hpp" />
+    <ClInclude Include="..\Classes\Effect\ThunderLinkEffect.hpp" />
+    <ClInclude Include="..\Classes\EngineEx\ParticleSystemExt.hpp" />
+    <ClInclude Include="..\Classes\EngineEx\ShaderSprite.hpp" />
     <ClInclude Include="..\Classes\GlobalDefine.hpp" />
-    <ClInclude Include="..\Classes\LinkEffect.hpp" />
     <ClInclude Include="..\Classes\MainLayer.hpp" />
     <ClInclude Include="..\Classes\MainScene.hpp" />
     <ClInclude Include="..\Classes\Message\MessageDispatcher.hpp" />
     <ClInclude Include="..\Classes\Message\MessageListener.hpp" />
     <ClInclude Include="..\Classes\Message\MessageParam.hpp" />
-    <ClInclude Include="..\Classes\ParticleSystemExt.hpp" />
-    <ClInclude Include="..\Classes\PostRenderEffectLayer.hpp" />
     <ClInclude Include="..\Classes\Project\AnimationConfig.hpp" />
     <ClInclude Include="..\Classes\Project\BackgroundConfig.hpp" />
     <ClInclude Include="..\Classes\Project\MaskConfig.hpp" />
@@ -227,9 +230,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Project\ShaderUniformConfig.hpp" />
     <ClInclude Include="..\Classes\Project\SpriteConfig.hpp" />
     <ClInclude Include="..\Classes\Project\TimelineConfig.hpp" />
-    <ClInclude Include="..\Classes\RingEffect.hpp" />
-    <ClInclude Include="..\Classes\ShaderSprite.hpp" />
-    <ClInclude Include="..\Classes\ThunderLinkEffect.hpp" />
     <ClInclude Include="..\Classes\Timeline\ActionDrawBezierPath.hpp" />
     <ClInclude Include="..\Classes\Timeline\ActionEx.hpp" />
     <ClInclude Include="..\Classes\Timeline\BezierPathManager.hpp" />

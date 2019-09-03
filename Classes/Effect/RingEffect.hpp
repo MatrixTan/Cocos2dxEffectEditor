@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "GlobalDefine.hpp"
 #include <cocos2d.h>
-#include "ShaderSprite.hpp"
+#include "EngineEx/ShaderSprite.hpp"
 
 NS_EE_BEGIN
 

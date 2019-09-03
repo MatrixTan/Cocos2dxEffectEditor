@@ -15,7 +15,7 @@
 #include "ui/CocosGUI.h"
 #include <list>
 #include "Timeline/BezierPathManager.hpp"
-#include "ShaderSprite.hpp"
+#include "EngineEx/ShaderSprite.hpp"
 
 USING_NS_CC;
 NS_EE_BEGIN

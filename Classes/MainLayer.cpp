@@ -8,13 +8,13 @@
 
 #include "MainLayer.hpp"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "ShaderSprite.hpp"
-#include "PostRenderEffectLayer.hpp"
+#include "EngineEx/ShaderSprite.hpp"
+#include "Effect/PostRenderEffectLayer.hpp"
 #include "UI/UILayer.hpp"
 #include "DrawLineLayer.hpp"
 #include "Timeline/ActionDrawBezierPath.hpp"
 #include "Project/Project.hpp"
-#include "ParticleSystemExt.hpp"
+#include "EngineEx/ParticleSystemExt.hpp"
 #include "Common/Utils.hpp"
 
 NS_EE_BEGIN

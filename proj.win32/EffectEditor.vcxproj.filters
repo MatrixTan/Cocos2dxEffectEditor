@@ -28,6 +28,12 @@
     <Filter Include="src\Timeline">
       <UniqueIdentifier>{cc168f02-d4ec-4586-b367-4f2061357e01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Effect">
+      <UniqueIdentifier>{644be636-b786-4207-ba36-5be858b464ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\EngineEx">
+      <UniqueIdentifier>{21c6f786-0b8b-4fc7-ae3d-7a8924544976}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,28 +45,10 @@
     <ClCompile Include="..\Classes\DrawLineLayer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LinkEffect.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\MainLayer.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ParticleSystemExt.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\PostRenderEffectLayer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\RingEffect.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ShaderSprite.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ThunderLinkEffect.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Version.cpp">
@@ -183,6 +171,24 @@
     <ClCompile Include="..\Classes\Common\PlatformAdapter_Win.cpp">
       <Filter>src\Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Effect\LinkEffect.cpp">
+      <Filter>src\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\PostRenderEffectLayer.cpp">
+      <Filter>src\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\RingEffect.cpp">
+      <Filter>src\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\ThunderLinkEffect.cpp">
+      <Filter>src\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EngineEx\ParticleSystemExt.cpp">
+      <Filter>src\EngineEx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EngineEx\ShaderSprite.cpp">
+      <Filter>src\EngineEx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -200,28 +206,10 @@
     <ClInclude Include="..\Classes\GlobalDefine.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LinkEffect.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\MainLayer.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainScene.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ParticleSystemExt.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\PostRenderEffectLayer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\RingEffect.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ShaderSprite.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ThunderLinkEffect.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Version.hpp">
@@ -343,6 +331,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Project\TimelineConfig.hpp">
       <Filter>src\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\LinkEffect.hpp">
+      <Filter>src\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\PostRenderEffectLayer.hpp">
+      <Filter>src\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\RingEffect.hpp">
+      <Filter>src\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\ThunderLinkEffect.hpp">
+      <Filter>src\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EngineEx\ParticleSystemExt.hpp">
+      <Filter>src\EngineEx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EngineEx\ShaderSprite.hpp">
+      <Filter>src\EngineEx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

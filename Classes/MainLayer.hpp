@@ -13,7 +13,7 @@
 #include "EffectEditor.hpp"
 #include "GlobalDefine.hpp"
 #include "Common/NodeSingleton.hpp"
-#include "ShaderSprite.hpp"
+#include "EngineEx/ShaderSprite.hpp"
 #include "Project/MaskConfig.hpp"
 #include "Project/Project.hpp"
 

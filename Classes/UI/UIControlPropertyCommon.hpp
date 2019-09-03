@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "ShaderSprite.hpp"
+#include "EngineEx/ShaderSprite.hpp"
 
 using namespace cocos2d;
 using namespace cocostudio;

@@ -20,7 +20,7 @@
 #include "Message/MessageParam.hpp"
 #include "Message/MessageListener.hpp"
 #include "UIDrawView.hpp"
-#include "ShaderSprite.hpp"
+#include "EngineEx/ShaderSprite.hpp"
 
 NS_EE_BEGIN
 

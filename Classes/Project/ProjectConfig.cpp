@@ -11,7 +11,7 @@
 #include "ShaderUniformConfig.hpp"
 #include "ParticleConfig.hpp"
 #include "AnimationConfig.hpp"
-#include "ParticleSystemExt.hpp"
+#include "EngineEx/ParticleSystemExt.hpp"
 #include "MaskConfig.hpp"
 #include "Timeline/TimelineManager.hpp"
 #include "Common/Utils.hpp"
