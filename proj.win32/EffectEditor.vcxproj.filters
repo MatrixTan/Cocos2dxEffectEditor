@@ -42,9 +42,6 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DrawLineLayer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\MainLayer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -189,15 +186,15 @@
     <ClCompile Include="..\Classes\EngineEx\ShaderSprite.cpp">
       <Filter>src\EngineEx</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIParticleEditor.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\DrawLineLayer.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\EffectEditor.hpp">
@@ -349,6 +346,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\EngineEx\ShaderSprite.hpp">
       <Filter>src\EngineEx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIParticleEditor.hpp">
+      <Filter>src\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,6 @@
 #include "EngineEx/ShaderSprite.hpp"
 #include "Effect/PostRenderEffectLayer.hpp"
 #include "UI/UILayer.hpp"
-#include "DrawLineLayer.hpp"
 #include "Timeline/ActionDrawBezierPath.hpp"
 #include "Project/Project.hpp"
 #include "EngineEx/ParticleSystemExt.hpp"
@@ -136,7 +135,7 @@ void MainLayer::addMask(const std::string& id, ClippingNode* node)
 bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     if(UILayer::getInstance()->getState() == UI_STATE::PEN){
-        return DrawLineLayer::getInstance()->onTouchBegin(touch, event);
+        
     }
     
     return true;
@@ -145,14 +144,14 @@ bool MainLayer::onTouchBegin(cocos2d::Touch *touch, cocos2d::Event *event)
 void MainLayer::onTouchMove(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     if(UILayer::getInstance()->getState() == UI_STATE::PEN){
-        DrawLineLayer::getInstance()->onTouchMove(touch, event);
+        
     }
 }
 
 void MainLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     if(UILayer::getInstance()->getState() == UI_STATE::PEN){
-        return DrawLineLayer::getInstance()->onTouchEnd(touch, event);
+        
     }
     auto pos = touch->getLocation();
     ShaderSpriteMap::iterator iter = mSprites.begin();
@@ -173,7 +172,7 @@ void MainLayer::onTouchEnd(cocos2d::Touch *touch, cocos2d::Event *event)
 void MainLayer::onTouchCancel(Touch *touch, Event *event)
 {
     if(UILayer::getInstance()->getState() == UI_STATE::PEN){
-        return DrawLineLayer::getInstance()->onTouchCancel(touch, event);
+        
     }
 }
 

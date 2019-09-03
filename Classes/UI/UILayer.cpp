@@ -15,7 +15,6 @@
 #include "Effect/RingEffect.hpp"
 #include "Effect/ThunderLinkEffect.hpp"
 #include <chrono>
-#include "DrawLineLayer.hpp"
 #include "Project/Project.hpp"
 #include "MainScene.hpp"
 #include "UIControlPropertySlider.hpp"
@@ -27,6 +26,7 @@
 #include "Common/PlatformAdapter.h"
 #include "Timeline/ActionDrawBezierPath.hpp"
 #include "Timeline/TimelineManager.hpp"
+#include "UI/UIParticleEditor.hpp"
 
 
 
@@ -52,10 +52,13 @@ bool UILayer::init(void)
     mProjectView = new UIProjectView(mContainer->getChildByName("project_view"));
     mPropertyView = new UIPropertyView(mContainer->getChildByName("property_view"));
     
-    auto lineLayer = DrawLineLayer::create();
-    addChild(lineLayer);
     
     mState = UI_STATE::NONE;
+
+	auto particleEditor = UIParticleEditor::getInstance();
+	addChild(particleEditor);
+	Size winSize = Director::getInstance()->getWinSize();
+	particleEditor->setPosition(winSize.width - 400.0f, winSize.height);
     
     return Layer::init();
 }
@@ -134,9 +137,6 @@ void UILayer::onTest3Event(cocos2d::Ref *sender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        //ARLayer* arlayer = new ARLayer();
-        //arlayer->init();
-        //addChild(arlayer);
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
         ARManager::getInstance()->showSceneView();
 #endif

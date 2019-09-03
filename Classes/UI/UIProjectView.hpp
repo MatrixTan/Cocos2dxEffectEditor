@@ -21,7 +21,7 @@ using namespace ui;
 
 NS_EE_BEGIN
 
-class UIProjectView
+class UIProjectView 
 {
 public:
     UIProjectView(Node* root);

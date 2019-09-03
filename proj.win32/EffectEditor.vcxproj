@@ -55,7 +55,7 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\bin</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
@@ -154,7 +154,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Common\PlatformAdapter_Win.cpp" />
     <ClCompile Include="..\Classes\Common\Singleton.cpp" />
     <ClCompile Include="..\Classes\Common\Utils.cpp" />
-    <ClCompile Include="..\Classes\DrawLineLayer.cpp" />
     <ClCompile Include="..\Classes\Effect\LinkEffect.cpp" />
     <ClCompile Include="..\Classes\Effect\PostRenderEffectLayer.cpp" />
     <ClCompile Include="..\Classes\Effect\RingEffect.cpp" />
@@ -194,6 +193,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\UI\UIControlPropertySlider.cpp" />
     <ClCompile Include="..\Classes\UI\UIDrawView.cpp" />
     <ClCompile Include="..\Classes\UI\UILayer.cpp" />
+    <ClCompile Include="..\Classes\UI\UIParticleEditor.cpp" />
     <ClCompile Include="..\Classes\UI\UIProjectView.cpp" />
     <ClCompile Include="..\Classes\UI\UIPropertyView.cpp" />
     <ClCompile Include="..\Classes\UI\UITimelineItem.cpp" />
@@ -207,7 +207,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Common\PlatformAdapter.h" />
     <ClInclude Include="..\Classes\Common\Singleton.hpp" />
     <ClInclude Include="..\Classes\Common\Utils.hpp" />
-    <ClInclude Include="..\Classes\DrawLineLayer.hpp" />
     <ClInclude Include="..\Classes\EffectEditor.hpp" />
     <ClInclude Include="..\Classes\Effect\LinkEffect.hpp" />
     <ClInclude Include="..\Classes\Effect\PostRenderEffectLayer.hpp" />
@@ -249,6 +248,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\UI\UIControlPropertySlider.hpp" />
     <ClInclude Include="..\Classes\UI\UIDrawView.hpp" />
     <ClInclude Include="..\Classes\UI\UILayer.hpp" />
+    <ClInclude Include="..\Classes\UI\UIParticleEditor.hpp" />
     <ClInclude Include="..\Classes\UI\UIProjectView.hpp" />
     <ClInclude Include="..\Classes\UI\UIPropertyView.hpp" />
     <ClInclude Include="..\Classes\UI\UITimelineItem.hpp" />
