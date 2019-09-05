@@ -33,12 +33,11 @@ bool Project::load(const std::string& projectPath)
     return true;
 }
 
-bool Project::saveProject()
+bool Project::saveProject(const std::string& projectPath)
 {
-    std::string savePath = PlatformAdapter::getSaveFilePath("json");
-    if(savePath.length() > 0){
+    if(projectPath.length() > 0){
         std::string formatString = mConfig->getJsonString();
-        return FileUtils::getInstance()->writeStringToFile(formatString, savePath);
+        return FileUtils::getInstance()->writeStringToFile(formatString, projectPath);
     }
     return false;
 }

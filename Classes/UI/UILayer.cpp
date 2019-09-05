@@ -27,6 +27,8 @@
 #include "Timeline/ActionDrawBezierPath.hpp"
 #include "Timeline/TimelineManager.hpp"
 #include "UI/UIParticleEditor.hpp"
+#include "UI/UIMenuBar.hpp"
+#include "UI/UIProjectPanel.hpp"
 
 
 
@@ -43,21 +45,28 @@ using namespace cocos2d::ui;
 
 bool UILayer::init(void)
 {
-    mContainer = CSLoader::createNode("res/main_scene.csb");
-    auto size = Director::getInstance()->getWinSize();
-    this->addChild(mContainer, (int)SPRITE_ZORDER::UI);
+    //mContainer = CSLoader::createNode("res/main_scene.csb");
+    //auto size = Director::getInstance()->getWinSize();
+    //this->addChild(mContainer, (int)SPRITE_ZORDER::UI);
     
-    bindListener();
+    //bindListener();
     
-    mProjectView = new UIProjectView(mContainer->getChildByName("project_view"));
-    mPropertyView = new UIPropertyView(mContainer->getChildByName("property_view"));
+    //mProjectView = new UIProjectView(mContainer->getChildByName("project_view"));
+    //mPropertyView = new UIPropertyView(mContainer->getChildByName("property_view"));
     
     
     mState = UI_STATE::NONE;
 
+	Size winSize = Director::getInstance()->getWinSize();
+	UIMenuBar *pMenuBar = UIMenuBar::create();
+	addChild(pMenuBar, (int)SPRITE_ZORDER::UI + 1);
+	pMenuBar->setPosition(Vec2(0, winSize.height - 20.0f));
+
+	UIProjectPanel *pProjectPanel = UIProjectPanel::create();
+	addChild(pProjectPanel);
+
 	auto particleEditor = UIParticleEditor::getInstance();
 	addChild(particleEditor);
-	Size winSize = Director::getInstance()->getWinSize();
 	particleEditor->setPosition(winSize.width - 400.0f, winSize.height);
     
     return Layer::init();
@@ -171,11 +180,7 @@ void UILayer::onSaveTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchE
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        if(MainScene::getInstance()->getCurrentProject()->saveProject()){
-            setStatus("Save Complete!");
-        }else{
-            setStatus("Save Failed!");
-        }
+        
     }
 }
 
@@ -183,10 +188,7 @@ void UILayer::onLoadTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchE
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        std::string path = PlatformAdapter::getFilePath("json");
-        if(path.length() > 0){
-            MainScene::getInstance()->loadProject(path);
-        }
+        
     }
 }
 
@@ -194,7 +196,7 @@ void UILayer::onNewTouchEvent(cocos2d::Ref *sender, cocos2d::ui::Widget::TouchEv
 {
     if(type == Widget::TouchEventType::ENDED)
     {
-        MainScene::getInstance()->newProject();
+        
     }
 }
 

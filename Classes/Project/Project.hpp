@@ -28,7 +28,7 @@ public:
     ~Project();
     
     bool load(const std::string& projectPath);
-    bool saveProject();
+    bool saveProject(const std::string& projectPath);
     void reset();
     
     ProjectConfig* getConfig();

@@ -189,6 +189,18 @@
     <ClCompile Include="..\Classes\UI\UIParticleEditor.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIMenuBar.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIProjectPanel.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIUtils.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIContextMenuLayer.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -348,6 +360,18 @@
       <Filter>src\EngineEx</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UI\UIParticleEditor.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIMenuBar.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIProjectPanel.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIUtils.hpp">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIContextMenuLayer.hpp">
       <Filter>src\UI</Filter>
     </ClInclude>
   </ItemGroup>

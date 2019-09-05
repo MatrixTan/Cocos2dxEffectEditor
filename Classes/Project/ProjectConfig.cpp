@@ -340,17 +340,7 @@ std::string ProjectConfig::getJsonString() const
     //rootJson["version"].SetString(version.c_str());
     
     if(background.file.length() > 0){
-        /*
-        rapidjson::Value backgroundJson;
-        backgroundJson.SetObject();
-        backgroundJson["file"] = background.file;
-        backgroundJson["scale"] = rapidjson::Value();
-        backgroundJson["scale"].SetObject();
-        backgroundJson["scale"]["x"] = background.scale.x;
-        backgroundJson["scale"]["y"] = background.scale.y;
-        
-        rootJson["background"] = backgroundJson;
-         */
+
     }
     
     rapidjson::StringBuffer buffer;

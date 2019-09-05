@@ -189,14 +189,18 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Timeline\TimelineScaleTo.cpp" />
     <ClCompile Include="..\Classes\Timeline\TimelineSequence.cpp" />
     <ClCompile Include="..\Classes\Timeline\TimelineSpawn.cpp" />
+    <ClCompile Include="..\Classes\UI\UIContextMenuLayer.cpp" />
     <ClCompile Include="..\Classes\UI\UIControlPropertyCommon.cpp" />
     <ClCompile Include="..\Classes\UI\UIControlPropertySlider.cpp" />
     <ClCompile Include="..\Classes\UI\UIDrawView.cpp" />
     <ClCompile Include="..\Classes\UI\UILayer.cpp" />
+    <ClCompile Include="..\Classes\UI\UIMenuBar.cpp" />
     <ClCompile Include="..\Classes\UI\UIParticleEditor.cpp" />
+    <ClCompile Include="..\Classes\UI\UIProjectPanel.cpp" />
     <ClCompile Include="..\Classes\UI\UIProjectView.cpp" />
     <ClCompile Include="..\Classes\UI\UIPropertyView.cpp" />
     <ClCompile Include="..\Classes\UI\UITimelineItem.cpp" />
+    <ClCompile Include="..\Classes\UI\UIUtils.cpp" />
     <ClCompile Include="..\Classes\Version.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -244,14 +248,18 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Timeline\TimelineScaleTo.hpp" />
     <ClInclude Include="..\Classes\Timeline\TimelineSequence.hpp" />
     <ClInclude Include="..\Classes\Timeline\TimelineSpawn.hpp" />
+    <ClInclude Include="..\Classes\UI\UIContextMenuLayer.hpp" />
     <ClInclude Include="..\Classes\UI\UIControlPropertyCommon.hpp" />
     <ClInclude Include="..\Classes\UI\UIControlPropertySlider.hpp" />
     <ClInclude Include="..\Classes\UI\UIDrawView.hpp" />
     <ClInclude Include="..\Classes\UI\UILayer.hpp" />
+    <ClInclude Include="..\Classes\UI\UIMenuBar.hpp" />
     <ClInclude Include="..\Classes\UI\UIParticleEditor.hpp" />
+    <ClInclude Include="..\Classes\UI\UIProjectPanel.hpp" />
     <ClInclude Include="..\Classes\UI\UIProjectView.hpp" />
     <ClInclude Include="..\Classes\UI\UIPropertyView.hpp" />
     <ClInclude Include="..\Classes\UI\UITimelineItem.hpp" />
+    <ClInclude Include="..\Classes\UI\UIUtils.hpp" />
     <ClInclude Include="..\Classes\Version.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
